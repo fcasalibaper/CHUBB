@@ -1,0 +1,35 @@
+body {
+  &.menuVisible {
+    overflow-y: hidden;
+    
+    // nav
+    .header__nav {
+      @include break(xs) {
+        left: 0;
+      }
+    }
+  }
+}
+
+.header__nav {
+  @include break(xs) {
+    transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+  }
+  li {
+    &.active {
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $COLOR_AZUL;
+        width: 100%;
+        height: 5px;
+
+        @include break(xs) {
+          background-color: white;
+        }
+      }  
+    }
+  }
+}

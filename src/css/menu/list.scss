@@ -1,0 +1,42 @@
+.menu {
+
+  // ul menu
+  &__list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 $PADDING_MENU_SIDES 0 ($PADDING_MENU_SIDES *2);
+
+    li {
+      padding: 15px 0;
+
+      &:first-child {
+        padding-top: 30px;
+      }
+
+      &.active, 
+      &:hover {
+        a {
+          color: $primary;
+          text-decoration: none;
+        }
+      }
+
+      a {
+        @include fontSize(12px);
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 1px;
+        color: $COLOR_LI;
+
+        &:visited,
+        &:focus {
+          text-decoration: none;
+          outline: none;
+        }
+      }
+    }
+  }
+}

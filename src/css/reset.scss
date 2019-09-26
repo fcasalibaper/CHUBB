@@ -1,0 +1,112 @@
+/* RESET */
+:root {font-size: $ROOT}
+
+body {overflow-x: hidden}
+
+body,html {
+	height:100%;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: $REGULAR;
+	background-color: $COLOR_BG_BODY;
+	-webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+* {
+	box-sizing:border-box;
+}
+figure,
+ul {
+	margin:0;
+	padding: 0;
+}
+li {
+	list-style-type: none
+}
+
+:hover,
+:focus {
+	outline:none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+  height: auto;
+}
+
+input, button, a, .btn {
+	&:hover,
+	&:active,
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 0;
+	}
+}
+
+.hidden-xs {
+	display: none !important;
+	@include upTo(xs) {
+		display: flex !important;
+	}
+}
+
+.visible-xs {
+	display: flex !important;
+	@include upTo(xs) {
+		display: none !important;
+	}
+}
+
+.hidden-flex-xs {
+	display: none !important;
+	@media (--mayor-a-sm) {
+		display: flex !important;
+	}
+}
+
+.visible-flex-xs {
+	display: flex !important;
+
+	@include upTo(xs) {
+		display: none !important;
+	}
+}
+
+.hidden-inherit-xs {
+	display: none !important;
+	@include upTo(xs) {
+		display: inherit !important;
+	}
+}
+
+.visible-inherit-xs {
+	display: inherit !important;
+
+	@include upTo(xs) {
+		display: none !important;
+	}
+}
+
+.container {
+	max-width: 1200px;
+}
+
+.cFull, .cfull {
+	width: 100%;
+	overflow-x: hidden;
+}

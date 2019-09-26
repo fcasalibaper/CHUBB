@@ -1,0 +1,32 @@
+$ROOT : 12px;
+
+$BLACK : 900;
+$EXTRABOLD : 800;
+$BOLD : 700;
+$SEMIBOLD : 600;
+$REGULAR : 400;
+$LIGHT : 300;
+
+$COLOR_HEADER: #676a6c;
+$COLOR_CELESTE: #01c1d6;
+$COLOR_AZUL: #090a0a;
+$COLOR_LIST : #8998ac;
+$COLOR_BG_BODY : #f9fafc;
+$COLOR_HEAD_MENU : $COLOR_BG_BODY;
+$COLOR_BG_RIGHT_CONTAINER : $COLOR_BG_BODY;
+$COLOR_TITLE_SECTION : #3b4859;
+
+$PADDING_MOBILE: 23px;
+
+$ANIMATION_EASING: cubic-bezier(0.22, 0.61, 0.36, 1);
+$ANIMATION_TIMING: 250ms;
+
+// BOOTSTRAP CUSTOMS 
+$primary: $COLOR_CELESTE !default;
+$secondary: $COLOR_AZUL !default;
+
+// MODAL
+$modal-inner-padding:               0 !default;
+$modal-header-padding-y:            0 !default;
+$modal-header-padding-x:            0 !default;
+$modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default;

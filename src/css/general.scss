@@ -1,0 +1,90 @@
+// .new {
+//   // @include make-col(10);
+//   background-color: blue;
+
+//   @include upTo(xs) {
+//     background-color:red;
+//   }
+// }
+
+.container {
+  @include make-container();
+
+  &.containerBig {
+    max-width: 886px !important;
+  }
+
+  .row {
+    @include make-row();
+    @include break(xs) {
+      padding: 0 $PADDING_MOBILE;
+    }
+  }
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+// TITLE RIGHT CONTAINER
+.rSide {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 15px 20px;
+  
+  // TITLE SECTIONS
+  .title {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      @include fontSize(16px);
+      letter-spacing: .1em;
+      font-weight: $REGULAR;
+      line-height: 1;
+      color: $COLOR_TITLE_SECTION;
+    }
+  }
+
+  .bread {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    li {
+      margin-right: 5px;
+      a,
+      span {
+        @include fontSize(13px);
+        font-weight: $REGULAR;
+        line-height: 1;
+        letter-spacing: 1px;
+        color: $COLOR_LIST;
+      }
+
+      a {
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+        a {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+}
+

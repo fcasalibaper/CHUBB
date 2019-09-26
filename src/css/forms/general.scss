@@ -1,0 +1,62 @@
+.forms {
+  @include make-col(12);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 25px;
+
+  @include break(xs) {
+    padding-top: 10px;
+  }
+
+  .container {
+    max-width: 600px;
+  }
+
+  // form
+  form {
+    @include make-col(12);
+
+    .nextForm {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 30px;
+      margin-bottom: 214px;
+
+      @include break(xs) {
+        margin-bottom: 99px;
+        padding-top: 0;
+      }
+
+      .col {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btn--gradient {
+          width: 100%;
+        }
+      }
+
+      label {
+        cursor: pointer;
+        span {
+          text-decoration: underline;
+        }
+      }
+
+      button {
+        @include upTo(xs) {
+          align-self: flex-end;
+        }
+
+        @include break(xs) {
+          max-width: 100%;
+        }
+
+      }
+    }
+  }
+}

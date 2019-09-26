@@ -1,0 +1,38 @@
+.menu {
+  // header menu
+  header {
+    position: relative;
+    background-color: $COLOR_HEAD_MENU;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $PADDING_MENU_UP_DOWN $PADDING_MENU_SIDES;
+
+    i {
+      cursor: pointer;
+      &.icon-menu {
+        @include fontSize(25px);
+      }
+      &.icon-down {
+        @include fontSize(10px);
+      }
+
+      // icon close Menu
+      &.icon-close-menu {
+        position: absolute;
+        top: -3.45em;
+        right: $PADDING_MENU_SIDES;
+      }
+    } 
+
+    span {
+      @include fontSize(14px);
+      font-weight: $REGULAR;
+      line-height: 1;
+      letter-spacing: normal;
+      color: #3b4859;
+      margin-left: 20px;
+      margin-right: auto;
+    }
+  }
+}
