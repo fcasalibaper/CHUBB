@@ -20,13 +20,22 @@ $PADDING_MOBILE: 23px;
 
 $ANIMATION_EASING: cubic-bezier(0.22, 0.61, 0.36, 1);
 $ANIMATION_TIMING: 250ms;
+$ANIMATION_DELAY: 150ms;
 
 // BOOTSTRAP CUSTOMS 
 $primary: $COLOR_CELESTE !default;
-$secondary: $COLOR_AZUL !default;
+$secondary: $COLOR_CELESTE !default;
 
 // MODAL
 $modal-inner-padding:               0 !default;
 $modal-header-padding-y:            0 !default;
 $modal-header-padding-x:            0 !default;
 $modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default;
+
+
+// sizes HTML
+$MENU_WIDTH_XL : 18%;
+$MENU_WIDTH_LG : 25%;
+$MENU_WIDTH_MD : 30%;
+$MENU_WIDTH_SM : 40%;
+$MENU_WIDTH_XS : 45%;

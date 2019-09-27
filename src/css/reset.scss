@@ -8,7 +8,7 @@ body,html {
 	min-height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: $REGULAR;
+	font-family: 'Nunito', sans-serif;
 	background-color: $COLOR_BG_BODY;
 	-webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -102,11 +102,18 @@ input, button, a, .btn {
 	}
 }
 
-.container {
-	max-width: 1200px;
-}
-
 .cFull, .cfull {
 	width: 100%;
 	overflow-x: hidden;
+}
+
+
+.xCenter {
+  display: flex;
+  align-items: center;
+}
+
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
 }

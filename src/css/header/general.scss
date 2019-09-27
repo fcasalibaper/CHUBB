@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
   // LOGO
   &__logo {
     font-family: 'Montserrat', sans-serif;
@@ -17,6 +16,45 @@
     
     span {
       color: #3b4859;
+    }
+  }
+
+  &__button {
+    $size : 40px;
+    $padd: 14.4px;
+
+    position: absolute;
+    width: $size;
+    height: $size;
+    // left: (240px - $size - ($padd / 2));
+    transform: rotate(0deg);
+    transition: transform $ANIMATION_TIMING $ANIMATION_EASING;
+    transition-delay: $ANIMATION_DELAY;
+
+    @include break(xs) {
+      transform: rotate(-180deg);
+      left: calc(#{$MENU_WIDTH_XS} - #{$size} - (#{$padd} / 2));
+    }
+    @include break(sm) {
+      left: calc(#{$MENU_WIDTH_SM} - #{$size} - (#{$padd} / 2));
+    }
+    @include break(md) {
+      left: calc(#{$MENU_WIDTH_MD} - #{$size} - (#{$padd} / 2));
+    }
+    @include break(lg) {
+      left: calc(#{$MENU_WIDTH_LG} - #{$size} - (#{$padd} / 2));
+    }
+    @include break(xl) {
+      left: calc(#{$MENU_WIDTH_XL} - #{$size} - (#{$padd} / 2));
+    }
+    
+    // icon close Menu
+    i.icon-close-menu {
+      position: relative;
+      cursor: pointer;
+      padding: $padd;
+      top: 12px;
+      // transform: rotateY(180deg); rotate in state
     }
   }
   

@@ -16,6 +16,15 @@
     @include break(xs) {
       margin-bottom: 20px;
     }
+
+    &.colWrap {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &.xCenter {
+      align-items: center;
+    }
   }
 }
 
@@ -87,21 +96,21 @@ form {
   input.form-control,
   select.form-control {
     height: $INPUT_HEIGHT_DESKTOP;
-    border-radius: 3px;
+    border-radius: $INPUT_BORDER_RADIUS;
     border: solid 1px $COLOR_BORDER;
-    background-color: rgba(241, 241, 241, 0.24);
-    font-size: 14px;
+    background-color: $COLOR_BG_INPUTS;
+    @include fontSize($INPUT_FONT_SIZE);
     font-weight: 500;
     line-height: 1;
     letter-spacing: normal;
-    padding: 5px 26px;
+    padding: $INPUT_PADDING;
     display: flex;
     order: 1;
 
     @include break(xs) {
-      font-size: 14px;
+      @include fontSize(14px);
       height: $INPUT_HEIGHT_MOBILE;
-      padding: 5px 15px;
+      padding: $INPUT_PADDING_MOBILE;
       
       option {
         padding: 5px 26px;
@@ -109,8 +118,13 @@ form {
     }
     
     &::placeholder {
-      font-size: 14px;
-      color: rgba(#353b50, 0.5);
+      @include fontSize($INPUT_FONT_SIZE_PLACEHOLDER);
+      font-weight: $REGULAR;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.88;
+      letter-spacing: normal;
+      color: $COLOR_PLACEHOLDER;
 
       // @include break(xs) {
       //   font-size: 14px;
@@ -123,7 +137,7 @@ form {
 
     &.falseSelect {
       position: relative;
-      @include bgUri("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' focusable='false' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 448 512' style='enable-background:new 0 0 448 512;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23353B50;%7D%0A%3C/style%3E%3Cpath class='st0' d='M207,381.5L12.7,187.1c-9.4-9.4-9.4-24.6,0-33.9l22.7-22.7c9.4-9.4,24.5-9.4,33.9,0l154.7,154l154.7-154 c9.4-9.3,24.5-9.3,33.9,0l22.7,22.7c9.4,9.4,9.4,24.6,0,33.9L241,381.5C231.6,390.8,216.4,390.8,207,381.5L207,381.5z'/%3E%3C/svg%3E", $SELECT_ARROW $SELECT_ARROW, 96% 50%);
+      @include bgUri("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' focusable='false' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 448 512' style='enable-background:new 0 0 448 512;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23353B50;%7D%0A%3C/style%3E%3Cpath class='st0' d='M207,381.5L12.7,187.1c-9.4-9.4-9.4-24.6,0-33.9l22.7-22.7c9.4-9.4,24.5-9.4,33.9,0l154.7,154l154.7-154 c9.4-9.3,24.5-9.3,33.9,0l22.7,22.7c9.4,9.4,9.4,24.6,0,33.9L241,381.5C231.6,390.8,216.4,390.8,207,381.5L207,381.5z'/%3E%3C/svg%3E", $SELECT_ARROW $SELECT_ARROW, calc(100% - 13px) 50%);
     }
 
   }

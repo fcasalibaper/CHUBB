@@ -22,6 +22,17 @@
   }
 }
 
+// subtitle index
+.subtitle {
+  @include fontSize(18px);
+  font-weight: $REGULAR;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $COLOR_CELESTE;
+}
+
 .content {
   position: relative;
   width: 100%;
@@ -35,8 +46,28 @@
 .rSide {
   position: relative;
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  height: 100%;
   padding: 15px 20px;
+  align-items: flex-start;
+  transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+  transition-delay: $ANIMATION_DELAY;
+
+  @include break(xs) {
+    width: 100%;
+  }
+  @include break(sm) {
+    width: (100 - $MENU_WIDTH_SM);
+  }
+  @include break(md) {
+    width: (100 - $MENU_WIDTH_MD);
+  }
+  @include break(lg) {
+    width: (100 - $MENU_WIDTH_LG);
+  }
+  @include break(xl) {
+    width: (100 - $MENU_WIDTH_XL);
+  }
   
   // TITLE SECTIONS
   .title {
@@ -45,6 +76,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 22px;
 
     h2 {
       @include fontSize(16px);
@@ -85,6 +117,136 @@
       }
     }
   }
-
 }
 
+// date Form
+.dateContent {
+  width: 100%;
+
+  form {
+    max-width: 700px;
+
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    .col {
+      padding-right: 0; 
+    }
+
+    label {
+      @include fontSize(14px);
+      font-weight: $REGULAR;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      color: #6d7278;
+      margin-bottom: 0;
+      margin-right: 26px;
+    }
+
+    input.form-control,
+    select.form-control {
+      height: 39.2px;
+      
+      border-radius: 6px;
+
+      @include upTo(xs) {
+        margin-right: 10px;
+      }
+
+      @include fontSize(14px);
+      font-weight: $REGULAR;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.13px;
+      color: #323c47;
+      
+      &::placeholder, 
+      option {
+        @include fontSize(14px);
+        font-weight: $REGULAR;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.13px;
+        color: #323c47;
+  
+        // @include break(xs) {
+        //   font-size: 14px;
+        // }
+      }
+
+      @include upTo(xs) {
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &.w160 {
+          max-width: 160px;
+        }
+
+        &.w225 {
+          max-width: 225px;
+        }
+
+        &.w245 {
+          max-width: 245px;
+        }
+
+        &.w212 {
+          max-width: 212px;
+        }
+      }
+    }
+  }
+}
+
+// CONSULTAS
+.consultas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 36px 20px;
+  overflow-x: hidden;
+
+  .icon-download {
+    @include fontSize(12px);
+  }
+
+  hgroup.subt {
+    padding-bottom: 21px;
+  }
+
+
+  // table
+  table.table {
+    thead {
+      th {
+        @include fontSize(14px);
+        font-weight: $BOLD;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
+        color: #333333;
+      }
+    }
+
+    tbody {
+      td {
+        @include fontSize(14px);
+        font-weight: $REGULAR;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
+        color: #333333;
+      }
+    }
+  }
+}

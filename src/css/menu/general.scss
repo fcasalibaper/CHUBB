@@ -1,7 +1,29 @@
 .menu {
+  position: relative;
   width: 100%;
   height: 100%;
-  max-width: 240px;
+  margin-left: 0;
   box-shadow: 0 5px 20px 0 #e8f0f0;
   background-color: #ffffff;
+  transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+  transition-delay: $ANIMATION_DELAY;
+  z-index: 9;
+
+  @include break(xs) {
+    position: absolute;
+    width: 100%;
+    left: -100%;
+  }
+  @include break(sm) {
+    width: $MENU_WIDTH_SM;
+  }
+  @include break(md) {
+    width: $MENU_WIDTH_MD;
+  }
+  @include break(lg) {
+    width: $MENU_WIDTH_LG;
+  }
+  @include break(xl) {
+    width: $MENU_WIDTH_XL;
+  }
 }

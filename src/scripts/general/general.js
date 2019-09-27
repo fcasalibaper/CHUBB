@@ -17,7 +17,6 @@ export default function General() {
             chubb.formValidation();
             chubb.modal.init();
             chubb.typeTextArea();
-            chubb.progressBar();
             // chubb.popOver();
             // chubb.modalPlan.init();
         },
@@ -100,23 +99,6 @@ export default function General() {
 
         },
 
-        progressBar: () => {
-            const timeline = $('.timeline').find('.progress-bar');
-            let porcentaje = timeline.attr('aria-valuenow');
-            timeline
-                .css('width',`${porcentaje}%`).find('span').text(`${porcentaje}%`);
-
-            if (porcentaje >= 0) {
-                $('.point.point1').addClass('active');
-            } 
-            if (porcentaje >= 50) {
-                $('.point.point2').addClass('active');
-            } 
-            if (porcentaje >= 100) {
-                $('.point.point3').addClass('active');
-            }
-        },
-
         typeTextArea: () => {
             const $textarea = $('textarea');
             const $label = $textarea.siblings('label');
@@ -148,11 +130,14 @@ export default function General() {
         },
 
         hamburguerMenu: () => {
-            $('.hamburger-button').on('click', function(event){
+            const $elAction = $('.icon-close-menu');
+            const $body = $('body');
+
+            $elAction.on('click', function(event){
                 event.preventDefault();
                 
                 $(this).toggleClass('active');
-                $('body').toggleClass('menuVisible');
+                $body.toggleClass('closeMenu');
             });
         },
 

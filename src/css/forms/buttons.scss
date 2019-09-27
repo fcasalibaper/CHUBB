@@ -1,9 +1,10 @@
 .btn {
-  font-size: 18.5px;
-  border-radius: 6.6px;
+  @include fontSize($BUTTON_FONT_SIZE);
+  border-radius: $INPUT_BORDER_RADIUS;
   padding: .45em .75em;
   transition: all $ANIMATION_TIMING $ANIMATION_EASING;
   z-index: 2;
+  height: $BUTTON_HEIGHT;
 
   &--alignRight {
     margin-left: auto;
@@ -23,25 +24,24 @@
     // }
   }
 
-  &--gradient {
-    border-radius: 3px;
-    width: 100%;
-    max-width: 264px;
-    height: 61px;
-    background-color: $COLOR_BUTTON_LINK;
-    font-size: 17px;
-    font-weight: 500;
-    line-height: 1;
-    text-align: center;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 30px;
+  &-primary {
+    color: white;
+    max-width: $BUTTTON_WIDTH;
+  }
 
-    &:hover,
-    &:focus {
-      color: white;
+  &-secondary {
+    color: $COLOR_CELESTE;
+    background-color: transparent;
+    border-color: $COLOR_CELESTE;
+    border-radius: 2px;
+
+    span {
+      @include fontSize(14px);
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.71;
+      letter-spacing: normal;
     }
   }
 }
