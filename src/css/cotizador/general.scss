@@ -1,0 +1,32 @@
+.boxes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 0 15px 0;
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    border-radius: 4.2px;
+    margin-bottom: 5px;
+
+    &__content {
+      overflow: hidden;
+      height: 0;
+      transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+    }
+
+    .checks {
+      .form-check {
+        margin-right: 1em;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+  }
+}

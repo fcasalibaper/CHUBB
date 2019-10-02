@@ -107,10 +107,19 @@ input, button, a, .btn {
 	overflow-x: hidden;
 }
 
-
 .xCenter {
   display: flex;
   align-items: center;
+}
+
+.justifyEnd {
+	display: flex;
+  justify-content: flex-end;
+}
+
+.alignEnd {
+	display: flex;
+	align-items: flex-end;
 }
 
 .spaceBetween {

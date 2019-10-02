@@ -15,6 +15,7 @@ export default function General() {
             chubb.toolResponsive();
             chubb.hamburguerMenu();
             chubb.formValidation();
+            chubb.menuActive();
             chubb.modal.init();
             chubb.typeTextArea();
             // chubb.popOver();
@@ -24,6 +25,21 @@ export default function General() {
         popOver: () => {
             $('[data-toggle="popover"]').popover({
                 trigger: 'hover'
+            })
+        },
+
+        menuActive: () => {
+            const path = window.location.pathname;
+            const $menu = $('.menu__list');
+            
+            $menu.find('li').each( function (i, el) {
+                let $rel = $(this).attr('rel');
+                
+                if ( path.match($rel) ) {
+                    $(this).addClass('active')
+                } else if ( path.match('/index.php') && $(this).attr('rel') == 'consulta_cartelera' ) {
+                    $(this).addClass('active');
+                }
             })
         },
 

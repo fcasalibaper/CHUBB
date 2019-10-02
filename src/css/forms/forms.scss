@@ -12,9 +12,14 @@
     padding: 0 $INPUT_MARGINS / 2;
     display: flex;
     flex-direction: column;
+    width: 100%;
     
     @include break(xs) {
       margin-bottom: 20px;
+    }
+
+    &.colRow {
+      flex-direction: row;
     }
 
     &.colWrap {
@@ -57,7 +62,7 @@ form {
       order: 0;
       display: inline-table;
       align-items: flex-start;
-      padding-left: 45px;
+      padding-left: 0;
 
       @include break(xs) {
         align-items: center;
@@ -66,14 +71,14 @@ form {
 
       &::before {
         position: absolute;
-        top: 50%;
+        bottom: 5px;
         left: 0;
-        border-radius: 100%;
+        border-radius: 4.2px;
         min-width: $CHECKBOX_SIZE;
         min-height: $CHECKBOX_SIZE;
         margin-right: $INPUT_MARGINS;
-        border: solid 1px rgba(53, 59, 80, 0.1);
-        background-color: rgba(241, 241, 241, 0.24);
+        border: solid 1px $primary;
+        background-color: white;
         display: inline-flex;
         line-height: 15px;
         content: '';
@@ -165,9 +170,10 @@ form {
   .form-check {
     display: flex;
     padding-left: 0;
+    height: 100%;
 
     @include upTo(xs) {
-      padding-top: 2em;
+      padding-top: 0;
     }
   }
 
@@ -177,9 +183,9 @@ form {
     &:checked+label::before {
       width: $CHECKBOX_SIZE;
       height: $CHECKBOX_SIZE;
-      background-color: $COLOR_BUTTON_LINK;
+      background-color: transparent;
       content: '';
-      background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' focusable='false' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23FFFFFF;%7D%0A%3C/style%3E%3Cpath class='st0' d='M173.9,439.4L7.5,273c-10-10-10-26.2,0-36.2l36.2-36.2c10-10,26.2-10,36.2,0L192,312.7L432.1,72.6 c10-10,26.2-10,36.2,0l36.2,36.2c10,10,10,26.2,0,36.2L210.1,439.4C200.1,449.4,183.9,449.4,173.9,439.4L173.9,439.4z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='7' viewBox='0 0 9 7'%3E%3Cpath fill='%2301C1D6' fill-rule='nonzero' d='M8.855.129a.447.447 0 0 0-.629 0l-5.322 5.27L.858 3.375a.447.447 0 0 0-.628 0 .437.437 0 0 0 0 .622l2.36 2.337a.447.447 0 0 0 .628 0L8.855.75a.437.437 0 0 0 0-.622z'/%3E%3C/svg%3E");
       background-size: 11px;
       background-repeat: no-repeat;
       background-position: 50% 50%;

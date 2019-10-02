@@ -1,1 +1,1 @@
-import {General} from './general/general.js';
+import { General } from './general/general';
