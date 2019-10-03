@@ -16,6 +16,11 @@
       overflow: hidden;
       height: 0;
       transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+      padding: 0 23px;
+
+      @include downTo(sm) {
+        padding: 0 $PADDING_BOXES_MOBILE;
+      }
     }
 
     .checks {

@@ -14,12 +14,68 @@ export default function General() {
         ready: () => {
             chubb.toolResponsive();
             chubb.hamburguerMenu();
-            chubb.formValidation();
+            chubb.formValidation.init();
             chubb.menuActive();
             chubb.modal.init();
             chubb.typeTextArea();
+            chubb.boxes.init();
             // chubb.popOver();
             // chubb.modalPlan.init();
+        },
+
+        boxes: {
+            init: () => {
+                chubb.boxes.hashChanger.hashChanged();
+                chubb.boxes.modifyAction();
+            },
+
+            modifyAction : () => {
+                const $box = $('.boxes__box');
+
+                $box.find('span.modify').on('click', function () {
+                    let $this = $(this).parent().closest($box);
+
+                    // on click cchange hash
+                    chubb.boxes.hashChanger.changeHashURL($this);
+
+                    if ($this.attr('state') === 'completed') {
+                        // remueve .active de los q esten abiertos
+                        $box.removeClass('active');
+                        // pone active al actual clickeado
+                        $this.addClass('active');
+                    }
+                })
+            },
+
+            hashChanger: {
+                hashManage: () => {
+                    let hash = window.location.hash;
+                    chubb.boxes.hashChanger.openBox(hash);
+                },
+                hashChanged: () => {
+                    $(window).on('hashchange', function( e ) {
+                        chubb.boxes.hashChanger.hashManage();
+                    }).trigger('hashchange');
+                },
+                changeHashURL : (el) => {
+                    let newHash = el.attr('id');
+                    window.location.hash = `#${newHash}`;
+                },
+
+                openBox: (el) => {
+                    let $boxes = $('.boxes__box');
+
+                    // si tiene clase active
+                    if ( $boxes.hasClass('active') ) {
+                        $boxes.removeClass('active');
+                        $(el).addClass('active');
+                    } else {
+                        $(el).addClass('active');
+                    }
+                    
+                },
+
+            },
         },
 
         popOver: () => {
@@ -37,7 +93,7 @@ export default function General() {
                 
                 if ( path.match($rel) ) {
                     $(this).addClass('active')
-                } else if ( path.match('/index.php') && $(this).attr('rel') == 'consulta_cartelera' ) {
+                } else if ( (path.length === 0 || path === "/" || path.match(/^\/?index/)) && $(this).attr('rel') == 'consulta_cartelera' ) {
                     $(this).addClass('active');
                 }
             })
@@ -157,17 +213,55 @@ export default function General() {
             });
         },
 
-        formValidation : () => {
-            var forms = $('.needs-validation');
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
+        formValidation : {
+            init : () => {
+                chubb.formValidation.validateForm();
+            },
+            validateForm : () => {
+                var forms = $('.needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
                         event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            chubb.formValidation.formValidated($(this), false)
+                        } else {
+                            form.classList.add('validated');
+                            chubb.formValidation.formValidated($(this), true)
+                            chubb.formValidation.goToNextSibling($(this))
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });   
+            },
+
+            formValidated: (el, validated ) => {
+                let element = el.parent().closest('.boxes__box');
+
+                if ( validated === true ) {
+                    element.attr('state' , 'completed');
+                    console.log('validado: ',validated)
+                } else {
+                    element.attr('state' , '');
+                    console.log('validado: ',validated)
+                }
+                
+            },
+
+            goToNextSibling : (el) => {
+                let element = el.parent().closest('.boxes__box');
+                let nextSibling = element.next();
+
+                if (element !== undefined ) {
+                    
+                    element.removeClass('active').addClass('completed');
+                    nextSibling.addClass('active');
+
+                    chubb.boxes.hashChanger.changeHashURL(nextSibling);
+                }
+            }
+            
         },
 
         modal : {

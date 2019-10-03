@@ -63,6 +63,7 @@ form {
       display: inline-table;
       align-items: flex-start;
       padding-left: 0;
+      cursor: pointer;
 
       @include break(xs) {
         align-items: center;
@@ -77,7 +78,7 @@ form {
         min-width: $CHECKBOX_SIZE;
         min-height: $CHECKBOX_SIZE;
         margin-right: $INPUT_MARGINS;
-        border: solid 1px $primary;
+        border: solid 1px #dbdbdb;
         background-color: white;
         display: inline-flex;
         line-height: 15px;
@@ -181,10 +182,11 @@ form {
     display: none;
 
     &:checked+label::before {
+      content: '';
       width: $CHECKBOX_SIZE;
       height: $CHECKBOX_SIZE;
+      border: solid 1px $primary;
       background-color: transparent;
-      content: '';
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='7' viewBox='0 0 9 7'%3E%3Cpath fill='%2301C1D6' fill-rule='nonzero' d='M8.855.129a.447.447 0 0 0-.629 0l-5.322 5.27L.858 3.375a.447.447 0 0 0-.628 0 .437.437 0 0 0 0 .622l2.36 2.337a.447.447 0 0 0 .628 0L8.855.75a.437.437 0 0 0 0-.622z'/%3E%3C/svg%3E");
       background-size: 11px;
       background-repeat: no-repeat;

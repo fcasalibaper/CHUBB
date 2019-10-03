@@ -41,6 +41,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-plus {
+  &:before {
+    content: $icon-plus; 
+  }
+}
 .icon-down-1 {
   &:before {
     content: $icon-down-1; 
