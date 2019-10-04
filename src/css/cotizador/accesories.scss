@@ -1,0 +1,173 @@
+.boxes {
+  &__accesories {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid $COLOR_LINE_SEPARATE;
+    padding: $MARGIN_UP_DOWN 0;
+
+    h3 {
+      @include fontSize(16px);
+      font-weight: $MEDIUM;
+      line-height: 1;
+      letter-spacing: normal;
+    }
+    
+    &__buttonAdd {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      padding: 0 0 $MARGIN_UP_DOWN 0;
+
+      h3 {
+        color: $COLOR_LABELS;
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        padding-left: 17px;
+        padding-right: 17px;
+        margin-top: $MARGIN_UP_DOWN;
+        cursor: pointer;
+
+        i {
+          margin-right: 0.8em;
+          font-size: .65em;
+        }
+      }
+    }
+
+    &__added {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border-top: 1px solid $COLOR_LINE_SEPARATE;
+      padding: $MARGIN_UP_DOWN 0;
+
+      h3 { color: $primary }
+
+      // UL
+      &__content {
+        padding: ($MARGIN_UP_DOWN / 2) 0 $MARGIN_UP_DOWN 0;
+        margin-top: $MARGIN_UP_DOWN;
+        border-top: 1px solid $primary;
+        padding: 10px 0 10px 30px;
+        
+        li {
+          position: relative;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          justify-content: space-between;
+          border-radius: 4.2px;
+          border: 1px solid $COLOR_BORDER_ADD;
+          margin-bottom: 1px;
+          width: 100%;
+
+          &:last-child { margin-bottom: 0; }
+
+          &:before {
+            position: absolute;
+            font-family: '#{$icomoon-font-family}' !important;
+            content: "\e90f";
+            color: #d9d9d9;
+            font-size: 1.9em;
+            left: -30px;
+          }
+
+          span,
+          .price,
+          .delete {
+            @include fontSize(16px);
+            font-weight: $REGULAR;
+            line-height: 1;
+            letter-spacing: normal;
+            color: $COLOR_LABELS;
+            padding: 15px;
+          }
+
+          span {
+            @include make-col(6);
+            border-right: 1px solid $COLOR_BORDER_ADD;
+            padding-left: 20px;
+          }
+          .price {
+            @include make-col(3);
+            border-right: 1px solid $COLOR_BORDER_ADD;
+            text-align: center;
+          }
+          .delete {
+            @include make-col(3);
+            cursor: pointer;
+            // margin: 0 0 0 auto;
+            color: $primary;
+            display: flex;
+            align-items: center;
+
+            i {
+              font-size: 1.3em;
+              margin: 0 0 0 auto;
+            }
+            span {
+              padding:0;
+              border: 0;
+              margin-left: .7em;
+              color: $primary;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &__newItem {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $primary;
+        cursor: pointer;
+        border-top: 1px solid $COLOR_LINE_SEPARATE;
+        border-bottom: 1px solid $COLOR_LINE_SEPARATE;
+        padding: $MARGIN_UP_DOWN 0;
+        margin-top: ($MARGIN_UP_DOWN / 2);
+
+        i {
+          position: relative;
+          font-size: .95em;
+          padding: .67em;
+          color: white;
+          margin-right: 1.2em;
+          
+          &:before {
+            color: white;
+            z-index: 1;
+            position: relative;
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 100%;
+            height: 100%;
+            background-color: $primary;
+          }
+        }
+        span {
+          @include fontSize(16px);
+          font-weight: $REGULAR;
+          line-height: 1;
+          letter-spacing: normal;
+          text-decoration: underline;
+        }
+      }
+    }
+
+  }
+}

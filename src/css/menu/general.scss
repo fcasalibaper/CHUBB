@@ -1,7 +1,8 @@
 .menu {
   position: relative;
   width: 100%;
-  height: 100%;
+  height:100%;
+  min-height: 100%;
   margin-left: 0;
   box-shadow: 0 5px 20px 0 #e8f0f0;
   background-color: #ffffff;
@@ -9,14 +10,14 @@
   transition-delay: $ANIMATION_DELAY;
   z-index: 9;
 
-  @include break(xs) {
+  @include downTo(md) {
     position: absolute;
     width: 100%;
-    left: -100%;
+    left: 0;
   }
-  @include break(sm) {
-    width: $MENU_WIDTH_SM;
-  }
+  // @include break(sm) {
+  //   width: $MENU_WIDTH_SM;
+  // }
   @include break(md) {
     width: $MENU_WIDTH_MD;
   }

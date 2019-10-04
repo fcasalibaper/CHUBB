@@ -53,12 +53,24 @@
   transition: all $ANIMATION_TIMING $ANIMATION_EASING;
   transition-delay: $ANIMATION_DELAY;
 
-  @include break(xs) {
+  @include break(xs){
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 43px;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0));
+      pointer-events: none;
+    }
+  }
+  @include downTo(sm) {
     width: 100%;
   }
-  @include break(sm) {
-    width: (100 - $MENU_WIDTH_SM);
-  }
+  // @include break(sm) {
+  //   width: (100 - $MENU_WIDTH_SM);
+  // }
   @include break(md) {
     width: (100 - $MENU_WIDTH_MD);
   }
@@ -68,6 +80,7 @@
   @include break(xl) {
     width: (100 - $MENU_WIDTH_XL);
   }
+
   
   // TITLE SECTIONS
   .title {
@@ -78,12 +91,23 @@
     justify-content: space-between;
     margin-bottom: 22px;
 
+    @include break(xs) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     h2 {
       @include fontSize(16px);
       letter-spacing: .1em;
       font-weight: $REGULAR;
       line-height: 1;
       color: $COLOR_TITLE_SECTION;
+
+      @include break(xs) {
+        @include fontSize(14px);
+        order: 2;
+        margin-top: 1.1em;
+      }
     }
   }
 
@@ -102,6 +126,10 @@
         line-height: 1;
         letter-spacing: 1px;
         color: $COLOR_LIST;
+
+        @include break(xs) {
+          @include fontSize(12px);
+        }
       }
 
       a {
@@ -150,7 +178,6 @@
     input.form-control,
     select.form-control {
       height: 39.2px;
-      
       border-radius: 6px;
 
       @include upTo(xs) {
@@ -235,20 +262,35 @@
 
   // table
   table.table {
+    border-top: 1px solid rgba( $COLOR_GREY, .1 );
+
     thead {
       th {
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.9);
         @include fontSize(14px);
         font-weight: $BOLD;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.71;
         letter-spacing: normal;
-        color: #333333;
+        color: rgba(51, 51, 51, 0.5);
+
+        i {
+          color: rgba(51, 51, 51, 1);
+        }
       }
     }
 
     tbody {
+      tr {
+        &:nth-of-type(odd) {
+          background-color: rgba(198, 203, 212, 0.24);
+        }
+      }
       td {
+        position: relative;
+        border: 0;
         @include fontSize(14px);
         font-weight: $REGULAR;
         font-style: normal;
@@ -261,6 +303,12 @@
         &:last-child {
           text-align: right;
           justify-self: flex-end;
+
+          i {
+            cursor: pointer;
+            padding: 10px;
+            padding-right: 0;
+          }
         }
       }
     }

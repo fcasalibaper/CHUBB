@@ -52,6 +52,7 @@
       // button modficar
       span.modify {
         @include fontSize(16px);
+        align-items: center;
         font-weight: $REGULAR;
         font-style: normal;
         font-stretch: normal;
@@ -59,9 +60,17 @@
         letter-spacing: normal;
         color: $primary;
         display: none;
-        text-decoration: underline;
         cursor:pointer;
         margin: 0 0 0 auto;
+        
+        p {text-decoration: underline;}
+
+        i {
+          font-size: 0.5em;
+          line-height: 1;
+          margin-left: 3em;
+          transform: rotate(90deg);
+        }
       }
     }
   }

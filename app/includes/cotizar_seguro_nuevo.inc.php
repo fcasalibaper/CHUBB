@@ -13,7 +13,8 @@
       </h3>
 
       <span class="modify">
-        Modificar
+        <p>Modificar</p>
+        <i class="icon icon-chevron-left"></i>
       </span>
     </hgroup>
     
@@ -145,7 +146,8 @@
       </h3>
 
       <span class="modify">
-        Modificar
+        <p>Modificar</p>
+        <i class="icon icon-chevron-left"></i>
       </span>
     </hgroup>
     
@@ -260,9 +262,15 @@
             <li>
               <span>Accesosrios Varios</span>
               <div class="price">$ 500</div>
-              <div class="delete"><i class="icon cancel"></i><span>Borrar</span></div>
+              <div class="delete"><i class="icon icon-cancel"></i><span>Borrar</span></div>
+            </li>
+            <li>
+              <span>Accesosrios Varios</span>
+              <div class="price">$ 500</div>
+              <div class="delete"><i class="icon icon-cancel"></i><span>Borrar</span></div>
             </li>
           </ul>
+
           <div class="boxes__accesories__added__newItem">
             <i class="icon icon-plus"></i>
             <span>Agregar nuevo item</span>
@@ -281,7 +289,8 @@
       </h3>
 
       <span class="modify">
-        Modificar
+        <p>Modificar</p>
+        <i class="icon icon-chevron-left"></i>
       </span>
     </hgroup>
     
@@ -391,7 +400,8 @@
       </h3>
 
       <span class="modify">
-        Modificar
+        <p>Modificar</p>
+        <i class="icon icon-chevron-left"></i>
       </span>
     </hgroup>
     

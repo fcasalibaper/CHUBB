@@ -4,9 +4,6 @@ body {
     // button menu
     .header__button {
       transform: rotate(-180deg);
-      @include break(xs) {
-        transform: rotate(0deg);
-      }
     }
 
     .rSide {
@@ -15,8 +12,8 @@ body {
 
     // nav menu
     .menu {
-      @include break(xs) {
-        left: 0;
+      @include downTo(md) {
+        left: -100%;
       }
       @include break(sm) {
         margin-left: -$MENU_WIDTH_SM;

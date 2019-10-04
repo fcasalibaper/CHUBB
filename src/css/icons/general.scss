@@ -41,6 +41,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-line {
+  &:before {
+    content: $icon-line; 
+  }
+}
 .icon-plus {
   &:before {
     content: $icon-plus; 
@@ -116,4 +121,3 @@
     content: $icon-ok-form; 
   }
 }
-

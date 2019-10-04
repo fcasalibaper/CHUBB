@@ -1,6 +1,9 @@
 import $ from 'jquery';
 import PopperJs from 'popper.js';
 import Boostrap from 'bootstrap';
+import { isMobile, DownTo, UpTo } from '../utils/utils';
+
+
 
 export default function General() {
     // ESPECIFICO DE LANDING HOTSALE
@@ -12,15 +15,67 @@ export default function General() {
         },
 
         ready: () => {
+            chubb.resize();
             chubb.toolResponsive();
-            chubb.hamburguerMenu();
+            chubb.menu.hamburguerMenu();
             chubb.formValidation.init();
-            chubb.menuActive();
+            chubb.menu.menuActive();
             chubb.modal.init();
             chubb.typeTextArea();
             chubb.boxes.init();
             // chubb.popOver();
             // chubb.modalPlan.init();
+            chubb.heightMenuFix();
+            chubb.popUp();
+        },
+
+        resize: () => {
+            $(window).on('resize', function() {
+                chubb.heightMenuFix();
+                chubb.mobileClass();
+                chubb.menu.actionResize();
+            })
+        },
+
+        mobileClass : () => {
+            const $menu = $('body');
+            if ( !isMobile() ) {
+                if ( $menu.hasClass('mobile') ) {
+                    $menu.removeClass('mobile')
+                }
+            } else {
+                if ( !$menu.hasClass('mobile') ) {
+                    $menu.addClass('mobile')
+                }
+            }
+        },
+
+        popUp : () => {
+            const table = $('table.table');
+
+            table.find('td.view').on('click',function(){
+                $(this).find('.popUp').addClass('active');
+                console.log('hola')
+                
+            })
+
+            table.find('td.view').add('.popUp').mouseleave(function() {
+                
+                if($(this).find('.popUp').hasClass('active')) {
+                    $(this).find('.popUp').removeClass('active');
+                    console.log('chau')
+                } 
+            })
+            
+        },
+
+        heightMenuFix: () => {
+            let $contentH = $('body')[0].scrollHeight;
+            const $menu = $('.menu');
+
+            if ( !isMobile() ) {
+                $menu.css('height',`${$contentH}px`);
+            }
         },
 
         boxes: {
@@ -84,20 +139,48 @@ export default function General() {
             })
         },
 
-        menuActive: () => {
-            const path = window.location.pathname;
-            const $menu = $('.menu__list');
-            
-            $menu.find('li').each( function (i, el) {
-                let $rel = $(this).attr('rel');
-                
-                if ( path.match($rel) ) {
-                    $(this).addClass('active')
-                } else if ( (path.length === 0 || path === "/" || path.match(/^\/?index/)) && $(this).attr('rel') == 'consulta_cartelera' ) {
-                    $(this).addClass('active');
+        menu : {
+            actionResize : () => {
+                if ( DownTo('sm') && !$('body').hasClass('closeMenu') ) {
+                    $('body').addClass('closeMenu')
+                    console.log('mobile')
+                } else if ( UpTo('md') && $('body').hasClass('closeMenu') ) {
+                    $('body').removeClass('closeMenu')
+                    console.log('desktop')
                 }
-            })
+            },
+
+            menuActive: () => {
+                const path = window.location.pathname;
+                const $menu = $('.menu__list');
+                
+                $menu.find('li').each( function (i, el) {
+                    let $rel = $(this).attr('rel');
+                    
+                    if ( path.match($rel) ) {
+                        $(this).addClass('active')
+                    } else if ( (path.length === 0 || path === "/" || path.match(/^\/?index/)) && $(this).attr('rel') == 'consulta_cartelera' ) {
+                        $(this).addClass('active');
+                    }
+                })
+            },
+
+            hamburguerMenu: () => {
+                const $elAction = $('.icon-close-menu');
+                const $body = $('body');
+    
+                $elAction.on('click', function(event){
+                    event.preventDefault();
+                    
+                    $(this).toggleClass('active');
+                    $body.toggleClass('closeMenu');
+                });
+            },
+
+
         },
+
+        
 
         modalPlan: {
             init: () => {
@@ -201,17 +284,7 @@ export default function General() {
             
         },
 
-        hamburguerMenu: () => {
-            const $elAction = $('.icon-close-menu');
-            const $body = $('body');
-
-            $elAction.on('click', function(event){
-                event.preventDefault();
-                
-                $(this).toggleClass('active');
-                $body.toggleClass('closeMenu');
-            });
-        },
+       
 
         formValidation : {
             init : () => {

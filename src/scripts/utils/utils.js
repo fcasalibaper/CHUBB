@@ -57,3 +57,47 @@ export function clickToggle (elementClicked, elementToAddClass, classToAddandRem
     }
   });
 }
+
+export function isMobile() {
+  return window.matchMedia("(max-width: 575px)").matches;
+}
+
+export function DownTo(res) {
+  switch (res) {
+    case 'xs':
+      return window.matchMedia("(max-width: 575px)").matches;
+    break;
+    case 'sm':
+      return window.matchMedia("(max-width: 767px)").matches;
+    break;
+    case 'md':
+      return window.matchMedia("(max-width: 991px)").matches;
+    break;
+    case 'lg':
+      return window.matchMedia("(max-width: 1200px)").matches;
+    break;
+    case 'xl':
+      return window.matchMedia("(max-width: 1000000px)").matches;
+    break;
+  }
+}
+
+export function UpTo(res) {
+  switch (res) {
+    case 'xs':
+      return window.matchMedia("(min-width: 0px)").matches;
+    break;
+    case 'sm':
+      return window.matchMedia("(min-width: 576px)").matches;
+    break;
+    case 'md':
+      return window.matchMedia("(min-width: 768px)").matches;
+    break;
+    case 'lg':
+      return window.matchMedia("(min-width: 992px)").matches;
+    break;
+    case 'xl':
+      return window.matchMedia("(min-width: 1201px)").matches;
+    break;
+  }
+}

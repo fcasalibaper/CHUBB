@@ -31,8 +31,7 @@
     transition: transform $ANIMATION_TIMING $ANIMATION_EASING;
     transition-delay: $ANIMATION_DELAY;
 
-    @include break(xs) {
-      transform: rotate(-180deg);
+    @include downTo(xs) {
       left: calc(#{$MENU_WIDTH_XS} - #{$size} - (#{$padd} / 2));
     }
     @include break(sm) {

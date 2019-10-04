@@ -5,6 +5,7 @@
   transition: all $ANIMATION_TIMING $ANIMATION_EASING;
   z-index: 2;
   height: $BUTTON_HEIGHT;
+  border-radius: $BUTTTON_BORDER_RADIUS;
 
   &--alignRight {
     margin-left: auto;
@@ -29,11 +30,15 @@
     max-width: $BUTTTON_WIDTH;
   }
 
+  &-transparent {
+    border: solid 1px #6d7278;
+    color: #6d7278;
+  }
+
   &-secondary {
     color: $COLOR_CELESTE;
     background-color: transparent;
     border-color: $COLOR_CELESTE;
-    border-radius: 2px;
 
     span {
       @include fontSize(14px);

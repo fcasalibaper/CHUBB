@@ -125,7 +125,25 @@
           <td>Vigente</td>
           <td>Todo Riesgo</td>
           <td>José Rodriguez</td>
-          <td><i class="icon icon-more-vertical" /></td>
+          <td class="view">
+            <i class="icon icon-more-vertical"></i>
+            <div class="popUp">
+              <ul>
+                <li rel="#consultar">
+                  <span>Consultar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="#solicitar">
+                  <span>Solicitar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="detalleEmision">
+                  <span>Detalle emisión</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+              </ul>
+            </div>
+          </td>
         </tr>
         <tr>
           <td>02/08/2019</td>
@@ -136,7 +154,25 @@
           <td>Vigente</td>
           <td>Todo Riesgo</td>
           <td>José Rodriguez</td>
-          <td><i class="icon icon-more-vertical" /></td>
+          <td class="view">
+            <i class="icon icon-more-vertical"></i>
+            <div class="popUp">
+              <ul>
+                <li rel="#consultar">
+                  <span>Consultar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="#solicitar">
+                  <span>Solicitar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="detalleEmision">
+                  <span>Detalle emisión</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+              </ul>
+            </div>
+          </td>
         </tr>
         <tr>
           <td>01/08/2019</td>
@@ -148,7 +184,25 @@
           <td>Tercero Completo</td>
           <td>José Rodriguez</td>
 
-          <td><i class="icon icon-more-vertical" /></td>
+          <td class="view">
+            <i class="icon icon-more-vertical"></i>
+            <div class="popUp">
+              <ul>
+                <li rel="#consultar">
+                  <span>Consultar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="#solicitar">
+                  <span>Solicitar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="detalleEmision">
+                  <span>Detalle emisión</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+              </ul>
+            </div>
+          </td>
         </tr>
         <tr>
           <td>03/08/2019</td>
@@ -160,7 +214,25 @@
           <td>Todo Riesgo</td>
           <td>José Rodriguez</td>
 
-          <td><i class="icon icon-more-vertical" /></td>
+          <td class="view">
+            <i class="icon icon-more-vertical"></i>
+            <div class="popUp">
+              <ul>
+                <li rel="#consultar">
+                  <span>Consultar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="#solicitar">
+                  <span>Solicitar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="detalleEmision">
+                  <span>Detalle emisión</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+              </ul>
+            </div>
+          </td>
         </tr>
         <tr>
           <td>04/08/2019</td>
@@ -171,7 +243,25 @@
           <td>Pendiente</td>
           <td>Todo Riesgo</td>
           <td>José Rodriguez</td>
-          <td><i class="icon icon-more-vertical" /></td>
+          <td class="view">
+            <i class="icon icon-more-vertical"></i>
+            <div class="popUp">
+              <ul>
+                <li rel="#consultar">
+                  <span>Consultar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="#solicitar">
+                  <span>Solicitar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="detalleEmision">
+                  <span>Detalle emisión</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+              </ul>
+            </div>
+          </td>
         </tr>
         <tr>
           <td>05/08/2019</td>
@@ -182,7 +272,25 @@
           <td>Vigente</td>
           <td>Todo Riesgo</td>
           <td>José Rodriguez</td>
-          <td><i class="icon icon-more-vertical" /></td>
+          <td class="view">
+            <i class="icon icon-more-vertical"></i>
+            <div class="popUp">
+              <ul>
+                <li rel="#consultar">
+                  <span>Consultar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="#solicitar">
+                  <span>Solicitar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="detalleEmision">
+                  <span>Detalle emisión</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+              </ul>
+            </div>
+          </td>
         </tr>
         <tr>
           <td>05/08/2019</td>
@@ -193,7 +301,25 @@
           <td>Vigente</td>
           <td>Todo Riesgo</td>
           <td>José Rodriguez</td>
-          <td><i class="icon icon-more-vertical" /></td>
+          <td class="view">
+            <i class="icon icon-more-vertical"></i>
+            <div class="popUp">
+              <ul>
+                <li rel="#consultar">
+                  <span>Consultar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="#solicitar">
+                  <span>Solicitar</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+                <li rel="detalleEmision">
+                  <span>Detalle emisión</span>
+                  <i class="icon icon-chevron-left"></i>
+                </li>
+              </ul>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
