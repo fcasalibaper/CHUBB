@@ -24,7 +24,7 @@
 
       <div class="col">
         <input type="text" class="form-control w225" id="nroOperacion" placeholder="Ingrese número de operación" required/>
-        <label for="tipoOperación">
+        <label for="nroOperacion">
         </label>
       </div>
 
@@ -79,8 +79,7 @@
     </div>
     <!-- form -->
   </form>
-
-
+  
   <div class="consultas">
     <hgroup class="subt xCenter spaceBetween">
       <h3 class="subtitle">Listado de consultas</h3>
@@ -99,7 +98,6 @@
         </a>
       </div>
     </hgroup>
-
 
     <table class="table table-striped">
       <thead>

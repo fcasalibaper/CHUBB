@@ -60,7 +60,7 @@
 
       .boxes__box__content {
         height: auto;
-        padding: 23px $PADDING_BOXES;
+        padding: $PADDING_BOXES_SIDES $PADDING_BOXES;
 
         @include downTo(sm) {
           padding: $PADDING_BOXES_MOBILE;
@@ -68,15 +68,6 @@
       }
       
       .boxes__box__title {
-        &:after {
-          content: '';
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 4.2px;
-          height: 100%;
-          background-color: $primary;
-        }
         .number {
           border: solid 1px $primary;
           background-color: transparent;

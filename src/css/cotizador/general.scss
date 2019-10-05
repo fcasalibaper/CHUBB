@@ -16,7 +16,7 @@
       overflow: hidden;
       height: 0;
       transition: all $ANIMATION_TIMING $ANIMATION_EASING;
-      padding: 0 23px;
+      padding: 0 $PADDING_BOXES_SIDES;
 
       @include downTo(sm) {
         padding: 0 $PADDING_BOXES_MOBILE;

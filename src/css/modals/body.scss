@@ -9,12 +9,12 @@
   
   &-content {
     overflow: hidden;
-    padding: $MODAL_PADDING;
-    max-height: 742px;
+    // padding: $MODAL_PADDING;
+    // max-height: 742px;
     border-radius: 3px;
     box-shadow: 4px 18px 22px 0 rgba(116, 116, 116, 0.14);
     border: solid 1px rgba(53, 59, 80, 0.1);
-    background-color: #f1f1f1;
+    background-color: white;
 
     @include break(xs) {
       background-color: white;

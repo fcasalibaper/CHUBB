@@ -1,4 +1,11 @@
 body {
+
+  @include downTo(md) {
+    .rSide {
+      width: 100%;
+    }
+  }
+
   &.closeMenu {
 
     // button menu
@@ -15,9 +22,9 @@ body {
       @include downTo(md) {
         left: -100%;
       }
-      @include break(sm) {
-        margin-left: -$MENU_WIDTH_SM;
-      }
+      // @include break(sm) {
+      //   margin-left: -$MENU_WIDTH_SM;
+      // }
       @include break(md) {
         margin-left: -$MENU_WIDTH_MD;
       }

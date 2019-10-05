@@ -1,0 +1,165 @@
+$PADD_SIDES : 19px;
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: calc(100% + #{$PADDING_BOXES * 2});
+  left: -$PADDING_BOXES;
+  margin-top: -$PADDING_BOXES_SIDES;
+
+  h4 {
+    @include fontSize(14px);
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 ($PADDING_BOXES_SIDES / 2);
+    overflow: hidden;
+  }
+
+  // TITLE
+  &__title {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: $MARGIN_UP_DOWN;
+    padding: ($PADDING_BOXES_SIDES / 1.2 ) $PADD_SIDES;
+    border: 1px solid $primary;
+    border-radius: 4.2px;
+    
+    h4 {
+      position:relative;
+      color: $primary;
+      width: 25%;
+      margin-right: 1.5em;
+      padding-right: 1.5em;
+
+      &:after {background-color: $COLOR_BORDER}
+    }
+
+    .selectedItem {
+      @include fontSize(14px);
+      font-weight: $REGULAR;
+      color: $primary;
+      display: none;
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    // editar / seleccionar button
+    .coverSelect {
+      position: relative;
+      color: $primary;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 22%;
+      text-align: right;
+      margin-left: 1.5em;
+      padding-left: 1.5em;
+
+      &:before {background-color: $COLOR_BORDER}
+
+      .modifyBox {
+        display: flex;
+        align-items: center;
+
+        span {
+          text-decoration: underline;
+        }
+  
+        div.icon {
+          position: relative;
+          width: 6px;
+          height: 6px;
+          transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+          transform-origin: center center;
+          font-size: .78em;
+          transform: rotate(-90deg);
+          margin-left: 2em;
+          i {
+            display: table;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+
+      span.edit {
+        display: none;
+        @include fontSize(14px);
+        font-weight: $REGULAR;
+        color: $primary;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__list {
+    border: 0;
+    border-radius: 4.2px;
+    overflow: hidden;
+    transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+    height: 0;
+
+    &__title {
+      padding: $PADDING_BOXES_SIDES 0 ($PADD_SIDES / 2) $PADDING_BOXES_SIDES;
+      h4 { color: $COLOR_LABELS }
+    }
+  }
+
+  &__table {
+    .table {
+      margin: 0;
+      padding: 0;
+      
+      thead { 
+
+        th {
+          @include fontSize(14px);
+          font-weight: $MEDIUM;
+          color: rgba( $COLOR_GREY, .5 );
+          border: 0px;
+
+          &:first-child {
+            padding-left: $PADDING_BOXES_SIDES;
+          }
+          &:last-child {
+            padding-right: $PADDING_BOXES_SIDES;
+          }
+        }
+      }
+      tbody {
+        td { 
+          color: $COLOR_GREY;
+          @include fontSize(14px);
+          font-weight: $REGULAR;
+          vertical-align: middle;
+
+          &:first-child {
+            padding-left: $PADDING_BOXES_SIDES;
+          }
+          &:last-child {
+            padding-right: $PADDING_BOXES_SIDES;
+          }
+
+          .btn {
+            @include fontSize(14px);
+            line-height: 1;
+            padding: 8px 10px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -27,6 +27,8 @@ export default function General() {
             // chubb.modalPlan.init();
             chubb.heightMenuFix();
             chubb.popUp();
+            chubb.mobileClass();
+            chubb.cover.open();
         },
 
         resize: () => {
@@ -39,15 +41,27 @@ export default function General() {
 
         mobileClass : () => {
             const $menu = $('body');
-            if ( !isMobile() ) {
-                if ( $menu.hasClass('mobile') ) {
-                    $menu.removeClass('mobile')
+            if ( DownTo('sm') ) {
+                if ( !$menu.hasClass('mobile') ) {
+                    $menu.addClass('mobile');
+                    $('body').addClass('closeMenu')
                 }
             } else {
-                if ( !$menu.hasClass('mobile') ) {
-                    $menu.addClass('mobile')
+                if ( $menu.hasClass('mobile') ) {
+                    $menu.removeClass('mobile')
+                    $('body').removeClass('closeMenu')
                 }
             }
+        },
+
+        cover : {
+            open: () => {
+                const $box = $('.cover__box');
+
+                $box.find('.coverSelect').on('click', function() {
+                    $(this).parent().closest($box).toggleClass('active');
+                })
+            },
         },
 
         popUp : () => {
@@ -71,10 +85,12 @@ export default function General() {
 
         heightMenuFix: () => {
             let $contentH = $('body')[0].scrollHeight;
-            const $menu = $('.menu');
+            const $menu = $('.menu, .content');
 
-            if ( !isMobile() ) {
+            if ( UpTo('md') ) {
                 $menu.css('height',`${$contentH}px`);
+            } else {
+                $menu.css('height', '100%');
             }
         },
 
@@ -166,7 +182,7 @@ export default function General() {
             },
 
             hamburguerMenu: () => {
-                const $elAction = $('.icon-close-menu');
+                const $elAction = $('.header__button');
                 const $body = $('body');
     
                 $elAction.on('click', function(event){
@@ -486,9 +502,6 @@ export default function General() {
                 $modal.on('hidden.bs.modal', function (e) {
                     $(this).removeClass(nameOfModalToHide);
                     chubb.modal.clearInput();
-
-                    // avoid onClick repetition 
-                    $('.falseSelect').removeClass('open');
                 });
             }
 

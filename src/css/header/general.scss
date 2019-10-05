@@ -5,6 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include break(xs) {
+    padding: 10px 20px;
+  }
+
   // LOGO
   &__logo {
     font-family: 'Montserrat', sans-serif;
@@ -22,6 +27,7 @@
   &__button {
     $size : 40px;
     $padd: 14.4px;
+    cursor: pointer;
 
     position: absolute;
     width: $size;
@@ -34,6 +40,15 @@
     @include downTo(xs) {
       left: calc(#{$MENU_WIDTH_XS} - #{$size} - (#{$padd} / 2));
     }
+
+    @include break(xs) {
+      $size : 30px;
+      width: $size;
+      position: relative;
+      order: -1;
+      left: 0;
+    }
+
     @include break(sm) {
       left: calc(#{$MENU_WIDTH_SM} - #{$size} - (#{$padd} / 2));
     }
@@ -54,6 +69,46 @@
       padding: $padd;
       top: 12px;
       // transform: rotateY(180deg); rotate in state
+
+      @include break(xs) {
+        $padd : 7px;
+        padding: $padd;
+      }
+    }
+
+    .icon-hamburger {
+      position: relative;
+      padding: $padd;
+      top: 50%;
+      transform: translateY(-50%);
+
+      span {
+        position: relative;
+        width: 100%;
+        height: 2px;
+        background-color: $primary;
+        display: flex;
+        flex-direction: column;
+
+        &:nth-child(1) {
+          top: 7px;
+        }
+        &:nth-child(3) {
+          top: -7px;
+        }
+      }
+    }
+
+    .desktop {
+      @include downTo(sm) {
+        display: none;
+      }
+    }
+
+    .mobile {
+      @include upTo(xs) {
+        display: none;
+      }
     }
   }
   
@@ -85,6 +140,10 @@
       letter-spacing: .6px;
       letter-spacing: .6px;font-family: 'Montserrat', sans-serif;
       font-weight: 300;
+
+      @include break(xs) {
+        display: none;
+      }
     }
   }
 }
