@@ -75,8 +75,8 @@ form {
         bottom: 5px;
         left: 0;
         border-radius: 4.2px;
-        min-width: $CHECKBOX_SIZE;
-        min-height: $CHECKBOX_SIZE;
+        width: $CHECKBOX_SIZE;
+        height: $CHECKBOX_SIZE;
         margin-right: $INPUT_MARGINS;
         border: solid 1px #dbdbdb;
         background-color: white;
@@ -173,15 +173,20 @@ form {
       }
     }
   }
-
+  
   // checkbox
   .form-check {
     display: flex;
     padding-left: 0;
+    min-height: 68px;
     height: 100%;
 
     @include upTo(xs) {
       padding-top: 0;
+    }
+
+    @include break(xs) {
+      min-height: 100px;
     }
   }
 
