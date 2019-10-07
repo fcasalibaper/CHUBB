@@ -1,8 +1,14 @@
 .boxes {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 0 0 15px 0;
+
+  @include break(xs) {
+    width: 100vw;
+    left: -$PADDING_BOXES_MOBILE;
+  }
 
   &__box {
     display: flex;
@@ -11,8 +17,18 @@
     background-color: white;
     border-radius: 4.2px;
     margin-bottom: 5px;
+    transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.09),
+                0 13px 1px 1px rgba(0,0,0,0.001);
+
+    @include break(xs) {
+      margin-bottom: 2px;
+      box-shadow: 0 0.5px 0.5px 0px rgba(0,0,0,0.001),
+                  0 0.5px 2px 0px rgba(0,0,0,0.005);
+    }
 
     &__content {
+      position: relative;
       overflow: hidden;
       height: 0;
       transition: all $ANIMATION_TIMING $ANIMATION_EASING;

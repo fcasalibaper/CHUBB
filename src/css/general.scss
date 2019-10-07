@@ -38,9 +38,9 @@
   width: 100%;
   max-width: 100%;
   height: 100%;
-  max-height: 100%;
+  // max-height: 100%;
   display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 // TITLE RIGHT CONTAINER
@@ -157,15 +157,25 @@
     max-width: 700px;
 
     .form-row {
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
+      @include break(xs) {
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
 
     .col {
       padding-right: 0; 
+      @include break(xs) {
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
 
     label {
-      @include fontSize(14px);
+      @include fontSize($LABEL_FONT_SIZE);
       font-weight: $REGULAR;
       font-style: normal;
       font-stretch: normal;
@@ -173,7 +183,21 @@
       letter-spacing: normal;
       color: #6d7278;
       margin-bottom: 0;
-      margin-right: 26px;
+
+      @include break(xs) {
+        font-size: $LABEL_FONT_SIZE_MOBILE;
+      }
+
+      @include upTo(sm) {
+        margin-right: 26px;
+      }
+    }
+
+    @include break(xs) {
+      .btn {
+        width: 100%;
+        max-width: 100%;
+      }
     }
 
     input.form-control,
@@ -181,21 +205,31 @@
       height: 39.2px;
       border-radius: 6px;
 
+      &.mt20mobile {
+        @include break(xs) {
+          margin-top: 20px;
+        }
+      }
+
       @include upTo(xs) {
         margin-right: 10px;
       }
 
-      @include fontSize(14px);
+      @include fontSize($LABEL_FONT_SIZE);
       font-weight: $MEDIUM;
       font-style: normal;
       font-stretch: normal;
       line-height: normal;
       letter-spacing: 0.13px;
       color: #323c47;
+
+      @include break(xs) {
+        font-size: $LABEL_FONT_SIZE_MOBILE;
+      }
       
       &::placeholder, 
       option {
-        @include fontSize(14px);
+        @include fontSize($LABEL_FONT_SIZE);
         font-weight: $MEDIUM;
         font-style: normal;
         font-stretch: normal;
@@ -203,9 +237,9 @@
         letter-spacing: 0.13px;
         color: #323c47;
   
-        // @include break(xs) {
-        //   font-size: 14px;
-        // }
+        @include break(xs) {
+          font-size: $LABEL_FONT_SIZE_MOBILE;
+        }
       }
 
       @include upTo(xs) {
@@ -243,6 +277,11 @@
   padding: 36px 20px;
   overflow-x: hidden;
 
+  @include break(xs) {
+    width: 100vw;
+    left: -20px;
+  }
+
   .icon-download {
     @include fontSize(12px);
   }
@@ -257,13 +296,34 @@
       @include break(xs) {
         margin-right: 0;
       }
+      &:first-child {
+        @include break(xs) {
+          display: none;
+        }
+      }
       &:last-child {margin-right: 0;}
     }
   }
 
   // table
+  div.table {
+    position: relative;
+    overflow-x: scroll;
+    width: 100%;
+    @include break(xs) {
+      width: 100vw;
+      left: -20px;
+    }
+  }
   table.table {
     border-top: 1px solid rgba( $COLOR_GREY, .1 );
+
+    th,
+    td {
+      &:first-child {
+        padding-left: 20px;
+      }
+    }
 
     thead {
       th {

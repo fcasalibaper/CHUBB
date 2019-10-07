@@ -1,8 +1,6 @@
 /* RESET */
 :root {font-size: $ROOT}
 
-body {overflow-x: hidden}
-
 body,html {
 	height:100%;
 	min-height: 100%;
@@ -107,6 +105,8 @@ input, button, a, .btn {
 	width: 100%;
 	height: 100%;
 	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
 }
 
 .xCenter {

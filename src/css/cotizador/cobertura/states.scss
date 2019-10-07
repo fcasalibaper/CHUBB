@@ -1,38 +1,15 @@
 .cover {
   &__box {
-
-    &.active {
-
-      .cover__title {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        border-color: $COLOR_BORDER;
-
-        .coverSelect {
-          color: #999999;
-          div.icon { transform: rotate(90deg); top:51%; }
-        }
-      }      
-      
-      .cover__list {
-        height: 100%;
-        border: 1px solid $COLOR_BORDER;
-        border-top:0;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-      }
-
-    }
-
+    
     &[state="completed"] {
 
       .cover__title {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        border-color: $primary;
 
         .selectedItem {
           display: flex;
+          @include break(xs){
+            display: none;
+          }
         }
         
         h4 {
@@ -45,6 +22,10 @@
             transform: translateY(-50%);
             position: absolute;
             background-color: $primary;
+
+            @include break(xs){
+              display: none;
+            }
           }
         }
 
@@ -60,14 +41,70 @@
             transform: translateY(-50%);
             position: absolute;
             background-color: $primary;
+
+            @include break(xs){
+              display: none;
+            }
           }
 
           .modifyBox { display: none; }
           span.edit { display: flex; }
         }
       }
+
+      // &.active {
+      //   .cover__title {
+      //     border-bottom-left-radius: 0;
+      //     border-bottom-right-radius: 0;
+      //     border-color: $primary;
+      //   }
+      // }
     }
 
+    &.active {
+
+      .cover__title {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-color: $COLOR_BORDER;
+
+        .selectedItem {
+          @include break(xs){
+            display: none;
+          }
+        }
+
+        .selectedItem,
+        .coverSelect,
+        .coverSelect span {
+          color: #999999;
+          &:after,
+          &:before {
+            content: '';
+            background-color: $COLOR_BORDER;
+          }
+
+          div.icon { transform: rotate(90deg); top:51%; }
+        }
+
+        h4 {
+          &:after,
+          &:before {
+            content: '';
+            background-color: $COLOR_BORDER;
+          }
+        } 
+      }      
+      
+      .cover__list {
+        height: 100%;
+        border: 1px solid $COLOR_BORDER;
+        border-top:0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+    }
 
   }
 }

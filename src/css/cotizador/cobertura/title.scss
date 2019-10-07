@@ -1,0 +1,110 @@
+.cover {
+  // TITLE
+  &__title {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: ($PADDING_BOXES_SIDES / 1.45 ) $PADD_SIDES;
+    border: 1px solid $primary;
+    border-radius: 4.2px;
+
+    @include break(xs){
+      background-color: white;
+    }
+    
+    h4 {
+      position:relative;
+      color: $primary;
+      width: 25%;
+      margin-right: 1.5em;
+      padding-right: 1.5em;
+
+      @include break(xs){
+        width: 50%;
+        margin-right: 0;
+        padding-right: 0;
+      }
+
+      &:after {background-color: $COLOR_BORDER}
+    }
+
+    // covertura seecionada
+    .selectedItem {
+      font-weight: $REGULAR;
+      color: $primary;
+      display: none;
+      margin-left: 0;
+      margin-right: auto;
+      @include fontSize($LABEL_FONT_SIZE);
+
+      @include break(xs){
+        @include fontSize($LABEL_FONT_SIZE_MOBILE);
+      }
+    }
+
+    // editar / seleccionar button
+    .coverSelect {
+      position: relative;
+      color: $primary;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 22%;
+      text-align: right;
+      margin-left: 1.5em;
+      padding-left: 1.5em;
+      @include fontSize($LABEL_FONT_SIZE);
+
+      @include break(xs){
+        @include fontSize($LABEL_FONT_SIZE_MOBILE);
+        width: 50%;
+        margin-left: 0;
+        padding-right: 0;
+      }
+
+      &:before {background-color: $COLOR_BORDER}
+
+      .modifyBox {
+        display: flex;
+        align-items: center;
+
+        span {
+          text-decoration: underline;
+        }
+  
+        div.icon {
+          position: relative;
+          width: 6px;
+          height: 6px;
+          transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+          transform-origin: center center;
+          font-size: .78em;
+          transform: rotate(-90deg);
+          margin-left: 2em;
+          i {
+            display: table;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+
+      span.edit {
+        display: none;
+        font-weight: $REGULAR;
+        color: $primary;
+        text-decoration: underline;
+        @include fontSize($LABEL_FONT_SIZE);
+
+        @include break(xs){
+          @include fontSize($LABEL_FONT_SIZE_MOBILE);
+        }
+      }
+    }
+  }
+}

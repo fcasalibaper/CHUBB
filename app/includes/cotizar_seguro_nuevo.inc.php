@@ -136,7 +136,7 @@
       </form> 
     </div>
   </div>
-  <!-- box -->
+  <!-- datos_generales -->
 
   <div id="item" class="boxes__box">
     <hgroup class="boxes__box__title">
@@ -281,20 +281,21 @@
       </form> 
     </div>
   </div>
-  <!-- box -->
+  <!-- item -->
 
-  <div id="cobertura" class="boxes__box">
+  <div id="cobertura" class="boxes__box boxes__box--cobertura">
+    
     <hgroup class="boxes__box__title">
       <div class="number"><span>3</span></div>
       <h3>
         Cobertura
       </h3>
-
       <span class="modify">
         <p>Modificar</p>
         <i class="icon icon-chevron-left"></i>
       </span>
     </hgroup>
+    <!-- title -->
     
     <div class="boxes__box__content">
       <div class="cover">
@@ -418,6 +419,7 @@
             </div>
           </div>
         </div>
+        <!-- box -->
 
         <div class="cover__box" state="completed">
           <div class="cover__title">
@@ -538,6 +540,7 @@
             </div>
           </div>
         </div>
+        <!-- box -->
 
         <div class="cover__box">
           <div class="cover__title">
@@ -658,10 +661,18 @@
             </div>
           </div>
         </div>
+        <!-- box -->
+      </div>
+      <!-- cover -->
+
+      <div class="form-row">
+        <div class="col col--end alignEnd">
+          <button class="btn btn-primary" type="submit"><span>Siguiente</span></button>
+        </div>
       </div>
     </div>
   </div>
-  <!-- box -->
+  <!-- cobertura -->
   
   <div id="datos_solicitante" class="boxes__box">
     <hgroup class="boxes__box__title">
@@ -807,5 +818,6 @@
       </form> 
     </div>
   </div>
-  <!-- box -->
+  <!-- datos_solicitante -->
+
 </div>

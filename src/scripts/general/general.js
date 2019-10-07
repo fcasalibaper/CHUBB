@@ -3,8 +3,6 @@ import PopperJs from 'popper.js';
 import Boostrap from 'bootstrap';
 import { isMobile, DownTo, UpTo } from '../utils/utils';
 
-
-
 export default function General() {
     // ESPECIFICO DE LANDING HOTSALE
     const chubb = {
@@ -15,7 +13,6 @@ export default function General() {
         },
 
         ready: () => {
-            chubb.resize();
             chubb.toolResponsive();
             chubb.menu.hamburguerMenu();
             chubb.formValidation.init();
@@ -25,10 +22,11 @@ export default function General() {
             chubb.boxes.init();
             // chubb.popOver();
             // chubb.modalPlan.init();
-            chubb.heightMenuFix();
             chubb.popUp();
             chubb.mobileClass();
             chubb.cover.open();
+            chubb.heightMenuFix();
+            chubb.resize();
         },
 
         resize: () => {
@@ -59,7 +57,18 @@ export default function General() {
                 const $box = $('.cover__box');
 
                 $box.find('.coverSelect').on('click', function() {
-                    $(this).parent().closest($box).toggleClass('active');
+                    const $parent = $(this).parent().closest($box);
+                    if ($box.hasClass('active')) {
+                        $parent.siblings().removeClass('active')
+                        $parent.toggleClass('active');
+                    } else {
+                        $parent.toggleClass('active');
+                    }
+
+                    setTimeout(() => {
+                        chubb.heightMenuFix();
+                        console.log('time')
+                    }, 100);
                 })
             },
         },
@@ -77,21 +86,26 @@ export default function General() {
                 
                 if($(this).find('.popUp').hasClass('active')) {
                     $(this).find('.popUp').removeClass('active');
-                    console.log('chau')
                 } 
             })
             
         },
 
         heightMenuFix: () => {
-            let $contentH = $('body')[0].scrollHeight;
+            let $contentH = $('.cFull')[0].scrollHeight;
+            let $header = $('.header')[0].scrollHeight;
+
             const $menu = $('.menu, .content');
 
+            $menu.height('100%');
+
             if ( UpTo('md') ) {
-                $menu.css('height',`${$contentH}px`);
+                $menu.height($contentH - $header);
             } else {
-                $menu.css('height', '100%');
+                $menu.height('100%');
             }
+
+            console.log('height: ',$menu.height())
         },
 
         boxes: {
@@ -147,12 +161,6 @@ export default function General() {
                 },
 
             },
-        },
-
-        popOver: () => {
-            $('[data-toggle="popover"]').popover({
-                trigger: 'hover'
-            })
         },
 
         menu : {

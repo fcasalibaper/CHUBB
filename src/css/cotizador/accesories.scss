@@ -7,10 +7,12 @@
     padding: $MARGIN_UP_DOWN 0;
 
     h3 {
-      @include fontSize(16px);
+      @include fontSize($INPUT_FONT_SIZE);
       font-weight: $MEDIUM;
       line-height: 1;
       letter-spacing: normal;
+      
+      @include  fontSize($INPUT_FONT_SIZE_MOBILE);
     }
     
     &__buttonAdd {
@@ -81,12 +83,16 @@
           span,
           .price,
           .delete {
-            @include fontSize(16px);
+            @include fontSize($INPUT_FONT_SIZE);
             font-weight: $REGULAR;
             line-height: 1;
             letter-spacing: normal;
             color: $COLOR_LABELS;
             padding: 15px;
+
+            @include break(xs) {
+              @include fontSize($INPUT_FONT_SIZE_MOBILE);
+            }
           }
 
           span {
@@ -98,6 +104,10 @@
             @include make-col(3);
             border-right: 1px solid $COLOR_BORDER_ADD;
             text-align: center;
+
+            @include break(xs) {
+              display: none;
+            }
           }
           .delete {
             @include make-col(3);
@@ -106,6 +116,10 @@
             color: $primary;
             display: flex;
             align-items: center;
+
+            @include break(xs) {
+              @include make-col(6);
+            }
 
             i {
               font-size: 1.3em;
@@ -160,11 +174,15 @@
           }
         }
         span {
-          @include fontSize(16px);
+          @include fontSize($INPUT_FONT_SIZE);
           font-weight: $REGULAR;
           line-height: 1;
           letter-spacing: normal;
           text-decoration: underline;
+          
+          @include break(xs) {
+            @include fontSize($INPUT_FONT_SIZE_MOBILE);
+          }
         }
       }
     }

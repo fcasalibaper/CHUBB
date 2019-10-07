@@ -46,20 +46,20 @@
       width: $size;
       position: relative;
       order: -1;
-      left: 0;
+      left: -7px;
     }
 
     @include break(sm) {
-      left: calc(#{$MENU_WIDTH_SM} - #{$size} - (#{$padd} / 2));
+      left: calc(#{$MENU_WIDTH_SM} - #{$size} - (#{$padd} * 1.2));
     }
     @include break(md) {
-      left: calc(#{$MENU_WIDTH_MD} - #{$size} - (#{$padd} / 2));
+      left: calc(#{$MENU_WIDTH_MD} - #{$size} - (#{$padd} * 1.2));
     }
     @include break(lg) {
-      left: calc(#{$MENU_WIDTH_LG} - #{$size} - (#{$padd} / 2));
+      left: calc(#{$MENU_WIDTH_LG} - #{$size} - (#{$padd} * 1.2));
     }
     @include break(xl) {
-      left: calc(#{$MENU_WIDTH_XL} - #{$size} - (#{$padd} / 2));
+      left: calc(#{$MENU_WIDTH_XL} - #{$size} - (#{$padd} * 1.2));
     }
     
     // icon close Menu

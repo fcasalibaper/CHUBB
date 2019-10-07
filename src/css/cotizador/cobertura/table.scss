@@ -1,0 +1,67 @@
+.cover {
+
+  // LISTA DE COBERTURA
+  &__list {
+    border: 0;
+    border-radius: $INPUT_BORDER_RADIUS;
+    overflow: hidden;
+    transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+    height: 0;
+    margin-bottom: 1em;
+
+    @include break(xs){
+      background-color: white;
+    }
+
+    &__title {
+      padding: $PADDING_BOXES_SIDES 0 ($PADD_SIDES / 2) $PADDING_BOXES_SIDES;
+      h4 { color: $COLOR_LABELS }
+    }
+  }
+  // TABLA DE COBERTURA
+  &__table {
+    overflow-x: scroll;
+    .table {
+      margin: 0;
+      padding: 0;
+
+      thead {
+        th {
+          @include fontSize($LABEL_FONT_SIZE);
+          font-weight: $MEDIUM;
+          color: rgba( $COLOR_GREY, .5 );
+          border: 0px;
+
+          &:first-child {
+            padding-left: $PADDING_BOXES_SIDES;
+          }
+          &:last-child {
+            padding-right: $PADDING_BOXES_SIDES;
+          }
+        }
+      }
+      tbody {
+        td { 
+          color: $COLOR_GREY;
+          @include fontSize($LABEL_FONT_SIZE);
+          font-weight: $REGULAR;
+          vertical-align: middle;
+
+          &:first-child {
+            padding-left: $PADDING_BOXES_SIDES;
+          }
+          &:last-child {
+            padding-right: $PADDING_BOXES_SIDES;
+          }
+
+          .btn {
+            @include fontSize($BUTTON_FONT_SIZE_MOBILE);
+            line-height: 1;
+            padding: 8px 10px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

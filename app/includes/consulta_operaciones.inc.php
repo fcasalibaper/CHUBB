@@ -2,8 +2,8 @@
   <form class="needs-validation" novalidate>
     <div class="form-row">
       <div class="col colWrap xCenter">
-        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160" id="desde" placeholder="Desde:" required/>
-        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160" id="hasta" placeholder="Hasta:" required/>
+        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile" id="desde" placeholder="Desde:" required/>
+        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile" id="hasta" placeholder="Hasta:" required/>
         <label for="fechaDeOperacion">
           Fecha de operación:
         </label>
@@ -98,228 +98,230 @@
         </a>
       </div>
     </hgroup>
+    
+    <div class="table">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Fecha Operación <i class="icon icon-down-1" /></th>
+            <th scope="col">Tipo Operación</th>
+            <th scope="col">Nº de Operación</th>
+            <th scope="col">Cód Broker</th>
+            <th scope="col">Nº de Póliza</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Riesgo</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01/08/2019</td>
+            <td>Cotizar Renovación</td>
+            <td>0000000001</td>
+            <td>Vigente</td>
+            <td>00001</td>
+            <td>Vigente</td>
+            <td>Todo Riesgo</td>
+            <td>José Rodriguez</td>
+            <td class="view">
+              <i class="icon icon-more-vertical"></i>
+              <div class="popUp">
+                <ul>
+                  <li rel="#consultar">
+                    <span>Consultar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="#solicitar">
+                    <span>Solicitar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="detalleEmision">
+                    <span>Detalle emisión</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>02/08/2019</td>
+            <td>Cotizar Seguro Nuevo</td>
+            <td>0000000002</td>
+            <td>Vigente</td>
+            <td>00002</td>
+            <td>Vigente</td>
+            <td>Todo Riesgo</td>
+            <td>José Rodriguez</td>
+            <td class="view">
+              <i class="icon icon-more-vertical"></i>
+              <div class="popUp">
+                <ul>
+                  <li rel="#consultar">
+                    <span>Consultar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="#solicitar">
+                    <span>Solicitar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="detalleEmision">
+                    <span>Detalle emisión</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>01/08/2019</td>
+            <td>Cotizar Renovación</td>
+            <td>0000000003</td>
+            <td>Pendiente</td>
+            <td>00003</td>
+            <td>Vigente</td>
+            <td>Tercero Completo</td>
+            <td>José Rodriguez</td>
 
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Fecha Operación <i class="icon icon-down-1" /></th>
-          <th scope="col">Tipo Operación</th>
-          <th scope="col">Nº de Operación</th>
-          <th scope="col">Cód Broker</th>
-          <th scope="col">Nº de Póliza</th>
-          <th scope="col">Estado</th>
-          <th scope="col">Riesgo</th>
-          <th scope="col">Cliente</th>
-          <th scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>01/08/2019</td>
-          <td>Cotizar Renovación</td>
-          <td>0000000001</td>
-          <td>Vigente</td>
-          <td>00001</td>
-          <td>Vigente</td>
-          <td>Todo Riesgo</td>
-          <td>José Rodriguez</td>
-          <td class="view">
-            <i class="icon icon-more-vertical"></i>
-            <div class="popUp">
-              <ul>
-                <li rel="#consultar">
-                  <span>Consultar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="#solicitar">
-                  <span>Solicitar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="detalleEmision">
-                  <span>Detalle emisión</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>02/08/2019</td>
-          <td>Cotizar Seguro Nuevo</td>
-          <td>0000000002</td>
-          <td>Vigente</td>
-          <td>00002</td>
-          <td>Vigente</td>
-          <td>Todo Riesgo</td>
-          <td>José Rodriguez</td>
-          <td class="view">
-            <i class="icon icon-more-vertical"></i>
-            <div class="popUp">
-              <ul>
-                <li rel="#consultar">
-                  <span>Consultar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="#solicitar">
-                  <span>Solicitar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="detalleEmision">
-                  <span>Detalle emisión</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>01/08/2019</td>
-          <td>Cotizar Renovación</td>
-          <td>0000000003</td>
-          <td>Pendiente</td>
-          <td>00003</td>
-          <td>Vigente</td>
-          <td>Tercero Completo</td>
-          <td>José Rodriguez</td>
+            <td class="view">
+              <i class="icon icon-more-vertical"></i>
+              <div class="popUp">
+                <ul>
+                  <li rel="#consultar">
+                    <span>Consultar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="#solicitar">
+                    <span>Solicitar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="detalleEmision">
+                    <span>Detalle emisión</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>03/08/2019</td>
+            <td>Cotizar Seguro Nuevo</td>
+            <td>0000000004</td>
+            <td>Vigente</td>
+            <td>00004</td>
+            <td>Vigente</td>
+            <td>Todo Riesgo</td>
+            <td>José Rodriguez</td>
 
-          <td class="view">
-            <i class="icon icon-more-vertical"></i>
-            <div class="popUp">
-              <ul>
-                <li rel="#consultar">
-                  <span>Consultar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="#solicitar">
-                  <span>Solicitar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="detalleEmision">
-                  <span>Detalle emisión</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>03/08/2019</td>
-          <td>Cotizar Seguro Nuevo</td>
-          <td>0000000004</td>
-          <td>Vigente</td>
-          <td>00004</td>
-          <td>Vigente</td>
-          <td>Todo Riesgo</td>
-          <td>José Rodriguez</td>
-
-          <td class="view">
-            <i class="icon icon-more-vertical"></i>
-            <div class="popUp">
-              <ul>
-                <li rel="#consultar">
-                  <span>Consultar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="#solicitar">
-                  <span>Solicitar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="detalleEmision">
-                  <span>Detalle emisión</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>04/08/2019</td>
-          <td>Cotizar Seguro Nuevo</td>
-          <td>0000000005</td>
-          <td>Pendiente</td>
-          <td>00005</td>
-          <td>Pendiente</td>
-          <td>Todo Riesgo</td>
-          <td>José Rodriguez</td>
-          <td class="view">
-            <i class="icon icon-more-vertical"></i>
-            <div class="popUp">
-              <ul>
-                <li rel="#consultar">
-                  <span>Consultar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="#solicitar">
-                  <span>Solicitar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="detalleEmision">
-                  <span>Detalle emisión</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>05/08/2019</td>
-          <td>Cotizar Seguro Nuevo</td>
-          <td>0000000006</td>
-          <td>Vigente</td>
-          <td>00006</td>
-          <td>Vigente</td>
-          <td>Todo Riesgo</td>
-          <td>José Rodriguez</td>
-          <td class="view">
-            <i class="icon icon-more-vertical"></i>
-            <div class="popUp">
-              <ul>
-                <li rel="#consultar">
-                  <span>Consultar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="#solicitar">
-                  <span>Solicitar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="detalleEmision">
-                  <span>Detalle emisión</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>05/08/2019</td>
-          <td>Cotizar Seguro Nuevo</td>
-          <td>0000000005</td>
-          <td>Vigente</td>
-          <td>00007</td>
-          <td>Vigente</td>
-          <td>Todo Riesgo</td>
-          <td>José Rodriguez</td>
-          <td class="view">
-            <i class="icon icon-more-vertical"></i>
-            <div class="popUp">
-              <ul>
-                <li rel="#consultar">
-                  <span>Consultar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="#solicitar">
-                  <span>Solicitar</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-                <li rel="detalleEmision">
-                  <span>Detalle emisión</span>
-                  <i class="icon icon-chevron-left"></i>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <td class="view">
+              <i class="icon icon-more-vertical"></i>
+              <div class="popUp">
+                <ul>
+                  <li rel="#consultar">
+                    <span>Consultar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="#solicitar">
+                    <span>Solicitar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="detalleEmision">
+                    <span>Detalle emisión</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>04/08/2019</td>
+            <td>Cotizar Seguro Nuevo</td>
+            <td>0000000005</td>
+            <td>Pendiente</td>
+            <td>00005</td>
+            <td>Pendiente</td>
+            <td>Todo Riesgo</td>
+            <td>José Rodriguez</td>
+            <td class="view">
+              <i class="icon icon-more-vertical"></i>
+              <div class="popUp">
+                <ul>
+                  <li rel="#consultar">
+                    <span>Consultar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="#solicitar">
+                    <span>Solicitar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="detalleEmision">
+                    <span>Detalle emisión</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>05/08/2019</td>
+            <td>Cotizar Seguro Nuevo</td>
+            <td>0000000006</td>
+            <td>Vigente</td>
+            <td>00006</td>
+            <td>Vigente</td>
+            <td>Todo Riesgo</td>
+            <td>José Rodriguez</td>
+            <td class="view">
+              <i class="icon icon-more-vertical"></i>
+              <div class="popUp">
+                <ul>
+                  <li rel="#consultar">
+                    <span>Consultar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="#solicitar">
+                    <span>Solicitar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="detalleEmision">
+                    <span>Detalle emisión</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>05/08/2019</td>
+            <td>Cotizar Seguro Nuevo</td>
+            <td>0000000005</td>
+            <td>Vigente</td>
+            <td>00007</td>
+            <td>Vigente</td>
+            <td>Todo Riesgo</td>
+            <td>José Rodriguez</td>
+            <td class="view">
+              <i class="icon icon-more-vertical"></i>
+              <div class="popUp">
+                <ul>
+                  <li rel="#consultar">
+                    <span>Consultar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="#solicitar">
+                    <span>Solicitar</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                  <li rel="detalleEmision">
+                    <span>Detalle emisión</span>
+                    <i class="icon icon-chevron-left"></i>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </article>

@@ -6,6 +6,7 @@
   z-index: 2;
   height: $BUTTON_HEIGHT;
   border-radius: $BUTTTON_BORDER_RADIUS;
+  cursor: pointer;
 
   &--alignRight {
     margin-left: auto;

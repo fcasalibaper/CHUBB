@@ -15,7 +15,7 @@
     width: 100%;
     
     @include break(xs) {
-      margin-bottom: 20px;
+      margin-bottom: $COL_MARGIN_BOTTOM_MOBILE;
     }
 
     &.colRow {
@@ -45,8 +45,8 @@ form {
   flex-direction: column;
 
   label {
-    font-size: 14px;
-    font-weight: 500;
+    @include fontSize($LABEL_FONT_SIZE);
+    font-weight: $REGULAR;
     line-height: 1;
     color: $COLOR_INPUT;
     margin-bottom: 15px;
@@ -54,7 +54,7 @@ form {
     display: flex;
 
     @include break(xs) {
-      font-size: 15px;
+      @include fontSize($LABEL_FONT_SIZE_MOBILE);
     }
 
     // for checkbox
@@ -106,7 +106,7 @@ form {
     border: solid 1px $COLOR_BORDER;
     background-color: $COLOR_BG_INPUTS;
     @include fontSize($INPUT_FONT_SIZE);
-    font-weight: 500;
+    font-weight: $REGULAR;
     line-height: 1;
     letter-spacing: normal;
     padding: $INPUT_PADDING;
@@ -114,7 +114,7 @@ form {
     order: 1;
 
     @include break(xs) {
-      @include fontSize(14px);
+      @include fontSize($INPUT_FONT_SIZE_MOBILE);
       height: $INPUT_HEIGHT_MOBILE;
       padding: $INPUT_PADDING_MOBILE;
       
@@ -135,9 +135,9 @@ form {
       letter-spacing: normal;
       color: $COLOR_PLACEHOLDER;
 
-      // @include break(xs) {
-      //   font-size: 14px;
-      // }
+      @include break(xs) {
+        @include fontSize($INPUT_FONT_SIZE_PLACEHOLDER_MOBILE);
+      }
     }
 
     option {
@@ -160,12 +160,16 @@ form {
         position: absolute;
         bottom: 12px;
         right: 28px;
-        font-size: 14px;
+        font-size: $LABEL_FONT_SIZE;
         font-weight: 500;
         line-height: 1;
         color: #353b50;
         opacity: 0.5;
         pointer-events: none;
+
+        @include break(xs) {
+          font-size: $LABEL_FONT_SIZE_MOBILE;
+        }
       }
     }
   }
