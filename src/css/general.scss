@@ -7,12 +7,12 @@
 //   }
 // }
 
+.cFull {
+  overflow: hidden;
+}
+
 .container {
   @include make-container();
-
-  &.containerBig {
-    max-width: 886px !important;
-  }
 
   .row {
     @include make-row();
@@ -53,6 +53,7 @@
   align-items: flex-start;
   transition: all $ANIMATION_TIMING $ANIMATION_EASING;
   transition-delay: $ANIMATION_DELAY;
+  overflow-y: scroll;
 
   @include break(xs){
     &:before {

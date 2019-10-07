@@ -25,13 +25,14 @@ export default function General() {
             chubb.popUp();
             chubb.mobileClass();
             chubb.cover.open();
-            chubb.heightMenuFix();
+            // chubb.heightMenuFix();
             chubb.resize();
+            chubb.checkBoxOne();
         },
 
         resize: () => {
             $(window).on('resize', function() {
-                chubb.heightMenuFix();
+                // chubb.heightMenuFix();
                 chubb.mobileClass();
                 chubb.menu.actionResize();
             })
@@ -65,10 +66,10 @@ export default function General() {
                         $parent.toggleClass('active');
                     }
 
-                    setTimeout(() => {
-                        chubb.heightMenuFix();
-                        console.log('time')
-                    }, 100);
+                    // setTimeout(() => {
+                    //     chubb.heightMenuFix();
+                    //     console.log('time')
+                    // }, 100);
                 })
             },
         },
@@ -292,6 +293,12 @@ export default function General() {
                 $label.find('span').text(`${500 - textCount} carácteres`);
             });
         },
+
+        checkBoxOne: () => {
+            $('input.oneSelected').on('change', function() {
+                $('input.oneSelected').not(this).prop('checked', false);  
+            });
+        }, 
 
         toolResponsive: () => {
             const toolHTML = `

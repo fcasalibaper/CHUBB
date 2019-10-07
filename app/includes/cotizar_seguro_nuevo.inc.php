@@ -221,14 +221,14 @@
 
           <div class="col col-sm-3 colRow checks">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="modeloEspecial" checked />
+              <input class="form-check-input oneSelected" type="checkbox" id="modeloEspecial" checked />
               <label class="form-check-label" for="modeloEspecial">
                 Modelo especial
               </label>
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="ceroKm" />
+              <input class="form-check-input oneSelected" type="checkbox" id="ceroKm" />
               <label class="form-check-label" for="ceroKm">
                 0Km
               </label>
