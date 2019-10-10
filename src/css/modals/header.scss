@@ -7,6 +7,11 @@
       order: -1;
       opacity: 1;
 
+      span {
+        font-weight: 100;
+        color: #999999;
+      }
+
       @include upTo(xs) {
         position: absolute;
         font-size: 3rem;
@@ -31,10 +36,10 @@
 
         &:before {
           content: '';
-          width: 15px;
-          height: 15px;
+          width: 18px;
+          height: 18px;
           margin-right: 10px;
-          @include bgUri("data:image/svg+xml,%3Csvg version='1.1' id='Capa_1' focusable='false' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 448 512' style='enable-background:new 0 0 448 512;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%230272BC;%7D%0A%3C/style%3E%3Cpath class='st0' d='M257.5,445.1l-22.2,22.2c-9.4,9.4-24.6,9.4-33.9,0L7,273c-9.4-9.4-9.4-24.6,0-33.9L201.4,44.7 c9.4-9.4,24.6-9.4,33.9,0l22.2,22.2c9.5,9.5,9.3,25-0.4,34.3L136.6,216H424c13.3,0,24,10.7,24,24v32c0,13.3-10.7,24-24,24H136.6 l120.5,114.8C266.9,420.1,267.1,435.6,257.5,445.1L257.5,445.1z'/%3E%3C/svg%3E", contain, 50% 50%);
+          @include bgUri("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='16' viewBox='0 0 21 16'%3E%3Cg fill='none' fill-rule='evenodd' stroke='%2301C1D6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.4'%3E%3Cpath d='M18.918 8H4.4M9.2 2L2 8l7.2 6'/%3E%3C/g%3E%3C/svg%3E%0A", contain, 50% 50%);
         }
 
         &:after {
@@ -48,7 +53,10 @@
           color: #6d7278;
         }
         
-        span {display: none;}
+        span {
+          position: absolute;
+          right: 20px;
+        }
       }
 
     }

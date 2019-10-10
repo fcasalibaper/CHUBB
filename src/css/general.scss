@@ -377,3 +377,52 @@
     }
   }
 }
+
+
+.seeMore {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include fontSize(12px);
+  font-weight: $REGULAR;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.11px;
+  color: #808fa3;
+  margin-bottom: 17px;
+
+  @include upTo(xs) {
+    display: none;
+  }
+
+  &:after {
+    transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+    position: relative;
+    font-family: '#{$icomoon-font-family}' !important;
+    content: $icon-chevron-left;
+    margin-left: 12px;
+    transform: rotate(-90deg);
+    font-size: 0.9;
+  }
+
+  &.open {
+    margin-top: 20px;
+    &:after {
+      transform: rotate(90deg);
+    }
+  }
+
+  &Target {
+    @include break(xs) {
+      overflow: hidden;
+      height: unset;
+      transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+
+      &--close {
+        height: 200px;
+    }
+    }
+  }
+}

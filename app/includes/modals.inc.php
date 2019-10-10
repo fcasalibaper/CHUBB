@@ -95,7 +95,7 @@
         <!-- accesorios show -->
         <div class="module module__accesorios">
           <div class="listWrapper">
-            <ul class="list list-head">
+            <ul class="list list-head list-3">
               <li class="notSelected">
                 <div class="code">Cód. accesorio</div>
                 <div class="name">Nombre de Accesorio</div>
@@ -103,7 +103,7 @@
               </li>
             <ul>
             <div class="listWrapperSelected">
-              <ul class="list list-text">
+              <ul class="list list-text list-3">
                 <li>
                   <div class="code">01</div>
                   <div class="name">name01</div>
@@ -212,14 +212,14 @@
 
         <div class="module module__broker">
           <div class="listWrapper">
-            <ul class="list list-head">
+            <ul class="list list-head list-2">
               <li class="notSelected">
                 <div class="code">Código</div>
                 <div class="name">Nombre de broker</div>
               </li>
             <ul>
             <div class="listWrapperSelected">
-              <ul class="list list-text">
+              <ul class="list list-text list-2">
                 <li>
                   <div class="code">01</div>
                   <div class="name">name01</div>
@@ -308,13 +308,13 @@
 
         <div class="module module__marca">
           <div class="listWrapper">
-            <ul class="list list-head">
+            <ul class="list list-head list-1">
               <li class="notSelected">
                 <div class="name">Nombre de modelo</div>
               </li>
             <ul>
             <div class="listWrapperSelected">
-              <ul class="list list-text">
+              <ul class="list list-text list-1">
                 <li>
                   <div class="name">Renault</div>
                 </li>

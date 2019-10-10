@@ -131,3 +131,26 @@ input, button, a, .btn {
   display: flex;
   justify-content: space-between;
 }
+
+.w49mobile {
+	@include break(xs) {
+		width: 49%;
+	}
+}
+
+.ml1mobile {
+	@include break(xs) {
+		margin-left: 1%;
+	}
+}
+.mr1mobile {
+	@include break(xs) {
+		margin-right: 1%;
+	}
+}
+
+.w100mobile {
+	@include break(xs) {
+		width: 100%;
+	}
+}

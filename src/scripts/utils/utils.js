@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // Checkea si el elemento existe en la parte VISIBLE de la pantalla (window view)
 export function checkIsInScreen(element, fullyInView) {
   const pageTop       = $(window).scrollTop(),
@@ -100,4 +102,19 @@ export function UpTo(res) {
       return window.matchMedia("(min-width: 1201px)").matches;
     break;
   }
+}
+
+
+export const toolResponsive = () => {
+  const toolHTML = `
+    <div class="toolresponsive">
+      <div class="toolresponsive__break toolresponsive__break--xl">XL</div>
+      <div class="toolresponsive__break toolresponsive__break--lg">LG</div>
+      <div class="toolresponsive__break toolresponsive__break--md">MD</div>
+      <div class="toolresponsive__break toolresponsive__break--sm">SM</div>
+      <div class="toolresponsive__break toolresponsive__break--xs">XS</div>
+    </div>
+  `;
+
+  $('body').append(toolHTML);
 }

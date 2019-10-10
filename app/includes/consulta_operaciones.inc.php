@@ -1,10 +1,10 @@
 <article class="dateContent">
-  <form class="needs-validation" novalidate>
+  <form class="needs-validation seeMoreTarget" novalidate>
     <div class="form-row">
       <div class="col colWrap xCenter">
-        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile" id="desde" placeholder="Desde:" required/>
-        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile" id="hasta" placeholder="Hasta:" required/>
-        <label for="fechaDeOperacion">
+        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile w49mobile mr1mobile" id="desde" placeholder="Desde:" required/>
+        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile w49mobile ml1mobile" id="hasta" placeholder="Hasta:" required/>
+        <label for="fechaDeOperacion" class="w100mobile">
           Fecha de operación:
         </label>
       </div>
@@ -62,8 +62,8 @@
       <div class="col col--end">
         <select class="form-control w225 falseSelect" id="estado" placeholder="Estado" required>
           <option disabled selected>Estado</option>
-          <option>1</option>
-          <option>2</option>
+          <option>Vigente</option>
+          <option>No vigente</option>
         </select>
         <label for="estado">
         </label>
@@ -75,6 +75,10 @@
     </div>
     <!-- form -->
   </form>
+
+  <span class="seeMore">
+    Ver menos
+  </span>
   
   <div class="consultas">
     <hgroup class="subt xCenter spaceBetween">
