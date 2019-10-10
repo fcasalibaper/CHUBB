@@ -44,11 +44,7 @@
 
     <div class="form-row">
       <div class="col">
-        <select class="form-control w225 falseSelect" id="broker" placeholder="broker" required>
-          <option disabled selected>Broker</option>
-          <option>1</option>
-          <option>2</option>
-        </select>
+        <input class="form-control w225 falseSelect" id="broker" placeholder="broker" rel="broker" data-toggle="modal" data-target="#modalSelect" required />
         <label for="broker">
         </label>
       </div>

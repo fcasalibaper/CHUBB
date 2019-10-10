@@ -3,5 +3,18 @@
   flex-direction: column;
 }
 
-.open {
+.modal {
+  &.show {
+    &.accesorios {
+      .module__accesorios { display: flex; }
+    }
+
+    &.broker {
+      .module__broker { display: flex; }
+    }
+
+    &.marca {
+      .module__marca { display: flex; }
+    }
+  }
 }

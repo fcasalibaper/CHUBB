@@ -70,93 +70,98 @@
 }
 
 .modal {
-  &-small {
-    .modal-header {
-      flex-direction: column;
-      @include fontSize(18px);
-      color: $primary;
-      margin-bottom: 34px;
+  &-header {
+    flex-direction: column;
+    @include fontSize(18px);
+    color: $primary;
+    margin-bottom: 34px;
 
-      .modal-title {
-        width: 100%;
-        text-align: center;
-        font-weight: $MEDIUM;
+    .modal-title {
+      width: 100%;
+      text-align: center;
+      font-weight: $MEDIUM;
+    }
+
+    .close {
+      font-size: 2.7rem;
+      right: 0.45em;
+      top: 0.25em;
+      color: #999999;
+
+      @include break(xs) {
+        right: auto;
+        left: -20px;
+        padding: 0 20px 23px;
+        margin-bottom: 30px;
+        top: 0;
+        align-self: flex-start;
+        width: 100vw;
+        border-bottom: 1px solid #e0e3e6;
       }
+    }
+  }
+  &-dialog {
+    height: 100%;
+    border: 0;
+    top: 0;
+    margin: auto;
+  }
+  &-content {
+    max-height: none;
+    padding: 37px 61px 52px 61px;
+    top: 50%;
+    transform: translateY(-50%);
 
-      .close {
-        font-size: 2.7rem;
-        right: 0.45em;
-        top: 0.25em;
-        color: #999999;
+    @include break(xs) {
+      padding: 20px;
+    }
+  }
 
-        @include break(xs) {
-          right: auto;
-          left: -20px;
-          padding: 0 20px 23px;
-          margin-bottom: 30px;
-          top: 0;
-          align-self: flex-start;
-          width: 100vw;
-          border-bottom: 1px solid #e0e3e6;
+  &-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include break(xs) {
+      justify-content: flex-start;
+    }
+
+    form {
+      width: 100%;
+    }
+    
+    hgroup {
+      h4 {
+        text-align: center;
+        @include fontSize(16px);
+        color: #7c7c7c;
+        font-weight: $BOLD;
+        small {
+          font-weight: $REGULAR;
         }
       }
     }
+
+    .print {
+      margin: 2em 0;
+      display: flex;
+      align-items: center;
+      color: $primary;
+      @include fontSize(16px);
+      i {
+        font-weight: 1.5em;
+        margin-right: 1em;
+      }
+    }
+  }
+
+  &-small {
+    
     .modal-dialog {
       max-width: 421.5px;
-      height: 100%;
-      border: 0;
-      top: 0;
-      margin: auto;
     }
-    .modal-content {
-      max-height: none;
-      padding: 37px 61px 52px 61px;
-      top: 50%;
-      transform: translateY(-50%);
-
-      @include break(xs) {
-        padding: 20px;
-      }
-    }
-
-    .modal-body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      @include break(xs) {
-        justify-content: flex-start;
-      }
-
-      form {
-        width: 100%;
-      }
-      
-      hgroup {
-        h4 {
-          text-align: center;
-          @include fontSize(16px);
-          color: #7c7c7c;
-          font-weight: $BOLD;
-          small {
-            font-weight: $REGULAR;
-          }
-        }
-      }
-
-      .print {
-        margin: 2em 0;
-        display: flex;
-        align-items: center;
-        color: $primary;
-        @include fontSize(16px);
-        i {
-          font-weight: 1.5em;
-          margin-right: 1em;
-        }
-      }
-    }
+    
   }
 
   &#modalCover {
@@ -180,6 +185,150 @@
       i.icon-receipt-ok {
         font-size: .98em;
         margin-bottom: 1em;
+      }
+    }
+  }
+
+  &#modalSelect {
+    .modal-header {
+      margin-bottom: 15px;
+      padding-right: 20px;
+      padding-left: 20px;
+      h5 {
+        font-size: 16px;
+        font-weight: $REGULAR;
+        line-height: 1;
+        color: $COLOR_LABELS;
+        text-align: left;
+      }
+    }
+    .modal-content {
+      padding: 20px 0 34px 0;
+    }
+    .modal-dialog {
+      max-width: 751px;
+    }
+    .modal-body {
+      form {
+        padding-right: 20px;
+        padding-left: 20px;
+        &.search {
+          position: relative;
+          &:before {
+            content: $icon-search;
+            font-family: '#{$icomoon-font-family}' !important;
+            position: relative;
+            font-size: 1.7em;
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 5%;
+
+            @include break(xs) {
+              left: 9%;
+            }
+          }
+          input {
+            width: 100%;
+            height: 40px;
+            border-radius: 4px;
+            border: solid 1px #f0f0f0;
+            font-weight: bold;
+            line-height: 1.5;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding: 5px 20px 5px 66px;
+            
+            @include upTo(xs) {
+              font-size: 16px;
+              background-color: #ffffff;
+            }
+    
+            &::placeholder {
+              color: #94979b;
+            }
+          }
+        }
+      }
+
+      .module {
+        width: 100%;
+      }
+
+      .module__accesorios {
+        width: 100%;
+      }
+
+      .listWrapper {
+        position: relative;
+        margin-top: 25px;
+        max-height: 400px;
+        width: 100%;
+
+        @include break(xs) {
+          max-height: 70vh;
+        }
+
+        &Selected {
+          width: 100%;
+          max-height: 370px;
+          overflow-y: scroll;
+
+          @include break(xs) {
+            max-height: 50vh;
+          }
+        }
+      }
+
+      ul.list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        li {
+          padding: 10px 10px;
+          padding-right: 20px;
+          padding-left: 20px;
+          position: relative;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          justify-content: flex-start;
+          font-size: 14px;
+          @include fontSize(14px);
+          font-weight: $REGULAR;
+          line-height: 1;
+          color: #52575a;
+          cursor: pointer;
+          border-bottom: 1px solid #0000000f;
+
+          &:hover,
+          &:focus {
+            background-color: rgba(black, .05);
+          }
+
+          &.notSelected {
+            color: #94979b;
+            &:hover,
+            &:focus {
+              cursor: default;
+              background-color: transparent;
+            }
+          }
+
+          div {
+            &:first-child {
+              width: 20%;
+            }
+            &:nth-child(2) {
+              width: 60%;
+            }
+            &:last-child {
+              width: 20%;
+            }
+          }
+        }
       }
     }
   }

@@ -4,7 +4,6 @@ import Boostrap from 'bootstrap';
 import { isMobile, DownTo, UpTo } from '../utils/utils';
 
 export default function General() {
-    // ESPECIFICO DE LANDING HOTSALE
     const chubb = {
         init: () => {
             $(document).ready(function(){
@@ -17,7 +16,7 @@ export default function General() {
             chubb.menu.hamburguerMenu();
             chubb.formValidation.init();
             chubb.menu.menuActive();
-            chubb.modal.init();
+            // chubb.modal.init();
             chubb.typeTextArea();
             chubb.boxes.init();
             // chubb.popOver();
@@ -52,7 +51,7 @@ export default function General() {
                 }
             }
         },
-
+        
         cover : {
             open: () => {
                 const $box = $('.cover__box');
@@ -205,8 +204,6 @@ export default function General() {
 
         },
 
-        
-
         modalPlan: {
             init: () => {
                 chubb.modalPlan.getClicked();
@@ -314,9 +311,7 @@ export default function General() {
             $('body').append(toolHTML);
             
         },
-
        
-
         formValidation : {
             init : () => {
                 chubb.formValidation.validateForm();
@@ -366,161 +361,8 @@ export default function General() {
                 }
             }
             
-        },
-
-        modal : {
-            init: () => {
-                chubb.modal.inputClick();
-                chubb.modal.selectType();
-            },
-            inputClick: () => {
-                let $el = $('input.falseSelect');
-                
-                $el.click(function(e) {
-                    let $this = $(this);
-                    $this.addClass('open'); // avoid click others lis
-                    chubb.modal.nameModal($this);
-                    chubb.modal.withOutModel($this);
-                    chubb.modal.getLiFiltered($this);
-                })
-            },
-
-            nameModal: (el) => {
-                const nameOfModal = el.attr('rel');
-                chubb.modal.typeOfModal.showTypeOfModal(nameOfModal)
-                chubb.modal.openHideModal(nameOfModal);
-            },
-
-            selectType: () => {
-                const $search = $('input.search-input');
-                $search.on('input', function() {
-                    let that = this.value;
-                    chubb.modal.filterBrands(that);
-                });
-            },
-
-            filterBrands: (filtered) => {
-                const $ulText = $('ul.list-text');
-                const $ulLogos = $('ul.logoBrands');
-
-                const $liText = $ulText.find('li');
-                const $logoslis = $ulLogos.find('li');
-                
-                
-                if ( $liText.length > 0 ) {
-                    $liText.hide().filter(function() {
-                        return $(this).text().toLowerCase().indexOf( filtered ) > -1;
-                    })
-                    .show();
-                }
-
-                if ( $logoslis.length > 0 ) {
-                    $logoslis.hide().filter(function() {
-                        return $(this).find('img').attr('alt').toLowerCase().indexOf( filtered ) > -1;
-                    })
-                    .show();
-                }
-            },
-
-            // get li clickeed and pass them input clicked and new text of selecition
-            getLiFiltered: (clicked) => {
-                const $ulText = $('ul.list-text');
-                const $ulLogos = $('ul.logoBrands');
-
-                const $liText = $ulText.find('li');
-                const $logoslis = $ulLogos.find('li');
-
-                $liText.on('click', function() {
-                    console.log('lptm: ',clicked);
-                    let text = $(this).text();
-                    if (clicked.hasClass('open')) {
-                         // if => avoid click others lis
-                        chubb.modal.printTextSelectedInInput(clicked, text);
-                        clicked.removeClass('open');
-                    }
-                })
-
-                $logoslis.on('click', function() {
-                    let text = $(this).find('img')[0].attributes[1].value;
-                    if (clicked.hasClass('open')) {
-                        // if => avoid click others lis
-                        chubb.modal.printTextSelectedInInput(clicked, text);
-                        clicked.removeClass('open');
-                    }
-                })
-
-            },
-
-            withOutModel: (clicked) => {
-                const el = $('span.withOutModel');
-
-                el.on('click', function() {
-                    let text = `No se encontró mi modelo`;
-                    if (clicked.hasClass('open')) {
-                        // if => avoid click others lis
-                        chubb.modal.printTextSelectedInInput(clicked, text);
-                        clicked.removeClass('open');
-                    }
-                })
-            },
-
-            // clean input when close modal
-            clearInput: () => {
-                const $modal = $('#modal');
-                const $el = $modal.find('input.search-input');
-
-                chubb.modal.filterBrands('');
-
-                if ($el.length) {
-                    $el.val('');
-                }
-            },
-
-            // print selected text
-            printTextSelectedInInput: (el, text) => {
-                const $modal = $('#modal');
-                el.val(text);
-
-                // hide modal
-                $modal.modal('hide');
-            },
-
-            typeOfModal: {
-                showTypeOfModal: (nameOfModal) => {
-                    chubb.modal.typeOfModal.changeTexts(nameOfModal);
-                },
-                changeTexts: (nameOfModal) => {
-                    const $modal = $('#modal');
-                    const title = $modal.find('.modal-title');
-                    const placeholder = $modal.find('input.search-input');
-
-                    switch (nameOfModal) {
-                        case 'open-marca':
-                            title.text('Elija la marca de su auto')
-                            placeholder.attr('placeholder', 'Buscar por marca')
-                            break;
-                        case 'open-modelo':
-                            title.text('Elija la modelo de su auto')
-                            placeholder.attr('placeholder', 'Buscar por modelo')
-                            break;
-                        case 'open-version':
-                            title.text('Elija el modelo de su auto')
-                            placeholder.attr('placeholder', 'Buscar por modelo')
-                            break;
-                    }
-                }
-            },
-
-            openHideModal: (nameOfModalToHide) => {
-                const $modal = $('#modal');
-                $modal.addClass(nameOfModalToHide);
-                $modal.on('hidden.bs.modal', function (e) {
-                    $(this).removeClass(nameOfModalToHide);
-                    chubb.modal.clearInput();
-                });
-            }
-
         }
+        
     };
 
     chubb.init();

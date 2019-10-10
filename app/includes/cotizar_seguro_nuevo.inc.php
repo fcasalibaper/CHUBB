@@ -23,17 +23,14 @@
         <div class="form-row">
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="nroCotizacionBroker" placeholder="Ingrese número" required/>
+            <input type="number" class="form-control" id="nroCotizacionBroker" placeholder="Ingrese número" required/>
             <label for="nroCotizacionBroker">
               Número Cotización Broker
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="broker" required>
-              <option selected disabled>Seleccione...</option>
-              <option>1</option>
-            </select>
+            <input type="text" class="form-control falseSelect" rel="broker" id="broker" data-toggle="modal" data-target="#modalSelect" required />
             <label for="broker">
               Broker
             </label>
@@ -62,14 +59,14 @@
         <div class="form-row">
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="comisionBroker" placeholder="$" required/>
+            <input type="number" class="form-control" id="comisionBroker" placeholder="$" required/>
             <label for="comisionBroker">
               Comisión Broker
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="comisionOrganizador" placeholder="$" required/>
+            <input type="number" class="form-control" id="comisionOrganizador" placeholder="$" required/>
             <label for="comisionOrganizador">
               Comisión Organizador
             </label>
@@ -106,12 +103,12 @@
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="duracion" required>
+            <select type="text" class="form-control falseSelect" id="medioDePago" required>
               <option selected disabled>Seleccione...</option>
               <option>1</option>
             </select>
-            <label for="duracion">
-              Duración
+            <label for="medioDePago">
+              Medio de pago
             </label>
           </div>
 
@@ -165,10 +162,7 @@
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="marca" required>
-              <option selected disabled>Seleccione...</option>
-              <option>1</option>
-            </select>
+            <input type="text" class="form-control falseSelect" id="marca"  selectItem" data-toggle="modal" data-target="#modalSelect" rel="marca" required />
             <label for="marca">
               Marca
             </label>
@@ -238,11 +232,10 @@
         </div>
         <!-- form -->
 
-
         <div class="boxes__accesories">
           <div class="boxes__accesories__buttonAdd">
             <h3>Accesorios</h3>
-            <div class="btn btn-transparent">
+            <div class="btn btn-transparent selectItem" data-toggle="modal" data-target="#modalSelect" rel="accesorios">
               <i class="icon icon-plus"></i>
               <span>Agregar</span>
             </div>
@@ -252,16 +245,6 @@
           <div class="boxes__accesories__added">
             <h3>Accesorios</h3>
             <ul class="boxes__accesories__added__content">
-              <li>
-                <span>Accesosrios Varios</span>
-                <div class="price">$ 500</div>
-                <div class="delete"><i class="icon icon-cancel"></i><span>Borrar</span></div>
-              </li>
-              <li>
-                <span>Accesosrios Varios</span>
-                <div class="price">$ 500</div>
-                <div class="delete"><i class="icon icon-cancel"></i><span>Borrar</span></div>
-              </li>
             </ul>
 
             <div class="boxes__accesories__added__newItem">

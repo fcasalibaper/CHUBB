@@ -8,6 +8,7 @@
 
   @include break(xs) {
     padding: 10px 20px;
+    max-height: $HEADER_MAX_HEIGHT;
   }
 
   // LOGO
