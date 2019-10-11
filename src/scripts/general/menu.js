@@ -55,7 +55,7 @@ export default function Menu() {
               
               if ( path.match($rel) ) {
                   $(this).addClass('active')
-              } else if ( (path.length === 0 || path === "/" || path.match(/^\/?index/)) && $(this).attr('rel') == 'consulta_cartelera' ) {
+              } else if ( (path.length === 0 || path === "/" || path.match(/^\/?index/)) && $(this).attr('rel') == 'consulta_cartelera' || path.match('index.php')  && $(this).attr('rel') == 'consulta_cartelera') {
                   $(this).addClass('active');
               }
           })

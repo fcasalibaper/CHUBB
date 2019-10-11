@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import Boostrap from 'bootstrap';
 import { isMobile, DownTo, UpTo, toolResponsive } from '../utils/utils';
+// import Pikaday from 'pikaday';
 
 export default function General() {
     const chubb = {
@@ -18,6 +19,13 @@ export default function General() {
             chubb.cover();
             chubb.checkBoxOne();
             chubb.seeMore();
+            // const picker = new Pikaday({
+            //     field: document.getElementById('datepicker'),
+            //     format: 'dd-M-yy',
+            //     onSelect: function() {
+            //         console.log(this.getMoment().format('dd-M-yy'));
+            //     }
+            // });
         },
 
         // operations see more
@@ -30,6 +38,9 @@ export default function General() {
                     $(this).addClass('open');
                     $(this).text('Ver más');
                     $target.addClass('seeMoreTarget--close');
+                    $('html, body').animate({
+                        scrollTop: 0
+                    },500);
                 } else {
                     $(this).removeClass('open');
                     $(this).text('Ver menos');

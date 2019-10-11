@@ -412,6 +412,12 @@
     &:after {
       transform: rotate(90deg);
     }
+
+    form {
+      @include break(xs) {
+        min-height: 700px;
+      }
+    }
   }
 
   &Target {

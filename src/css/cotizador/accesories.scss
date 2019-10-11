@@ -22,6 +22,12 @@
       width: 100%;
       padding: 0 0 $MARGIN_UP_DOWN 0;
 
+      @include break(xs) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
       h3 {
         color: $COLOR_LABELS;
       }
@@ -33,6 +39,10 @@
         padding-right: 17px;
         margin-top: $MARGIN_UP_DOWN;
         cursor: pointer;
+
+        @include break(xs) {
+          margin-top: 0;
+        }
 
         i {
           margin-right: 0.8em;

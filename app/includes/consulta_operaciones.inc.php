@@ -1,80 +1,91 @@
 <article class="dateContent">
-  <form class="needs-validation seeMoreTarget" novalidate>
-    <div class="form-row">
-      <div class="col colWrap xCenter">
-        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile w49mobile mr1mobile" id="desde" placeholder="Desde:" required/>
-        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile w49mobile ml1mobile" id="hasta" placeholder="Hasta:" required/>
-        <label for="fechaDeOperacion" class="w100mobile">
-          Fecha de operación:
-        </label>
+  <div class="seeMoreTarget">
+    <form class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="col colWrap xCenter">
+          <input
+            type="date"
+            class="form-control falseSelect w160 mt20mobile w49mobile mr1mobile datepicker"
+            id="Desde"
+            onfocus="(this.type='date')"
+            onblur="(this.type='text')"
+            placeholder="Desde:"
+            data-date-format="dd-M-yy"
+            required
+          />
+          <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile w49mobile ml1mobile" id="hasta" placeholder="Hasta:" required/>
+          <label for="fechaDeOperacion" class="w100mobile">
+            Fecha de operación:
+          </label>
+        </div>
       </div>
-    </div>
-    <!-- form -->
+      <!-- form -->
 
-    <div class="form-row">
+      <div class="form-row">
 
-      <div class="col">
-        <select name="tipoOperacion" id="tipoOperacion" class="form-control w225 falseSelect" required>
-          <option selected disabled>Tipo de operación</option>
-          <option>1</option>
-          <option>2</option>
-        </select>
-        <label for="tipoOperacion"></label>
+        <div class="col">
+          <select name="tipoOperacion" id="tipoOperacion" class="form-control w225 falseSelect" required>
+            <option selected disabled>Tipo de operación</option>
+            <option>1</option>
+            <option>2</option>
+          </select>
+          <label for="tipoOperacion"></label>
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control w225" id="nroOperacion" placeholder="Ingrese número de operación" required/>
+          <label for="nroOperacion">
+          </label>
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control w225" id="nroPoliza" placeholder="Ingrese número de Poliza" required/>
+          <label for="nroPoliza">
+          </label>
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control w225" id="DNIcliente" placeholder="Ingrese DNI de cliente" required/>
+          <label for="DNIcliente">
+          </label>
+        </div>
       </div>
+      <!-- form -->
 
-      <div class="col">
-        <input type="text" class="form-control w225" id="nroOperacion" placeholder="Ingrese número de operación" required/>
-        <label for="nroOperacion">
-        </label>
-      </div>
+      <div class="form-row">
+        <div class="col">
+          <input class="form-control w225 falseSelect" id="broker" placeholder="broker" rel="broker" data-toggle="modal" data-target="#modalSelect" required />
+          <label for="broker">
+          </label>
+        </div>
 
-      <div class="col">
-        <input type="text" class="form-control w225" id="nroPoliza" placeholder="Ingrese número de Poliza" required/>
-        <label for="nroPoliza">
-        </label>
-      </div>
+        <div class="col">
+          <select class="form-control w225 falseSelect" id="organizador" placeholder="organizador" required>
+            <option disabled selected>Organizador</option>
+            <option>1</option>
+            <option>2</option>
+          </select>
+          <label for="organizador">
+          </label>
+        </div>
 
-      <div class="col">
-        <input type="text" class="form-control w225" id="DNIcliente" placeholder="Ingrese DNI de cliente" required/>
-        <label for="DNIcliente">
-        </label>
-      </div>
-    </div>
-    <!-- form -->
+        <div class="col col--end">
+          <select class="form-control w225 falseSelect" id="estado" placeholder="Estado" required>
+            <option disabled selected>Estado</option>
+            <option>Vigente</option>
+            <option>No vigente</option>
+          </select>
+          <label for="estado">
+          </label>
+        </div>
 
-    <div class="form-row">
-      <div class="col">
-        <input class="form-control w225 falseSelect" id="broker" placeholder="broker" rel="broker" data-toggle="modal" data-target="#modalSelect" required />
-        <label for="broker">
-        </label>
+        <div class="col col--end">
+          <button class="btn btn-primary" type="submit"><span>Buscar</span></button>
+        </div>
       </div>
-
-      <div class="col">
-        <select class="form-control w225 falseSelect" id="organizador" placeholder="organizador" required>
-          <option disabled selected>Organizador</option>
-          <option>1</option>
-          <option>2</option>
-        </select>
-        <label for="organizador">
-        </label>
-      </div>
-
-      <div class="col col--end">
-        <select class="form-control w225 falseSelect" id="estado" placeholder="Estado" required>
-          <option disabled selected>Estado</option>
-          <option>Vigente</option>
-          <option>No vigente</option>
-        </select>
-        <label for="estado">
-        </label>
-      </div>
-
-      <div class="col col--end">
-        <button class="btn btn-primary" type="submit"><span>Buscar</span></button>
-      </div>
-    </div>
-    <!-- form -->
-  </form>
+      <!-- form -->
+    </form>
+  </div>
 
   <span class="seeMore">
     Ver menos
