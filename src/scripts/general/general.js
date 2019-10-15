@@ -32,6 +32,7 @@ export default function General() {
 
         ready: () => {
             // toolResponsive();
+            chubb.dataManage.init();
             chubb.formValidation.init();
             chubb.boxes.init();
             chubb.popUp();
@@ -43,10 +44,24 @@ export default function General() {
 
         dayPicker : () => {
             const path = window.location.pathname;
-            let el = [".datePicker-desde",".datePicker-hasta"];
+            let operaciones = [".datePicker-desde",".datePicker-hasta"];
+            let cotizar = [".datePicker-Nacimiento",".datePicker-Vigencia"];
 
-            if ( path === "/consulta_operaciones.php" ) {
-                el.map( function(el, i) {
+            if ( path === "/consulta_operaciones.php") {
+                operaciones.map( function(el, i) {
+                    datepicker(el, {
+                        customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        customDays: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                        formatter: (input, date, instance) => {
+                            const value = date.toLocaleDateString()
+                            input.value = value // => '1/1/2099'
+                        }
+                    })
+                })
+            }
+
+            if ( path === "/cotizar_seguro_nuevo.php" ) {
+                cotizar.map( function(el, i) {
                     datepicker(el, {
                         customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
                         customDays: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
@@ -114,7 +129,7 @@ export default function General() {
             
         },
 
-        // steps 1,2,3,4
+        // interaccion de steps (1,2,3,4) segun clicks o cambios de hash en la url
         boxes: {
             init: () => {
                 chubb.boxes.hashChanger.hashChanged();
@@ -180,8 +195,6 @@ export default function General() {
         formValidation : {
             init : () => {
                 chubb.formValidation.validateForm();
-                chubb.formValidation.setArrayFirstTime();
-                chubb.formValidation.printValuesFromLocalStorage();
             },
             validateForm : () => {
                 const forms = $('.needs-validation');
@@ -195,69 +208,106 @@ export default function General() {
                         } else {
                             form.classList.add('validated');
                             chubb.formValidation.formValidated($(this), true)
-                            chubb.formValidation.goToNextSibling($(this))
-                            chubb.formValidation.getAllDataInForm($(this));
+                            chubb.dataManage.goToNextSibling($(this))
+                            chubb.dataManage.getAllDataInForm($(this));
                         }
                         form.classList.add('was-validated');
                     }, false);
                 });   
             },
 
+            // si esta validado setea el state en 'completed', sino vacio
             formValidated: (el, validated ) => {
-                let element = el.parent().closest('.boxes__box');
+                let element = el[0].id;
 
                 if ( validated === true ) {
-                    element.attr('state' , 'completed');
-                    console.log('validado: ',validated)
+                    chubb.dataManage.steps(element);
                 } else {
-                    element.attr('state' , '');
-                    console.log('validado: ',validated)
-                }
-                
-            },
-
-            stateChecker : (step) => {
-                let stepCheck = JSON.parse(localStorage.getItem('steps'))
-                if ( stepCheck[step].state === true ) {
-                    $(`#${step}`).attr('state','completed');
-                } else if ( stepCheck.step3.state === true ) {
-                    $('#cobertura').attr('state','completed');  
+                    $(`#${element}`).attr('state' , '');
                 }
             },
 
+            
+        },
+
+        // manejo de datos y localStorage para almacenar y persistir datos antes/despues del refresco de la página
+        dataManage : {
+            init : () => {
+                chubb.dataManage.setArrayFirstTime();
+                chubb.dataManage.printValuesFromLocalStorage();
+                chubb.dataManage.stepInTheDOM();
+            },
+            
+            // escribe el nuevo estado en el array global (initStorage) y lo guarda en el localStorage
             stepState : (id) => {
                 initStorage[id].state = true;
-                chubb.formValidation.saveDataOnStorage('steps', initStorage)
-                chubb.formValidation.stateChecker(id)
-                console.log(JSON.parse(localStorage.getItem('steps')));
+                chubb.dataManage.saveDataOnStorage('steps', initStorage);
             },
 
-            printValuesFromLocalStorage : () => {
+            // dumb function, recibe el paso completado y se lo devuelve al paso correspondiente dentro del DOM, lo setea.
+            steps : (step) => {
+                switch ( step ) {
+                    case 'step1': 
+                        $('#datos_generales').attr('state','completed')
+                        console.log('step1')
+                    break;
+                    case 'step2': 
+                        $('#item').attr('state','completed')
+                        console.log('step2')
+                    break;
+                    case 'step3': 
+                        $('#cobertura').attr('state','completed')
+                        console.log('step3')
+                    break;
+                    case 'step4': 
+                        $('#datos_solicitante').attr('state','completed')
+                        console.log('step4')
+                    break;
+                }
+            },
+
+            // al refrescar la página si el array global (initStorage.step${1,2,3, o 4}) esta seteado en true cambia el estado del DOM pasandesolo a un dumb function
+            stepInTheDOM : () => {
                 let $forms = $('.needs-validation');
-                let $formsLength = $forms.length
-                let local = chubb.formValidation.getDataOnStorage('steps');
-
-                for (let index = 0; index < $formsLength; index++) {
-                    let $step = $(`#step${index+1}`);
-                    let $stepInputs = $step.find('.form-control, .form-check-input');
-                    let $stepLocalArray = local[`step${index+1}`].inputs;
-
-                    console.log( $stepLocalArray );
-
-                    if ($stepLocalArray.length > 0) {
-
-                        $stepInputs.map(function (i) {
-                            console.log('dentro del map: ',local[`step${index+1}`].inputs[i])
-                            if ( $(this).hasClass('form-control') ) {
-                                $(this).val(local[`step${index+1}`].inputs[i].value);
-                            } else if ( $(this).hasClass('form-check-input') ) {
-                                $(this).prop('checked',  local[`step${index+1}`].inputs[i].value)
-                            }
-                        })
+                let $formsLength = $forms.length;
+                for (let index = 0; index < $formsLength ; index++) {
+                    let step = `step${index + 1}`;
+                    
+                    if ( initStorage[step].state === true ) {
+                        chubb.dataManage.steps(step);
                     }
                 }
             },
 
+            // si existe un locastorage, suma los valores almacenados dentro de los inputs correspondientes en cada paso
+            printValuesFromLocalStorage : () => {
+                let $forms = $('.needs-validation');
+                let $formsLength = $forms.length
+                let local = chubb.dataManage.getDataOnStorage('steps');
+
+                if ( localStorage.length > 0 ) {
+                    for (let index = 0; index < $formsLength; index++) {
+                        let $step = $(`#step${index+1}`);
+                        let $stepInputs = $step.find('.form-control, .form-check-input');
+                        let $stepLocalArray = local[`step${index+1}`].inputs;
+
+                        if ( $stepLocalArray.length > 0 || localStorage.length > 0 ) {
+
+                            $stepInputs.map(function (i) {
+                                if ( local[`step${index+1}`].inputs.length > 0 ) {
+                                    if ( $(this).hasClass('form-control') ) {
+                                        $(this).val(local[`step${index+1}`].inputs[i].value);
+                                    } else if ( $(this).hasClass('form-check-input') ) {
+                                        $(this).prop('checked',  local[`step${index+1}`].inputs[i].value)
+                                    }
+                                }
+                            })
+                        }
+                    }
+                }
+            },
+
+            // obtiene todos los datos submiteados de los inputs, selects, checkboxs y los almacena en el array global (initStorage), y luego este ultimo se lo pasa al LocalStorage, para q persistan al refrescar la pagina
             getAllDataInForm : (el) => {
                 let idStep = el[0].id;
                 let input =  el.find('.form-control, .form-check-input');
@@ -282,26 +332,33 @@ export default function General() {
                         initStorage[idStep].inputs[i].name = name;
                         initStorage[idStep].inputs[i].value = value;
                     }
-                    
-                    // chubb.validateForm.getDataLocalStorage(idStep )
                 });
-                chubb.formValidation.stepState(idStep);
+                
+                chubb.dataManage.saveDataOnStorage('steps', initStorage);
+                chubb.dataManage.stepState(idStep);
             },
 
+            // dumb function guarda un valor/objeto/array en el localStorage
             saveDataOnStorage : (name = 'test', value = {a:1,b:2}) => {
                 localStorage.setItem(name, JSON.stringify(value));
             },
 
-            setArrayFirstTime : () => {
-                let arr = chubb.formValidation.getDataOnStorage('steps');
-                console.log('arr: ', arr)
-                initStorage.push( arr.step2.inputs )
-            },
-
+            // dumb function obtiene datos del localStorage
             getDataOnStorage : (name = 'test') => {
                 return JSON.parse(localStorage.getItem(name));
             },
 
+            // si NO exite un localStorage con contenido, le pasa lo que tenga la variable global (initStorage), si tiene, entonces pasa lo contrario, le pasa el contenido de localStorage al array global (initStorage)
+            setArrayFirstTime : () => {
+                if ( localStorage.length <= 0 ) {
+                   chubb.dataManage.saveDataOnStorage('steps', initStorage);
+                } else {
+                    let arr = chubb.dataManage.getDataOnStorage('steps');
+                    initStorage = arr;
+                }
+            },
+            
+            // al presionar siguiente en los forms pasa al siguiente paso y cambia la URL
             goToNextSibling : (el) => {
                 let element = el.parent().closest('.boxes__box');
                 let nextSibling = element.next();

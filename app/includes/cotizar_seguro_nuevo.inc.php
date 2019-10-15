@@ -688,7 +688,12 @@
       <form class="needs-validation" id="step4" novalidate>
         <div class="form-row">
           <div class="col col-sm-3">
-            <input type="date" class="form-control" id="vigencia" required />
+            <input
+              type="text"
+              class="form-control falseSelect datePicker-Vigencia"
+              id="vigencia" 
+              required
+            />
             <label for="vigencia">
               Inicio de vigencia
             </label>
@@ -734,7 +739,11 @@
 
         <div class="form-row">
           <div class="col col-sm-3">
-            <input type="date" class="form-control" id="nacimiento" required />
+            <input
+              type="text"
+              class="form-control falseSelect datePicker-Nacimiento" id="nacimiento"
+              required
+            />
             <label for="nacimiento">
               Fecha de Nacimiento
             </label>
@@ -808,7 +817,12 @@
 
         <div class="form-row">
           <div class="col col--end alignEnd">
-            <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#modalExito"><span>Siguiente</span></button>
+            <button
+              class="btn btn-primary"
+              type="submit"
+              >
+                <span>Siguiente</span>
+            </button>
           </div>
         </div>
         
