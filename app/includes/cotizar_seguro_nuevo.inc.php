@@ -19,8 +19,15 @@
     </hgroup>
     
     <div class="boxes__box__content">
-      <form class="needs-validation" novalidate>
+      <form class="needs-validation" id="step1" novalidate>
         <div class="form-row">
+
+          <div class="col col-sm-3">
+            <input type="text" class="form-control" id="nombreCotizacion" placeholder="Ingrese nombre" required />
+            <label for="nombreCotizacion">
+              Nombre Cotización
+            </label>
+          </div>
 
           <div class="col col-sm-3">
             <input type="number" class="form-control" id="nroCotizacionBroker" placeholder="Ingrese número" required/>
@@ -45,6 +52,10 @@
               Organizador
             </label>
           </div>
+        </div>
+        <!-- form -->
+
+        <div class="form-row">
 
           <div class="col col-sm-3">
             <input type="text" class="form-control" id="nombreDelProducto" placeholder="Ingrese nombre" required/>
@@ -52,11 +63,6 @@
               Nombre del producto
             </label>
           </div>
-
-        </div>
-        <!-- form -->
-
-        <div class="form-row">
 
           <div class="col col-sm-3">
             <input type="number" class="form-control" id="comisionBroker" placeholder="$" required/>
@@ -149,7 +155,7 @@
     </hgroup>
     
     <div class="boxes__box__content">
-      <form class="needs-validation" novalidate>
+      <form class="needs-validation" id="step2" novalidate>
         <div class="form-row">
           <div class="col col-sm-3">
             <select type="text" class="form-control falseSelect" id="tipoVehiculo" required>
@@ -193,14 +199,14 @@
 
         <div class="form-row">
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="clausulaDeAjuste" placeholder="$" required/>
+            <input type="number" class="form-control" id="clausulaDeAjuste" placeholder="$" required/>
             <label for="clausulaDeAjuste">
               Cláusula de Ajuste
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="sumaAsegurada" placeholder="$" required/>
+            <input type="number" class="form-control" id="sumaAsegurada" placeholder="$" required/>
             <label for="sumaAsegurada">
               Suma Asegurada
             </label>
@@ -316,86 +322,94 @@
               <table class="table">
                 <thead>
                   <tr>
+                    <th class="visible-mobile" scope="col">Acciones</th>
                     <th scope="col">Cód. cobertura</th>
                     <th scope="col">Descripción de cobertura</th>
-                    <th class="hidden-mobile" scope="col">Prima</th>
-                    <th class="hidden-mobile" scope="col">Valor cuota</th>
-                    <th class="hidden-mobile" scope="col">Franquicia</th>
-                    <th class="hidden-mobile" scope="col">Comisión</th>
-                    <th class="hidden-mobile" scope="col">Costo final</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col">Prima</th>
+                    <th scope="col">Valor cuota</th>
+                    <th scope="col">Franquicia</th>
+                    <th scope="col">Comisión</th>
+                    <th scope="col">Costo final</th>
+                    <th class="hidden-mobile" scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
+                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                   </tr>
                   <tr>
+                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                   </tr>
                   <tr>
+                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                   </tr>
                   <tr>
+                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                   </tr>
                   <tr>
+                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                   </tr>
                   <tr>
+                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                   </tr>
                   <tr>
+                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td class="hidden-mobile">$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
                   </tr>
                 </tbody>
               </table>
@@ -671,7 +685,7 @@
     </hgroup>
     
     <div class="boxes__box__content">
-      <form class="needs-validation" novalidate>
+      <form class="needs-validation" id="step4" novalidate>
         <div class="form-row">
           <div class="col col-sm-3">
             <input type="date" class="form-control" id="vigencia" required />

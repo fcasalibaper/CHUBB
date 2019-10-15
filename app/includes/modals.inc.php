@@ -10,7 +10,7 @@
       </div>
 
       <div class="modal-body">
-          <form action="">
+          <form id="step3" class="needs-validation" novalidate>
             <div class="form-row">
               <div class="col">
                 <input type="text" class="form-control" id="patente" placeholder="Ingrese patente" required/>
@@ -379,6 +379,7 @@
             </div>
           </div>
         </div>
+        <!-- marca -->
     </div>
   </div>
 </div>

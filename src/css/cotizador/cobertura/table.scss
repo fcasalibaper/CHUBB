@@ -26,7 +26,15 @@
       padding: 0;
 
       th, td {
+        &.visible-mobile {
+          display: none;
+          @include break(xs) {
+            display: table-cell;
+          }
+        }
+
         &.hidden-mobile {
+          display: table-cell;
           @include break(xs) {
             display: none;
           }

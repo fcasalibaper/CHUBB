@@ -107,7 +107,7 @@ input, button, a, .btn {
 	overflow-x: hidden;
 	display: flex;
 	flex-direction: column;
-	@include upTo(xs) {
+	@include upTo(sm) {
 		height: 100%;
 	}
 }

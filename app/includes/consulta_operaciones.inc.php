@@ -4,16 +4,19 @@
       <div class="form-row">
         <div class="col colWrap xCenter">
           <input
-            type="date"
-            class="form-control falseSelect w160 mt20mobile w49mobile mr1mobile datepicker"
+            type="text"
+            class="form-control falseSelect w160 mt20mobile w49mobile mr1mobile datePicker-desde"
             id="Desde"
-            onfocus="(this.type='date')"
-            onblur="(this.type='text')"
             placeholder="Desde:"
-            data-date-format="dd-M-yy"
             required
           />
-          <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control falseSelect w160 mt20mobile w49mobile ml1mobile" id="hasta" placeholder="Hasta:" required/>
+          <input
+            type="text"
+            class="form-control falseSelect w160 mt20mobile w49mobile ml1mobile datePicker-hasta"
+            id="hasta"
+            placeholder="Hasta:"
+            required
+          />
           <label for="fechaDeOperacion" class="w100mobile">
             Fecha de operación:
           </label>

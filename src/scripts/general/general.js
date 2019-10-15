@@ -1,7 +1,26 @@
 import $ from 'jquery';
 import Boostrap from 'bootstrap';
-import { isMobile, DownTo, UpTo, toolResponsive } from '../utils/utils';
-// import Pikaday from 'pikaday';
+import { isMobile, DownTo, UpTo, toolResponsive, addToLocalStorageObject } from '../utils/utils';
+import datepicker from 'js-datepicker';
+
+window.initStorage = {
+    step1: {
+        'inputs': [],
+        'state': false,
+    },
+    step2: {
+        'inputs': [],
+        'state': false,
+    },
+    step3: {
+        'inputs': [],
+        'state': false,
+    },
+    step4: {
+        'inputs': [],
+        'state': false,
+    }
+}
 
 export default function General() {
     const chubb = {
@@ -12,20 +31,33 @@ export default function General() {
         },
 
         ready: () => {
-            toolResponsive();
+            // toolResponsive();
             chubb.formValidation.init();
             chubb.boxes.init();
             chubb.popUp();
             chubb.cover();
             chubb.checkBoxOne();
             chubb.seeMore();
-            // const picker = new Pikaday({
-            //     field: document.getElementById('datepicker'),
-            //     format: 'dd-M-yy',
-            //     onSelect: function() {
-            //         console.log(this.getMoment().format('dd-M-yy'));
-            //     }
-            // });
+            chubb.dayPicker();
+        },
+
+        dayPicker : () => {
+            const path = window.location.pathname;
+            let el = [".datePicker-desde",".datePicker-hasta"];
+
+            if ( path === "/consulta_operaciones.php" ) {
+                el.map( function(el, i) {
+                    datepicker(el, {
+                        customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                        customDays: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                        formatter: (input, date, instance) => {
+                            const value = date.toLocaleDateString()
+                            input.value = value // => '1/1/2099'
+                        }
+                    })
+                })
+            }
+            
         },
 
         // operations see more
@@ -148,10 +180,12 @@ export default function General() {
         formValidation : {
             init : () => {
                 chubb.formValidation.validateForm();
+                chubb.formValidation.setArrayFirstTime();
+                chubb.formValidation.printValuesFromLocalStorage();
             },
             validateForm : () => {
-                var forms = $('.needs-validation');
-                var validation = Array.prototype.filter.call(forms, function(form) {
+                const forms = $('.needs-validation');
+                let validation = Array.prototype.filter.call(forms, function(form) {
                     form.addEventListener('submit', function(event) {
                         event.preventDefault();
                         if (form.checkValidity() === false) {
@@ -162,6 +196,7 @@ export default function General() {
                             form.classList.add('validated');
                             chubb.formValidation.formValidated($(this), true)
                             chubb.formValidation.goToNextSibling($(this))
+                            chubb.formValidation.getAllDataInForm($(this));
                         }
                         form.classList.add('was-validated');
                     }, false);
@@ -181,6 +216,92 @@ export default function General() {
                 
             },
 
+            stateChecker : (step) => {
+                let stepCheck = JSON.parse(localStorage.getItem('steps'))
+                if ( stepCheck[step].state === true ) {
+                    $(`#${step}`).attr('state','completed');
+                } else if ( stepCheck.step3.state === true ) {
+                    $('#cobertura').attr('state','completed');  
+                }
+            },
+
+            stepState : (id) => {
+                initStorage[id].state = true;
+                chubb.formValidation.saveDataOnStorage('steps', initStorage)
+                chubb.formValidation.stateChecker(id)
+                console.log(JSON.parse(localStorage.getItem('steps')));
+            },
+
+            printValuesFromLocalStorage : () => {
+                let $forms = $('.needs-validation');
+                let $formsLength = $forms.length
+                let local = chubb.formValidation.getDataOnStorage('steps');
+
+                for (let index = 0; index < $formsLength; index++) {
+                    let $step = $(`#step${index+1}`);
+                    let $stepInputs = $step.find('.form-control, .form-check-input');
+                    let $stepLocalArray = local[`step${index+1}`].inputs;
+
+                    console.log( $stepLocalArray );
+
+                    if ($stepLocalArray.length > 0) {
+
+                        $stepInputs.map(function (i) {
+                            console.log('dentro del map: ',local[`step${index+1}`].inputs[i])
+                            if ( $(this).hasClass('form-control') ) {
+                                $(this).val(local[`step${index+1}`].inputs[i].value);
+                            } else if ( $(this).hasClass('form-check-input') ) {
+                                $(this).prop('checked',  local[`step${index+1}`].inputs[i].value)
+                            }
+                        })
+                    }
+                }
+            },
+
+            getAllDataInForm : (el) => {
+                let idStep = el[0].id;
+                let input =  el.find('.form-control, .form-check-input');
+                let lengthInput = input.length - 1;
+
+                input.map(function (i) {
+                    let name = $(this).attr('id');
+                    let value;
+                    if ( $(this).hasClass('form-control') ) {
+                        value = $(this).val();
+                    } else if ( $(this).hasClass('form-check-input') ) {
+                        value = $(this).prop('checked')
+                    }
+
+                    // si el objeto esta vacio crea el mismo con el name y el value, sino, si es q el valor esta creado, lo cambia por el otro nuevo valor
+                    if ( Object.entries(initStorage[idStep].inputs).length <= lengthInput) {
+                        initStorage[idStep].inputs.push( {
+                            name : name,
+                            value : value
+                        })
+                    } else if ( initStorage[idStep].inputs[i].value !== value || initStorage[idStep].inputs[i].value !== null || initStorage[idStep].inputs[i].value !== 'undefined' || initStorage[idStep].inputs[i].value == '' ) {
+                        initStorage[idStep].inputs[i].name = name;
+                        initStorage[idStep].inputs[i].value = value;
+                    }
+                    
+                    // chubb.validateForm.getDataLocalStorage(idStep )
+                });
+                chubb.formValidation.stepState(idStep);
+            },
+
+            saveDataOnStorage : (name = 'test', value = {a:1,b:2}) => {
+                localStorage.setItem(name, JSON.stringify(value));
+            },
+
+            setArrayFirstTime : () => {
+                let arr = chubb.formValidation.getDataOnStorage('steps');
+                console.log('arr: ', arr)
+                initStorage.push( arr.step2.inputs )
+            },
+
+            getDataOnStorage : (name = 'test') => {
+                return JSON.parse(localStorage.getItem(name));
+            },
+
             goToNextSibling : (el) => {
                 let element = el.parent().closest('.boxes__box');
                 let nextSibling = element.next();
@@ -193,7 +314,6 @@ export default function General() {
                     chubb.boxes.hashChanger.changeHashURL(nextSibling);
                 }
             }
-            
         }
         
     };
