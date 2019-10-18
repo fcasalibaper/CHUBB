@@ -22,6 +22,14 @@ window.initStorage = {
     }
 }
 
+
+window.stateArray = [];
+// iteartion in all states and save in array
+
+// last true in array
+window.lastStepTrue = findLastIndex(stateArray, 'state', true);
+//chubb.boxes.hashChanger.nextHash(lastStepTrue);
+
 export default function General() {
     const chubb = {
         init: () => {
@@ -41,6 +49,15 @@ export default function General() {
             chubb.seeMore();
             chubb.dayPicker();
             chubb.boxes.hashChanger.goToTheNextNotCompleted();
+            chubb.arrayState()
+        },
+
+        arrayState : () => {
+            let lengthSteps = $('.boxes__box').length;
+            for (let index = 0; index < lengthSteps; index++) {
+                let states = initStorage[`step${index + 1}`].state;
+                stateArray.push({'state': states})
+            }
         },
 
         dayPicker : () => {
@@ -48,7 +65,7 @@ export default function General() {
             let operaciones = [".datePicker-desde",".datePicker-hasta"];
             let cotizar = [".datePicker-Nacimiento",".datePicker-Vigencia"];
 
-            if ( path === "/consulta_operaciones.php") {
+            if ( path.indexOf("/consulta_operaciones.php") > -1) {
                 operaciones.map( function(el, i) {
                     datepicker(el, {
                         customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -61,7 +78,7 @@ export default function General() {
                 })
             }
 
-            if ( path === "/cotizar_seguro_nuevo.php" ) {
+            if ( path.indexOf("/cotizar_seguro_nuevo.php") > -1 ) {
                 cotizar.map( function(el, i) {
                     datepicker(el, {
                         customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -164,12 +181,12 @@ export default function General() {
                 hashChanged: () => {
                     $(window).on('hashchange', function( e ) {
                         chubb.boxes.hashChanger.hashManage();
-                        chubb.boxes.hashChanger.goToTheNextNotCompleted();
                     }).trigger('hashchange');
                 },
                 changeHashURL : (el) => {
                     let newHash = el.attr('id');
                     window.location.hash = `#${newHash}`;
+                    chubb.boxes.hashChanger.goToTheNextNotCompleted(newHash);
                 },
 
                 openBox: (el) => {
@@ -185,49 +202,63 @@ export default function General() {
                     
                 },
 
-                goToTheNextNotCompleted : (el = 'step1') => {
-                    let lengthSteps = $('.boxes__box').length;
-                    let stateArray = [];
+                goToTheNextNotCompleted : (el = 'step1', newHash) => {
                     $('.boxes__box').removeClass('active')
 
-                    // iteartion in all states and save in array
-                    for (let index = 0; index < lengthSteps; index++) {
-                        let states = initStorage[`step${index + 1}`].state;
-                        stateArray.push({'state': states})
-                    }
 
-                    // las true in array
-                    let lastStepTrue = findLastIndex(stateArray, 'state', true);
-                    //chubb.boxes.hashChanger.nextHash(lastStepTrue);
+                    let redefine = [
+                        stateArray[0].state == true && '#datos_generales',
+                        stateArray[1].state == true && '#item',
+                        stateArray[2].state == true && '#cobertura',
+                        stateArray[3].state == true && '#datos_solicitante',
+                    ]
 
-                    if (lastStepTrue < 0) {
-                        $('#datos_generales').addClass('active');
+                    console.log('redefine: ', redefine[0])
+                    // if (lastStepTrue == 0 gul) {
+                    //     $('#item').addClass('active');
+                    //     window.location.hash = '#item';
+                    //     console.log('step1')
+                    // }
+                    // if (lastStepTrue == 1) {
+                    //     $('#cobertura').addClass('active');
+                    //     window.location.hash = '#cobertura';
+                    //     console.log('step2')
+                    // }
+                    
+                    // if (lastStepTrue == 2) {
+                    //     $('#datos_solicitante').addClass('active');
+                    //     window.location.hash = '#datos_solicitante';
+                    //     console.log('step3')
+                    // }
+                    
+                    // if (lastStepTrue == 3) {
+                    //     $('#datos_solicitante').addClass('active');
+                    //     window.location.hash = '#datos_solicitante';
+                    //     console.log('step4')
+                    // }
+
+                    console.log(newHash)
+
+                    if ( newHash == '#datos_generales' && stateArray[0].state == true ) {
                         window.location.hash = '#datos_generales';
-                        console.log('step1')
                     }
 
-                    if (lastStepTrue == 0 ) {
-                        $('#item').addClass('active');
+                    if ( newHash == '#item' && stateArray[1].state == true ) {
                         window.location.hash = '#item';
-                        console.log('step1')
+                    } else{
+                        window.location.hash = '#datos_generales';
                     }
-                    if (lastStepTrue == 1) {
-                        $('#cobertura').addClass('active');
+
+                    if ( newHash == '#cobertura' && stateArray[2].state == true ) {
                         window.location.hash = '#cobertura';
-                        console.log('step2')
-                        
+                    } else {
+                        window.location.hash = '#item';
                     }
-                    
-                    if (lastStepTrue == 2) {
-                        $('#datos_solicitante').addClass('active');
+
+                    if ( newHash == '#datos_solicitante' && stateArray[3].state == true ) {
                         window.location.hash = '#datos_solicitante';
-                        console.log('step3')
-                    }
-                    
-                    if (lastStepTrue == 3) {
-                        $('#datos_solicitante').addClass('active');
-                        window.location.hash = '#datos_solicitante';
-                        console.log('step4')
+                    }else {
+                        window.location.hash = '#cobertura';
                     }
 
                     // 
@@ -292,9 +323,10 @@ export default function General() {
                             chubb.formValidation.formValidated($(this), false)
                         } else {
                             form.classList.add('validated');
-                            chubb.formValidation.formValidated($(this), true)
+                            chubb.formValidation.formValidated($(this), true);
                             chubb.dataManage.goToNextSibling($(this))
                             chubb.dataManage.getAllDataInForm($(this));
+                            chubb.arrayState();
                         }
                         form.classList.add('was-validated');
                     }, false);
