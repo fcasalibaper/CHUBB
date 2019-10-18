@@ -122,6 +122,12 @@ form {
         padding: 5px 26px;
       }
     }
+
+    &:focus,
+    &:hover, 
+    &:active {
+      background-color: #fff;
+    }
     
     &::placeholder,
     option:disabled,

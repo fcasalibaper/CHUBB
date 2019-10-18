@@ -33,7 +33,7 @@
             </div>
             <div class="form-row">
               <div class="col col--end">
-                <button class="btn btn-primary" type="submit" style="width: 100%; max-width: 100%;"><span>Buscar</span></button>
+                <button class="btn btn-primary"  data-dismiss="modal" aria-label="Close" type="submit" style="width: 100%; max-width: 100%;"><span>Buscar</span></button>
               </div>
             </div>
           </form>
@@ -67,7 +67,7 @@
           <span>Imprimir solicitud</span>
         </div>
 
-        <div class="btn btn-primary">
+        <div class="btn btn-primary" data-dismiss="modal" aria-label="Close">
           CONTINUAR
         </div>
       </div>

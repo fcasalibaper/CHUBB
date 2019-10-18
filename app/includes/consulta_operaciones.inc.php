@@ -57,6 +57,12 @@
 
       <div class="form-row">
         <div class="col">
+          <input class="form-control w225" id="nombreDeCotizacion" placeholder="Nombre de cotización" rel="nombreDeCotizacion" required />
+          <label for="nombreDeCotizacion">
+          </label>
+        </div>
+
+        <div class="col">
           <input class="form-control w225 falseSelect" id="broker" placeholder="broker" rel="broker" data-toggle="modal" data-target="#modalSelect" required />
           <label for="broker">
           </label>
@@ -72,7 +78,7 @@
           </label>
         </div>
 
-        <div class="col col--end">
+        <div class="col">
           <select class="form-control w225 falseSelect" id="estado" placeholder="Estado" required>
             <option disabled selected>Estado</option>
             <option>Vigente</option>

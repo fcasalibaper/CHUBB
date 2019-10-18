@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Boostrap from 'bootstrap';
-import { isMobile, DownTo, UpTo, toolResponsive, addToLocalStorageObject } from '../utils/utils';
+import { isMobile, DownTo, UpTo, toolResponsive, addToLocalStorageObject, findLastIndex } from '../utils/utils';
 import datepicker from 'js-datepicker';
 
 window.initStorage = {
@@ -40,6 +40,7 @@ export default function General() {
             chubb.checkBoxOne();
             chubb.seeMore();
             chubb.dayPicker();
+            chubb.boxes.hashChanger.goToTheNextNotCompleted();
         },
 
         dayPicker : () => {
@@ -163,6 +164,7 @@ export default function General() {
                 hashChanged: () => {
                     $(window).on('hashchange', function( e ) {
                         chubb.boxes.hashChanger.hashManage();
+                        chubb.boxes.hashChanger.goToTheNextNotCompleted();
                     }).trigger('hashchange');
                 },
                 changeHashURL : (el) => {
@@ -183,6 +185,89 @@ export default function General() {
                     
                 },
 
+                goToTheNextNotCompleted : (el = 'step1') => {
+                    let lengthSteps = $('.boxes__box').length;
+                    let stateArray = [];
+                    $('.boxes__box').removeClass('active')
+
+                    // iteartion in all states and save in array
+                    for (let index = 0; index < lengthSteps; index++) {
+                        let states = initStorage[`step${index + 1}`].state;
+                        stateArray.push({'state': states})
+                    }
+
+                    // las true in array
+                    let lastStepTrue = findLastIndex(stateArray, 'state', true);
+                    //chubb.boxes.hashChanger.nextHash(lastStepTrue);
+
+                    if (lastStepTrue < 0) {
+                        $('#datos_generales').addClass('active');
+                        window.location.hash = '#datos_generales';
+                        console.log('step1')
+                    }
+
+                    if (lastStepTrue == 0 ) {
+                        $('#item').addClass('active');
+                        window.location.hash = '#item';
+                        console.log('step1')
+                    }
+                    if (lastStepTrue == 1) {
+                        $('#cobertura').addClass('active');
+                        window.location.hash = '#cobertura';
+                        console.log('step2')
+                        
+                    }
+                    
+                    if (lastStepTrue == 2) {
+                        $('#datos_solicitante').addClass('active');
+                        window.location.hash = '#datos_solicitante';
+                        console.log('step3')
+                    }
+                    
+                    if (lastStepTrue == 3) {
+                        $('#datos_solicitante').addClass('active');
+                        window.location.hash = '#datos_solicitante';
+                        console.log('step4')
+                    }
+
+                    // 
+
+                    // if (stateArray[0].state == true ) {
+                    //     window.location.hash = '#datos_solicitante';
+                    // }
+                    
+                },
+
+                nextHash : (lastStepTrue) => {
+                    if (lastStepTrue < 0) {
+                        $('#datos_generales').addClass('active');
+                        // window.location.hash = '#datos_generales';
+                        console.log('step1')
+                    }
+
+                    if (lastStepTrue == 0) {
+                        $('#item').addClass('active');
+                        // window.location.hash = '#item';
+                        console.log('step1')
+                    }
+                    if (lastStepTrue == 1) {
+                        $('#cobertura').addClass('active');
+                        // window.location.hash = '#cobertura';
+                        console.log('step2')
+                    }
+                    
+                    if (lastStepTrue == 2) {
+                        $('#datos_solicitante').addClass('active');
+                        // window.location.hash = '#datos_solicitante';
+                        console.log('step3')
+                    }
+                    
+                    if (lastStepTrue == 3) {
+                        $('#datos_solicitante').addClass('active');
+                        // window.location.hash = '#datos_solicitante';
+                        console.log('step4')
+                    }
+                }
             },
         },
 
@@ -217,13 +302,22 @@ export default function General() {
             },
 
             // si esta validado setea el state en 'completed', sino vacio
-            formValidated: (el, validated ) => {
+            formValidated : (el, validated ) => {
                 let element = el[0].id;
 
                 if ( validated === true ) {
+                    console.log('validated')
+                    chubb.formValidation.finalStepValidation(element);
+                    chubb.boxes.hashChanger.goToTheNextNotCompleted(element);
                     chubb.dataManage.steps(element);
                 } else {
                     $(`#${element}`).attr('state' , '');
+                }
+            },
+
+            finalStepValidation : (step) => {
+                if (step === 'step4' ) {
+                    $('#modalExito').modal('show'); 
                 }
             },
 

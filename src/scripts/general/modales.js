@@ -22,15 +22,12 @@ export default function Modales() {
       $removeBtn.on('click', '.delete, .icon-cancel, .delete > span', function() {
           console.log('remove: ')
           let $this = $(this);
-
-
           $this.parent().closest('li').remove();
       })
 
     },
 
     // modales
-    
     inputClick: () => {
         let $el = $('.falseSelect, .selectItem');
         
