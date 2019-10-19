@@ -17,7 +17,7 @@
         <i class="icon icon-chevron-left"></i>
       </span>
     </hgroup>
-    
+
     <div class="boxes__box__content">
       <form class="needs-validation" id="step1" novalidate>
         <div class="form-row">
@@ -30,21 +30,22 @@
           </div>
 
           <div class="col col-sm-3">
-            <input type="number" class="form-control" id="nroCotizacionBroker" placeholder="Ingrese número" required/>
+            <input type="number" class="form-control" id="nroCotizacionBroker" placeholder="Ingrese número" required />
             <label for="nroCotizacionBroker">
               Número Cotización Broker
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control falseSelect" rel="broker" id="broker" data-toggle="modal" data-target="#modalSelect" required />
+            <input type="text" class="form-control falseSelect" rel="broker" id="broker" data-toggle="modal"
+              data-target="#modalSelect" required />
             <label for="broker">
               Broker
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="organizador" required>
+            <select class="form-control falseSelect" id="organizador" required>
               <option selected disabled>Seleccione...</option>
               <option>1</option>
             </select>
@@ -58,28 +59,28 @@
         <div class="form-row">
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="nombreDelProducto" placeholder="Ingrese nombre" required/>
+            <input type="text" class="form-control" id="nombreDelProducto" placeholder="Ingrese nombre" required />
             <label for="nombreDelProducto">
               Nombre del producto
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="number" class="form-control" id="comisionBroker" placeholder="$" required/>
+            <input type="number" class="form-control" id="comisionBroker" placeholder="$" required />
             <label for="comisionBroker">
               Comisión Broker
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="number" class="form-control" id="comisionOrganizador" placeholder="$" required/>
+            <input type="number" class="form-control" id="comisionOrganizador" placeholder="$" required />
             <label for="comisionOrganizador">
               Comisión Organizador
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="destinoUso" placeholder="Particular" required/>
+            <input type="text" class="form-control" id="destinoUso" placeholder="Particular" required />
             <label for="destinoUso">
               Destino Uso
             </label>
@@ -89,7 +90,7 @@
 
         <div class="form-row">
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="moneda" required>
+            <select class="form-control falseSelect" id="moneda" required>
               <option selected disabled>Seleccione...</option>
               <option>1</option>
             </select>
@@ -99,7 +100,7 @@
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="duracion" required>
+            <select class="form-control falseSelect" id="duracion" required>
               <option selected disabled>Seleccione...</option>
               <option>1</option>
             </select>
@@ -109,7 +110,7 @@
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="medioDePago" required>
+            <select class="form-control falseSelect" id="medioDePago" required>
               <option selected disabled>Seleccione...</option>
               <option>1</option>
             </select>
@@ -119,7 +120,7 @@
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="cuotas" required>
+            <select class="form-control falseSelect" id="cuotas" required>
               <option selected disabled>Seleccione...</option>
               <option>1</option>
             </select>
@@ -131,12 +132,54 @@
         <!-- form -->
 
         <div class="form-row">
+          <div class="col col-sm-3">
+            <select class="form-control falseSelect" id="provincia" required>
+              <option selected disabled>Seleccione...</option>
+              <option>Buenos Aires</option>
+              <option>Catamarca</option>
+              <option>Chaco</option>
+              <option>Chubut</option>
+              <option>Córdoba</option>
+              <option>Corrientes</option>
+              <option>Entre Ríos</option>
+              <option>Formosa</option>
+              <option>Jujuy</option>
+              <option>La Pampa</option>
+              <option>La Rioja</option>
+              <option>Mendoza</option>
+              <option>Misiones</option>
+              <option>Neuquén</option>
+              <option>Río Negro</option>
+              <option>Salta</option>
+              <option>San Juan</option>
+              <option>San Luis</option>
+              <option>Santa Cruz</option>
+              <option>Santa Fe</option>
+              <option>Santiago del Estero</option>
+              <option>Tierra del Fuego, Antártida e Isla del Atlántico Sur</option>
+              <option>Tucumán</option>
+            </select>
+            <label for="provincia">
+              Provincia
+            </label>
+          </div>
+
+          <div class="col col-sm-3">
+            <input type="text" class="form-control" id="cp" placeholder="Código postal" required />
+            <label for="cp">
+              Código postal
+            </label>
+          </div>
+        </div>
+        <!-- form -->
+
+        <div class="form-row">
           <div class="col col--end alignEnd">
             <button class="btn btn-primary" type="submit"><span>Siguiente</span></button>
           </div>
         </div>
 
-      </form> 
+      </form>
     </div>
   </div>
   <!-- datos_generales -->
@@ -153,12 +196,12 @@
         <i class="icon icon-chevron-left"></i>
       </span>
     </hgroup>
-    
+
     <div class="boxes__box__content">
       <form class="needs-validation" id="step2" novalidate>
         <div class="form-row">
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="tipoVehiculo" required>
+            <select class="form-control falseSelect" id="tipoVehiculo" required>
               <option selected disabled>Seleccione...</option>
               <option>1</option>
             </select>
@@ -168,14 +211,15 @@
           </div>
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control falseSelect" id="marca"  selectItem" data-toggle="modal" data-target="#modalSelect" rel="marca" required />
+            <input type="text" class="form-control falseSelect" id="marca" selectItem" data-toggle="modal"
+              data-target="#modalSelect" rel="marca" required />
             <label for="marca">
               Marca
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="anio" required>
+            <select class="form-control falseSelect" id="anio" required>
               <option selected disabled>Seleccione...</option>
               <option>1</option>
             </select>
@@ -185,7 +229,7 @@
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control falseSelect" id="modelo" required>
+            <select class="form-control falseSelect" id="modelo" required>
               <option selected disabled>Seleccione...</option>
               <option>1</option>
             </select>
@@ -199,21 +243,21 @@
 
         <div class="form-row">
           <div class="col col-sm-3">
-            <input type="number" class="form-control" id="clausulaDeAjuste" placeholder="$" required/>
+            <input type="number" class="form-control" id="clausulaDeAjuste" placeholder="$" required />
             <label for="clausulaDeAjuste">
               Cláusula de Ajuste
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="number" class="form-control" id="sumaAsegurada" placeholder="$" required/>
+            <input type="number" class="form-control" id="sumaAsegurada" placeholder="$" required />
             <label for="sumaAsegurada">
               Suma Asegurada
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="factorPLD" placeholder="Ingrese dato" required/>
+            <input type="text" class="form-control" id="factorPLD" placeholder="Ingrese dato" required />
             <label for="factorPLD">
               Factor PLD
             </label>
@@ -267,13 +311,13 @@
           </div>
         </div>
 
-      </form> 
+      </form>
     </div>
   </div>
   <!-- item -->
 
   <div id="cobertura" class="boxes__box boxes__box--cobertura">
-    
+
     <hgroup class="boxes__box__title">
       <div class="number"><span>3</span></div>
       <h3>
@@ -285,7 +329,7 @@
       </span>
     </hgroup>
     <!-- title -->
-    
+
     <div class="boxes__box__content">
       <div class="cover">
 
@@ -296,7 +340,7 @@
             </h4>
 
             <div class="selectedItem">
-              Cobertura 1  - Valor cuota: $1111 - Patente: CCC111
+              Cobertura 1 - Valor cuota: $1111 - Patente: CCC111
             </div>
 
             <aside class="coverSelect">
@@ -308,7 +352,7 @@
               </div>
 
               <span class="edit">Editar</span>
-              
+
             </aside>
           </div>
 
@@ -335,7 +379,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="visible-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
                     <td>$1111</td>
@@ -343,10 +389,14 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="hidden-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
-                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="visible-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
                     <td>$1111</td>
@@ -354,10 +404,14 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="hidden-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
-                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="visible-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
                     <td>$1111</td>
@@ -365,10 +419,14 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="hidden-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
-                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="visible-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
                     <td>$1111</td>
@@ -376,10 +434,14 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="hidden-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
-                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="visible-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
                     <td>$1111</td>
@@ -387,10 +449,14 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="hidden-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
-                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="visible-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
                     <td>$1111</td>
@@ -398,10 +464,14 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="hidden-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
-                    <td class="visible-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="visible-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                     <td>1111111</td>
                     <td>lorem ipsum</td>
                     <td>$1111</td>
@@ -409,7 +479,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td class="hidden-mobile"><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td class="hidden-mobile">
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -425,7 +497,7 @@
             </h4>
 
             <div class="selectedItem">
-              Cobertura 1  - Valor cuota: $1111 - Patente: CCC111
+              Cobertura 1 - Valor cuota: $1111 - Patente: CCC111
             </div>
 
             <aside class="coverSelect">
@@ -437,7 +509,7 @@
               </div>
 
               <span class="edit">Editar</span>
-              
+
             </aside>
           </div>
 
@@ -470,17 +542,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
-                  </tr>
-                  <tr>
-                  <td>1111111</td>
-                    <td>lorem ipsum</td>
-                    <td>$1111</td>
-                    <td>$1111</td>
-                    <td>$1111</td>
-                    <td>$1111</td>
-                    <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -490,7 +554,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -500,7 +566,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -510,7 +578,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -520,7 +590,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -530,7 +602,21 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1111111</td>
+                    <td>lorem ipsum</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -546,7 +632,7 @@
             </h4>
 
             <div class="selectedItem">
-              Cobertura 1  - Valor cuota: $1111 - Patente: CCC111
+              Cobertura 1 - Valor cuota: $1111 - Patente: CCC111
             </div>
 
             <aside class="coverSelect">
@@ -558,7 +644,7 @@
               </div>
 
               <span class="edit">Editar</span>
-              
+
             </aside>
           </div>
 
@@ -591,17 +677,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
-                  </tr>
-                  <tr>
-                  <td>1111111</td>
-                    <td>lorem ipsum</td>
-                    <td>$1111</td>
-                    <td>$1111</td>
-                    <td>$1111</td>
-                    <td>$1111</td>
-                    <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -611,7 +689,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -621,7 +701,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -631,7 +713,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -641,7 +725,9 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                   <tr>
                     <td>1111111</td>
@@ -651,7 +737,21 @@
                     <td>$1111</td>
                     <td>$1111</td>
                     <td>$1111</td>
-                    <td><div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div></td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1111111</td>
+                    <td>lorem ipsum</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>$1111</td>
+                    <td>
+                      <div class="btn btn-transparent" data-toggle="modal" data-target="#modalCover">Seleccionar</div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -670,7 +770,7 @@
     </div>
   </div>
   <!-- cobertura -->
-  
+
   <div id="datos_solicitante" class="boxes__box">
     <hgroup class="boxes__box__title">
       <div class="number"><span>4</span></div>
@@ -683,17 +783,12 @@
         <i class="icon icon-chevron-left"></i>
       </span>
     </hgroup>
-    
+
     <div class="boxes__box__content">
       <form class="needs-validation" id="step4" novalidate>
         <div class="form-row">
           <div class="col col-sm-3">
-            <input
-              type="text"
-              class="form-control falseSelect datePicker-Vigencia"
-              id="vigencia" 
-              required
-            />
+            <input type="text" class="form-control falseSelect datePicker-Vigencia" id="vigencia" required />
             <label for="vigencia">
               Inicio de vigencia
             </label>
@@ -724,7 +819,7 @@
           </div>
 
           <div class="col col-sm-3">
-            <select type="text" class="form-control" id="sexo" required>
+            <select class="form-control" id="sexo" required>
               <option selected disabled>Seleccione...</option>
               <option>Femenino</option>
               <option>Masculino</option>
@@ -739,32 +834,28 @@
 
         <div class="form-row">
           <div class="col col-sm-3">
-            <input
-              type="text"
-              class="form-control falseSelect datePicker-Nacimiento" id="nacimiento"
-              required
-            />
+            <input type="text" class="form-control falseSelect datePicker-Nacimiento" id="nacimiento" required />
             <label for="nacimiento">
               Fecha de Nacimiento
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="number" class="form-control" id="inscriptoIva" placeholder="$" required/>
+            <input type="number" class="form-control" id="inscriptoIva" placeholder="$" required />
             <label for="inscriptoIva">
               CUIT Cliente
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="domicilio" placeholder="" required/>
+            <input type="text" class="form-control" id="domicilio" placeholder="" required />
             <label for="domicilio">
               Domicilio
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="number" class="form-control" id="codpostal" placeholder="" required/>
+            <input type="number" class="form-control" id="codpostal" placeholder="" required />
             <label for="codpostal">
               Código postal
             </label>
@@ -782,21 +873,21 @@
           </div>
 
           <div class="col col-sm-3">
-            <input type="number" class="form-control" id="cuit" placeholder="$" required/>
+            <input type="number" class="form-control" id="cuit" placeholder="$" required />
             <label for="cuit">
               Nº de inscripción IVA
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="text" class="form-control" id="condIIBB" placeholder="" required/>
+            <input type="text" class="form-control" id="condIIBB" placeholder="" required />
             <label for="condIIBB">
               Condición IIBB
             </label>
           </div>
 
           <div class="col col-sm-3">
-            <input type="number" class="form-control" id="NrocondIIBB" placeholder="" required/>
+            <input type="number" class="form-control" id="NrocondIIBB" placeholder="" required />
             <label for="NrocondIIBB">
               Nº de inscripción IIBB
             </label>
@@ -817,17 +908,13 @@
 
         <div class="form-row">
           <div class="col col--end alignEnd">
-            <button
-              rel="buttonSubmitExito"
-              class="btn btn-primary"
-              type="submit"
-              >
-                <span>Siguiente</span>
+            <button rel="buttonSubmitExito" class="btn btn-primary" type="submit">
+              <span>Siguiente</span>
             </button>
           </div>
         </div>
-        
-      </form> 
+
+      </form>
     </div>
   </div>
   <!-- datos_solicitante -->

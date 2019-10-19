@@ -9,6 +9,7 @@
   }
   
   .col {
+    position: relative;
     padding: 0 $INPUT_MARGINS / 2;
     display: flex;
     flex-direction: column;
