@@ -40,7 +40,7 @@ export default function General() {
             chubb.checkBoxOne();
             chubb.seeMore();
             chubb.dayPicker();
-            chubb.boxes.hashChanger.goToTheNextNotCompleted();
+            //chubb.boxes.hashChanger.goToTheNextNotCompleted();
         },
 
         dayPicker : () => {
@@ -164,7 +164,7 @@ export default function General() {
                 hashChanged: () => {
                     $(window).on('hashchange', function( e ) {
                         chubb.boxes.hashChanger.hashManage();
-                        chubb.boxes.hashChanger.goToTheNextNotCompleted();
+                        //chubb.boxes.hashChanger.goToTheNextNotCompleted();
                     }).trigger('hashchange');
                 },
                 changeHashURL : (el) => {
