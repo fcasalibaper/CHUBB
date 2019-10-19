@@ -48,7 +48,7 @@ export default function General() {
             let operaciones = [".datePicker-desde",".datePicker-hasta"];
             let cotizar = [".datePicker-Nacimiento",".datePicker-Vigencia"];
 
-            if ( path === "/consulta_operaciones.php") {
+            if ( path.indexOf("/consulta_operaciones.php") > -1 ) {
                 operaciones.map( function(el, i) {
                     datepicker(el, {
                         customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -61,7 +61,7 @@ export default function General() {
                 })
             }
 
-            if ( path === "/cotizar_seguro_nuevo.php" ) {
+            if ( path.indexOf("/cotizar_seguro_nuevo.php") > -1 ) {
                 cotizar.map( function(el, i) {
                     datepicker(el, {
                         customMonths: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
