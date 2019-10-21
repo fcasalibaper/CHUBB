@@ -22,7 +22,7 @@ window.initStorage = {
     }
 }
 
-
+window.hashes = [];
 window.stateArray = [];
 // iteartion in all states and save in array
 
@@ -48,16 +48,6 @@ export default function General() {
             chubb.checkBoxOne();
             chubb.seeMore();
             chubb.dayPicker();
-            chubb.boxes.hashChanger.goToTheNextNotCompleted();
-            chubb.arrayState()
-        },
-
-        arrayState : () => {
-            let lengthSteps = $('.boxes__box').length;
-            for (let index = 0; index < lengthSteps; index++) {
-                let states = initStorage[`step${index + 1}`].state;
-                stateArray.push({'state': states})
-            }
         },
 
         dayPicker : () => {
@@ -134,8 +124,6 @@ export default function General() {
 
             table.find('td.view').on('click',function(){
                 $(this).find('.popUp').addClass('active');
-                console.log('hola')
-                
             })
 
             table.find('td.view').add('.popUp').mouseleave(function() {
@@ -181,12 +169,12 @@ export default function General() {
                 hashChanged: () => {
                     $(window).on('hashchange', function( e ) {
                         chubb.boxes.hashChanger.hashManage();
+                        chubb.boxes.hashChanger.goToTheNextNotCompleted(window.location.hash);
                     }).trigger('hashchange');
                 },
                 changeHashURL : (el) => {
                     let newHash = el.attr('id');
                     window.location.hash = `#${newHash}`;
-                    chubb.boxes.hashChanger.goToTheNextNotCompleted(newHash);
                 },
 
                 openBox: (el) => {
@@ -202,63 +190,83 @@ export default function General() {
                     
                 },
 
-                goToTheNextNotCompleted : (el = 'step1', newHash) => {
-                    $('.boxes__box').removeClass('active')
+                goToTheNextNotCompleted : (newHash) => {
+                    let $box = $('.boxes');
+                    let $boxes = $box.find('.boxes__box');
+                    // $boxes.removeClass('active');
 
+                    console.log('newHasH: ', newHash)
 
-                    let redefine = [
-                        stateArray[0].state == true && '#datos_generales',
-                        stateArray[1].state == true && '#item',
-                        stateArray[2].state == true && '#cobertura',
-                        stateArray[3].state == true && '#datos_solicitante',
-                    ]
+                    if ( initStorage !== undefined || initStorage.length !== 0 ) {
+                        // let redefine = [
+                        //     initStorage.step1.state == true && '#datos_generales',
+                        //     initStorage.step2.state == true && '#item',
+                        //     initStorage.step3.state == true && '#cobertura',
+                        //     initStorage.step4.state == true && '#datos_solicitante',
+                        // ]
+                        //console.log('redefine: ', redefine[0])
 
-                    console.log('redefine: ', redefine[0])
-                    // if (lastStepTrue == 0 gul) {
-                    //     $('#item').addClass('active');
-                    //     window.location.hash = '#item';
-                    //     console.log('step1')
-                    // }
-                    // if (lastStepTrue == 1) {
-                    //     $('#cobertura').addClass('active');
-                    //     window.location.hash = '#cobertura';
-                    //     console.log('step2')
-                    // }
-                    
-                    // if (lastStepTrue == 2) {
-                    //     $('#datos_solicitante').addClass('active');
-                    //     window.location.hash = '#datos_solicitante';
-                    //     console.log('step3')
-                    // }
-                    
-                    // if (lastStepTrue == 3) {
-                    //     $('#datos_solicitante').addClass('active');
-                    //     window.location.hash = '#datos_solicitante';
-                    //     console.log('step4')
-                    // }
+                        switch (newHash) {
+                            case '#datos_generales':
+                            case 'step1':
+                                if ( initStorage.step1.state == true || initStorage.step2.state == false ) {
+                                    window.location.hash = '#datos_generales';
+                                } else {
+                                    window.location.hash = '#item';
+                                }
+                            break;
+                            case '#item':
+                            case 'step2':
+                                if ( initStorage.step1.state == true ) {
+                                    window.location.hash = '#item';
+                                } else {
+                                    window.location.hash = '#datos_generales';
+                                }
+                            break;
+                            case '#cobertura':
+                            case 'step3':
+                                if ( initStorage.step2.state == true ) {
+                                    window.location.hash = '#cobertura';
+                                } else {
+                                    window.location.hash = '#item';
+                                }
+                            break;
+                            case '#datos_solicitante':
+                            case 'step4':
+                                if ( initStorage.step3.state == true ) {
+                                    window.location.hash = '#datos_solicitante';
+                                } else {
+                                    window.location.hash = '#cobertura';
+                                }
+                            break;
+                            default:
+                                window.location.hash = '#datos_generales';
+                            break;
+                        }
+                        
 
-                    console.log(newHash)
+                        // if ( (newHash == '#datos_generales' || newHash == 'step1') && initStorage.step1.state == false ) {
+                        //     window.location.hash = '#datos_generales';
+                        // }
 
-                    if ( newHash == '#datos_generales' && stateArray[0].state == true ) {
-                        window.location.hash = '#datos_generales';
-                    }
+                        // if ( (newHash == '#item' || newHash == 'step2') && initStorage.step1.state == false ) {
+                        //     window.location.hash = '#datos_generales';
+                        // } else{
+                        //     window.location.hash = '#item';
+                        // }
 
-                    if ( newHash == '#item' && stateArray[1].state == true ) {
-                        window.location.hash = '#item';
-                    } else{
-                        window.location.hash = '#datos_generales';
-                    }
+                        // if ( (newHash == '#cobertura' || newHash == 'step3') && initStorage.step2.state == true ) {
+                        //     window.location.hash = '#item';
+                        // } else {
+                        //     window.location.hash = '#cobertura';
+                        // }
 
-                    if ( newHash == '#cobertura' && stateArray[2].state == true ) {
-                        window.location.hash = '#cobertura';
-                    } else {
-                        window.location.hash = '#item';
-                    }
+                        // if ( (newHash == '#datos_solicitante' || newHash == 'step4') && initStorage.step3.state == true ) {
+                        //     window.location.hash = '#cobertura';
+                        // }else {
+                        //     window.location.hash = '#datos_solicitante';
+                        // }
 
-                    if ( newHash == '#datos_solicitante' && stateArray[3].state == true ) {
-                        window.location.hash = '#datos_solicitante';
-                    }else {
-                        window.location.hash = '#cobertura';
                     }
 
                     // 
@@ -273,30 +281,30 @@ export default function General() {
                     if (lastStepTrue < 0) {
                         $('#datos_generales').addClass('active');
                         // window.location.hash = '#datos_generales';
-                        console.log('step1')
+                        console.log('nextHash: step1')
                     }
 
                     if (lastStepTrue == 0) {
                         $('#item').addClass('active');
                         // window.location.hash = '#item';
-                        console.log('step1')
+                        console.log('nextHash: step1')
                     }
                     if (lastStepTrue == 1) {
                         $('#cobertura').addClass('active');
                         // window.location.hash = '#cobertura';
-                        console.log('step2')
+                        console.log('nextHash: step2')
                     }
                     
                     if (lastStepTrue == 2) {
                         $('#datos_solicitante').addClass('active');
                         // window.location.hash = '#datos_solicitante';
-                        console.log('step3')
+                        console.log('nextHash: step3')
                     }
                     
                     if (lastStepTrue == 3) {
                         $('#datos_solicitante').addClass('active');
                         // window.location.hash = '#datos_solicitante';
-                        console.log('step4')
+                        console.log('nextHash: step4')
                     }
                 }
             },
@@ -326,7 +334,6 @@ export default function General() {
                             chubb.formValidation.formValidated($(this), true);
                             chubb.dataManage.goToNextSibling($(this))
                             chubb.dataManage.getAllDataInForm($(this));
-                            chubb.arrayState();
                         }
                         form.classList.add('was-validated');
                     }, false);
@@ -340,8 +347,8 @@ export default function General() {
                 if ( validated === true ) {
                     console.log('validated')
                     chubb.formValidation.finalStepValidation(element);
-                    chubb.boxes.hashChanger.goToTheNextNotCompleted(element);
                     chubb.dataManage.steps(element);
+                    chubb.boxes.hashChanger.goToTheNextNotCompleted(element);
                 } else {
                     $(`#${element}`).attr('state' , '');
                 }
@@ -372,22 +379,19 @@ export default function General() {
 
             // dumb function, recibe el paso completado y se lo devuelve al paso correspondiente dentro del DOM, lo setea.
             steps : (step) => {
+                console.log('steps :', step)
                 switch ( step ) {
                     case 'step1': 
                         $('#datos_generales').attr('state','completed')
-                        console.log('step1')
                     break;
                     case 'step2': 
                         $('#item').attr('state','completed')
-                        console.log('step2')
                     break;
                     case 'step3': 
                         $('#cobertura').attr('state','completed')
-                        console.log('step3')
                     break;
                     case 'step4': 
                         $('#datos_solicitante').attr('state','completed')
-                        console.log('step4')
                     break;
                 }
             },
@@ -400,6 +404,8 @@ export default function General() {
                     let step = `step${index + 1}`;
                     
                     if ( initStorage[step].state === true ) {
+                        console.log('stepInTheDOM: ', step)
+                        //chubb.boxes.hashChanger.goToTheNextNotCompleted(step);
                         chubb.dataManage.steps(step);
                     }
                 }
