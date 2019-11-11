@@ -6,7 +6,7 @@
       display: flex;
       width: 100%;
       align-items: center;
-      padding: 12px $PADDING_BOXES;
+      padding: 18px $PADDING_BOXES;
       border-bottom: 1px solid $COLOR_BORDER;
 
       @include downTo(sm) {

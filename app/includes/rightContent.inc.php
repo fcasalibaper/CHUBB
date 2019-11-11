@@ -3,6 +3,7 @@
   include("title.inc.php");
   if (strpos($url,'consulta_operaciones') !== false) {
     include("consulta_operaciones.inc.php");
+    include("consulta_operaciones_detalle.inc.php");
   } elseif (strpos($url,'consulta_renovacion') !== false) {
     include("consulta_renovacion.inc.php");
   } elseif (strpos($url,'cotizar_seguro_nuevo') !== false) {

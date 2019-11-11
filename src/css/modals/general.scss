@@ -41,7 +41,6 @@
       flex-wrap: nowrap;
       align-items: center;
       cursor: pointer;
-      padding: 9px 13px 9px 16px;
 
       &:hover {
         background-color: rgba($COLOR_GREY, 0.1);
@@ -50,20 +49,24 @@
       &:last-child {
         margin-bottom: 0;
       }
+      
+      a {
+        padding: 9px 13px 9px 16px;
+      }
 
-      span {
+      span,
+      a {
         @include fontSize(14px);
         font-weight: $REGULAR;
         line-height: 1;
         letter-spacing: normal;
         color: #333333;
-      }
-
-      i {
-        @include fontSize(8px);
-        padding: 0 !important;
-        margin-left: auto;
-        margin-right: 0;
+        i {
+          @include fontSize(8px);
+          padding: 0 !important;
+          margin-left: auto;
+          margin-right: 0;
+        }
       }
     }
   }
@@ -75,6 +78,10 @@
     @include fontSize(18px);
     color: $primary;
     margin-bottom: 34px;
+
+    @include break(xs) {
+      height: 15vh;
+    }
 
     .modal-title {
       width: 100%;
@@ -109,11 +116,13 @@
   &-content {
     max-height: none;
     padding: 37px 61px 52px 61px;
-    top: 50%;
-    transform: translateY(-50%);
 
     @include break(xs) {
       padding: 20px;
+    }
+    @include upTo(xs) {
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 
@@ -125,6 +134,7 @@
 
     @include break(xs) {
       justify-content: flex-start;
+      height: calc(85vh - 56px);
     }
 
     form {
@@ -164,8 +174,9 @@
     
   }
 
-  &#modalCover {
 
+  // MODAL COBERTURA
+  &#modalCover {
     .close {
       @include break(xs) {
         left: -36px;
@@ -185,6 +196,7 @@
     }
   }
 
+  // MODAL EXITO FINAL
   &#modalExito {
     .modal-header {
       display: flex;
@@ -204,6 +216,7 @@
     }
   }
 
+  // MODAL SELECT
   &#modalSelect {
     .modal-header {
       margin-bottom: 15px;
@@ -219,6 +232,10 @@
     }
     .modal-content {
       padding: 20px 0 34px 0;
+
+      @include break(xs) {
+        height: 100%;
+      }
     }
     .modal-dialog {
       max-width: 751px;
@@ -269,6 +286,10 @@
 
       .module {
         width: 100%;
+
+        @include break(xs) {
+          height: 100%;
+        }
       }
 
       .module__accesorios {
@@ -282,7 +303,8 @@
         width: 100%;
 
         @include break(xs) {
-          max-height: 70vh;
+          max-height: 100%;
+          height: 100%;
         }
 
         &Selected {
@@ -300,6 +322,18 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+
+        @include break(xs) {
+          max-height: 100%;
+          height: 100%;
+        }
+
+        ul, .listWrapperSelected {
+          @include break(xs) {
+            max-height: 100%;
+            height: 100%;
+          }
+        }
 
         &.list-3 {
           li {

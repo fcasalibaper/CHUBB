@@ -1,4 +1,13 @@
 .boxes {
+
+  &_detalle {
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+  }
+
   &__box {
     &.inactive {
       opacity: 0.6;
@@ -79,6 +88,21 @@
         }
 
         span.modify { display: none; }
+      }
+    }
+
+    &--semiopen {
+      opacity: 1;
+      box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1),
+                0 9px 1px 1px rgba(0,0,0,0.005) !important;
+
+      .boxes__box__content {
+        height: auto !important;
+        padding: $PADDING_BOXES_SIDES $PADDING_BOXES !important;
+
+        @include downTo(sm) {
+          padding: $PADDING_BOXES_MOBILE !important;
+        }
       }
     }
   }

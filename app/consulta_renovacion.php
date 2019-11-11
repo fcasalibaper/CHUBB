@@ -13,7 +13,6 @@
         <?php include("includes/rightContent.inc.php"); ?>
       </section>
     </div>
-    <!-- footer -->
   </div>
   <?php include("includes/modals.inc.php"); ?>
   <?php include("includes/scripts.inc.html"); ?>

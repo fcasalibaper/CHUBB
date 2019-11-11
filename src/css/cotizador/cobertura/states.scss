@@ -106,5 +106,58 @@
 
     }
 
+    // CONSULTA DE OPERACIONES - datos generales - items - coberturas
+    &--grey {
+      .cover__title {
+        border: 0 solid transparent;
+        border-radius: 0;
+        border-bottom: 1px solid #c6cbd4;
+        padding-left: 0;
+        padding-right: 0;
+
+        h4,
+        .coverSelect {
+          @include fontSize(14px);
+          font-weight: $REGULAR;
+          line-height: 1.71;
+          color: #333333;
+          &:before,
+          &:after {display: none;}
+        }
+
+        .coverSelect {
+          width: auto;
+          color: #6d7278;
+          &:before {display: none;}
+          
+          a {
+            margin-left: .8em;
+          }
+
+          span {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .cover__list {
+        border: solid 0 rgba(#333333, 0) !important;
+        &__title,
+        .cover__table > .table > thead {
+          border: solid 0 rgba(#333333, 0);
+          background-color: #f6f6f6;
+        }
+
+        tr {
+          border-bottom: solid 1px rgba(#333333, 0.1);
+
+          td {
+            border-top: 0 solid #000;
+          }
+        }
+        
+      }
+    }
+
   }
 }

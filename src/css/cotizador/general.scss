@@ -10,6 +10,17 @@
     left: -$PADDING_BOXES_MOBILE;
   }
 
+  p {
+    &.edit__mode {
+      opacity: 0.5;
+      font-weight: $REGULAR;
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: normal;
+      color: #6d7278;
+    }
+  }
+
   &__box {
     display: flex;
     flex-direction: column;

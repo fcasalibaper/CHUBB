@@ -1,6 +1,10 @@
 .module {
   display: none;
   flex-direction: column;
+
+  &-open {
+    overflow-y: hidden;
+  }
 }
 
 .modal {

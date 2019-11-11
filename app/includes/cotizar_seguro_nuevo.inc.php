@@ -764,7 +764,7 @@
 
       <div class="form-row">
         <div class="col col--end alignEnd">
-          <button class="btn btn-primary" type="submit"><span>Siguiente</span></button>
+          <button class="btn btn-primary btn-cobertura" type="submit"><span>Siguiente</span></button>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import Boostrap from 'bootstrap';
 import { isMobile, DownTo, UpTo, toolResponsive, addToLocalStorageObject, findLastIndex } from '../utils/utils';
 import datepicker from 'js-datepicker';
 
+// initialStorage
 window.initStorage = {
     step1: {
         'inputs': [],
@@ -22,13 +23,11 @@ window.initStorage = {
     }
 }
 
-window.hashes = [];
+// window.hashes = [];
 window.stateArray = [];
-// iteartion in all states and save in array
 
 // last true in array
 window.lastStepTrue = findLastIndex(stateArray, 'state', true);
-//chubb.boxes.hashChanger.nextHash(lastStepTrue);
 
 export default function General() {
     const chubb = {
@@ -43,7 +42,7 @@ export default function General() {
             chubb.dataManage.init();
             chubb.formValidation.init();
             chubb.boxes.init();
-            chubb.popUp();
+            chubb.popUp.init();
             chubb.cover();
             chubb.checkBoxOne();
             chubb.seeMore();
@@ -119,20 +118,38 @@ export default function General() {
             })
         },
 
-        popUp : () => {
-            const table = $('table.table');
+        popUp : {
+            init: () => {
+                chubb.popUp.openModal();
+                chubb.popUp.openDetail();
+            },
 
-            table.find('td.view').on('click',function(){
-                $(this).find('.popUp').addClass('active');
-            })
+            openModal: () => {
+                const table = $('table.table');
 
-            table.find('td.view').add('.popUp').mouseleave(function() {
-                
-                if($(this).find('.popUp').hasClass('active')) {
-                    $(this).find('.popUp').removeClass('active');
-                } 
-            })
-            
+                table.find('td.view').on('click',function(){
+                    $(this).find('.popUp').addClass('active');
+                })
+
+                table.find('td.view').add('.popUp').mouseleave(function() {
+                    if($(this).find('.popUp').hasClass('active')) {
+                        $(this).find('.popUp').removeClass('active');
+                    } 
+                })
+            },
+
+            openDetail: () => {
+                const $popUpBtn = $('.popUp').find('a');
+
+                $popUpBtn.on('click', function() {
+                    let $hash = $(this).attr('href');
+
+                    $('.boxes_detalle').toggleClass('active');
+                    $('.dateContent').toggleClass('inactive')
+                    chubb.boxes.hashChanger.goToTheNextNotCompleted($hash);
+                    
+                })
+            }
         },
 
         // interaccion de steps (1,2,3,4) segun clicks o cambios de hash en la url
@@ -191,21 +208,12 @@ export default function General() {
                 },
 
                 goToTheNextNotCompleted : (newHash) => {
-                    let $box = $('.boxes');
-                    let $boxes = $box.find('.boxes__box');
-                    // $boxes.removeClass('active');
-
+                    const $box = $('.boxes');
                     console.log('newHasH: ', newHash)
+                    let urlPath = window.location.pathname;
 
-                    if ( initStorage !== undefined || initStorage.length !== 0 ) {
-                        // let redefine = [
-                        //     initStorage.step1.state == true && '#datos_generales',
-                        //     initStorage.step2.state == true && '#item',
-                        //     initStorage.step3.state == true && '#cobertura',
-                        //     initStorage.step4.state == true && '#datos_solicitante',
-                        // ]
-                        //console.log('redefine: ', redefine[0])
-
+                    if ( urlPath.indexOf('cotizar_seguro_nuevo') > 0 && (initStorage !== undefined || initStorage.length !== 0) ) {
+                        console.log('cotizar_seguro_nuevo')
                         switch (newHash) {
                             case '#datos_generales':
                             case 'step1':
@@ -243,68 +251,20 @@ export default function General() {
                                 window.location.hash = '#datos_generales';
                             break;
                         }
-                        
-
-                        // if ( (newHash == '#datos_generales' || newHash == 'step1') && initStorage.step1.state == false ) {
-                        //     window.location.hash = '#datos_generales';
-                        // }
-
-                        // if ( (newHash == '#item' || newHash == 'step2') && initStorage.step1.state == false ) {
-                        //     window.location.hash = '#datos_generales';
-                        // } else{
-                        //     window.location.hash = '#item';
-                        // }
-
-                        // if ( (newHash == '#cobertura' || newHash == 'step3') && initStorage.step2.state == true ) {
-                        //     window.location.hash = '#item';
-                        // } else {
-                        //     window.location.hash = '#cobertura';
-                        // }
-
-                        // if ( (newHash == '#datos_solicitante' || newHash == 'step4') && initStorage.step3.state == true ) {
-                        //     window.location.hash = '#cobertura';
-                        // }else {
-                        //     window.location.hash = '#datos_solicitante';
-                        // }
-
                     }
 
-                    // 
-
-                    // if (stateArray[0].state == true ) {
-                    //     window.location.hash = '#datos_solicitante';
-                    // }
-                    
-                },
-
-                nextHash : (lastStepTrue) => {
-                    if (lastStepTrue < 0) {
-                        $('#datos_generales').addClass('active');
-                        // window.location.hash = '#datos_generales';
-                        console.log('nextHash: step1')
-                    }
-
-                    if (lastStepTrue == 0) {
-                        $('#item').addClass('active');
-                        // window.location.hash = '#item';
-                        console.log('nextHash: step1')
-                    }
-                    if (lastStepTrue == 1) {
-                        $('#cobertura').addClass('active');
-                        // window.location.hash = '#cobertura';
-                        console.log('nextHash: step2')
-                    }
-                    
-                    if (lastStepTrue == 2) {
-                        $('#datos_solicitante').addClass('active');
-                        // window.location.hash = '#datos_solicitante';
-                        console.log('nextHash: step3')
-                    }
-                    
-                    if (lastStepTrue == 3) {
-                        $('#datos_solicitante').addClass('active');
-                        // window.location.hash = '#datos_solicitante';
-                        console.log('nextHash: step4')
+                    if ( urlPath.indexOf('consulta_operaciones') > 0 && $box.hasClass('active') ) {
+                        switch (newHash) {
+                            case '#datos_generales_consulta':
+                                window.location.hash = '#datos_generales_consulta';
+                            break;
+                            case '#item_coberturas':
+                                window.location.hash = '#item_coberturas';
+                            break;
+                            case '#detalle_emision':
+                                window.location.hash = '#detalle_emision';
+                            break;
+                        }
                     }
                 }
             },
@@ -355,6 +315,9 @@ export default function General() {
             },
 
             finalStepValidation : (step) => {
+                if (step === 'step3' ) {
+                    $('#modalCover').modal('hide'); 
+                }
                 if (step === 'step4' ) {
                     $('#modalExito').modal('show'); 
                 }
@@ -492,16 +455,15 @@ export default function General() {
             
             // al presionar siguiente en los forms pasa al siguiente paso y cambia la URL
             goToNextSibling : (el) => {
-                let element = el.parent().closest('.boxes__box');
-                let nextSibling = element.next();
+                let elementNumber = el.attr('id').match(/\d+/)[0];
+                    elementNumber = Number(elementNumber);
+                const idsArray = ['#datos_generales','#item','#cobertura','#datos_solicitante'];
 
-                if (element !== undefined ) {
-                    
-                    element.removeClass('active').addClass('completed');
-                    nextSibling.addClass('active');
+                $(idsArray[elementNumber]).removeClass('active').addClass('completed');
+                $(idsArray[elementNumber+1]).addClass('active');    
 
-                    chubb.boxes.hashChanger.changeHashURL(nextSibling);
-                }
+                chubb.boxes.hashChanger.changeHashURL($(idsArray[elementNumber]));
+                
             }
         }
         

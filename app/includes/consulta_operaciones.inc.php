@@ -148,17 +148,23 @@
               <i class="icon icon-more-vertical"></i>
               <div class="popUp">
                 <ul>
-                  <li rel="#consultar">
-                    <span>Consultar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#datos_generales_consulta">
+                      <span>Consultar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="#solicitar">
-                    <span>Solicitar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#item_coberturas">
+                      <span>Solicitar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="detalleEmision">
-                    <span>Detalle emisión</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#detalle_emision">
+                      <span>Detalle emisión</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -177,17 +183,23 @@
               <i class="icon icon-more-vertical"></i>
               <div class="popUp">
                 <ul>
-                  <li rel="#consultar">
-                    <span>Consultar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#datos_generales_consulta">
+                      <span>Consultar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="#solicitar">
-                    <span>Solicitar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#item_coberturas">
+                      <span>Solicitar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="detalleEmision">
-                    <span>Detalle emisión</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#detalle_emision">
+                      <span>Detalle emisión</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -207,17 +219,23 @@
               <i class="icon icon-more-vertical"></i>
               <div class="popUp">
                 <ul>
-                  <li rel="#consultar">
-                    <span>Consultar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#datos_generales_consulta">
+                      <span>Consultar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="#solicitar">
-                    <span>Solicitar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#item_coberturas">
+                      <span>Solicitar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="detalleEmision">
-                    <span>Detalle emisión</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#detalle_emision">
+                      <span>Detalle emisión</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -237,17 +255,23 @@
               <i class="icon icon-more-vertical"></i>
               <div class="popUp">
                 <ul>
-                  <li rel="#consultar">
-                    <span>Consultar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#datos_generales_consulta">
+                      <span>Consultar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="#solicitar">
-                    <span>Solicitar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#item_coberturas">
+                      <span>Solicitar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="detalleEmision">
-                    <span>Detalle emisión</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#detalle_emision">
+                      <span>Detalle emisión</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -266,17 +290,23 @@
               <i class="icon icon-more-vertical"></i>
               <div class="popUp">
                 <ul>
-                  <li rel="#consultar">
-                    <span>Consultar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#datos_generales_consulta">
+                      <span>Consultar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="#solicitar">
-                    <span>Solicitar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#item_coberturas">
+                      <span>Solicitar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="detalleEmision">
-                    <span>Detalle emisión</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#detalle_emision">
+                      <span>Detalle emisión</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -295,17 +325,23 @@
               <i class="icon icon-more-vertical"></i>
               <div class="popUp">
                 <ul>
-                  <li rel="#consultar">
-                    <span>Consultar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#datos_generales_consulta">
+                      <span>Consultar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="#solicitar">
-                    <span>Solicitar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#item_coberturas">
+                      <span>Solicitar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="detalleEmision">
-                    <span>Detalle emisión</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#detalle_emision">
+                      <span>Detalle emisión</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -324,17 +360,23 @@
               <i class="icon icon-more-vertical"></i>
               <div class="popUp">
                 <ul>
-                  <li rel="#consultar">
-                    <span>Consultar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#datos_generales_consulta">
+                      <span>Consultar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="#solicitar">
-                    <span>Solicitar</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#item_coberturas">
+                      <span>Solicitar</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
-                  <li rel="detalleEmision">
-                    <span>Detalle emisión</span>
-                    <i class="icon icon-chevron-left"></i>
+                  <li>
+                    <a href="#detalle_emision">
+                      <span>Detalle emisión</span>
+                      <i class="icon icon-chevron-left"></i>
+                    </a>
                   </li>
                 </ul>
               </div>
