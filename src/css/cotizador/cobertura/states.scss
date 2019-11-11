@@ -140,12 +140,30 @@
         }
       }
 
+      &.active {
+        .cover__list {
+          &.active {
+            height: auto;
+          }
+        }
+      }
+
       .cover__list {
         border: solid 0 rgba(#333333, 0) !important;
+        
         &__title,
         .cover__table > .table > thead {
           border: solid 0 rgba(#333333, 0);
           background-color: #f6f6f6;
+        }
+
+        &__item {
+          display: none;
+          
+          &.active {
+            display: flex;
+            flex-direction: column;
+          }
         }
 
         tr {

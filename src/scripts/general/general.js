@@ -107,15 +107,52 @@ export default function General() {
         cover : () => {
             const $box = $('.cover__box');
 
-            $box.find('.coverSelect').on('click', function() {
-                const $parent = $(this).parent().closest($box);
-                if ($box.hasClass('active')) {
-                    $parent.siblings().removeClass('active')
-                    $parent.toggleClass('active');
-                } else {
-                    $parent.toggleClass('active');
-                }
-            })
+            // COTIZAR SEGURO NUEVO
+            if (window.location.pathname.indexOf('cotizar_seguro_nuevo') > 0 ) {
+                $box.find('.coverSelect').on('click', function() {
+                    const $parent = $(this).parent().closest($box);
+                    if ($box.hasClass('active')) {
+                        $parent.siblings().removeClass('active')
+                        $parent.toggleClass('active');
+                    } else {
+                        $parent.toggleClass('active');
+                    }
+                })
+            }
+
+            // CONSULTA DE OPERACIONES Y CARTERA
+            if (window.location.pathname.indexOf('consulta_operaciones') > 0 ) {
+                $box.find('.coverSelect').find('a').on('click', function() {
+                    let $getId = $(this).attr('class');
+                    const $parent = $(this).parent().closest($box);
+
+                    $box.find('.coverSelect').find('a').removeClass('btn-withOutHover--selected')
+                    $(this).addClass('btn-withOutHover--selected')
+                    
+                    $parent.add('.cover__list').removeClass('active');
+                    $parent.add('.cover__list').addClass('active');
+
+                    // seleccionar
+                    if ( $getId.indexOf('seleccionar') > 0 ) {
+                        $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
+                        // $parent.toggleClass('active');
+                        $parent.find('.cover__list').find('#seleccionar').toggleClass('active');
+                    }
+
+                    // editar
+                    if ( $getId.indexOf('editar') > 0) {
+                        $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
+                        // $parent.toggleClass('active');
+                        $parent.find('.cover__list').find('#editar').toggleClass('active')
+                    }
+
+                    // eliminar
+                    if ( $getId.indexOf('eliminar') > 0) {
+                        $parent.remove();
+                    }
+                })
+            }
+
         },
 
         popUp : {

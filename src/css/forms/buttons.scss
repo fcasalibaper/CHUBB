@@ -64,18 +64,16 @@
 
     &:active,
     &:focus,
-    &:hover {
+    &:hover,
+    &--selected {
       color: $primary !important;
       border: solid 1px $primary !important;
       background-color: transparent !important;
       outline: none;
-    }
 
-    &:hover {
-      color: rgba(#6d7278, 0.9 ) !important;
-      border: solid 1px rgba(#6d7278, 0.9 ) !important;
-      background-color: transparent !important;
-      color: rgba(#6d7278, 0.9 ) !important;
+      span {
+        color: $primary !important;
+      }
     }
   }
 }
