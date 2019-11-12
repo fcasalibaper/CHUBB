@@ -20,6 +20,10 @@ window.initStorage = {
     step4: {
         'inputs': [],
         'state': false,
+    },
+    newItem1: {
+        'inputs': [],
+        'state': false,
     }
 }
 
@@ -79,7 +83,6 @@ export default function General() {
                     })
                 })
             }
-            
         },
 
         // operations see more
@@ -153,10 +156,7 @@ export default function General() {
                     }
                 })
             }
-
         },
-
-        
 
         popUp : {
             init: () => {
@@ -370,15 +370,15 @@ export default function General() {
         // manejo de datos y localStorage para almacenar y persistir datos antes/despues del refresco de la página
         dataManage : {
             init : () => {
-                chubb.dataManage.setArrayFirstTime();
-                chubb.dataManage.printValuesFromLocalStorage();
+                //chubb.dataManage.setArrayFirstTime();
+                //chubb.dataManage.printValuesFromLocalStorage();
                 chubb.dataManage.stepInTheDOM();
             },
             
             // escribe el nuevo estado en el array global (initStorage) y lo guarda en el localStorage
             stepState : (id) => {
                 initStorage[id].state = true;
-                chubb.dataManage.saveDataOnStorage('steps', initStorage);
+                //chubb.dataManage.saveDataOnStorage('steps', initStorage);
             },
 
             // dumb function, recibe el paso completado y se lo devuelve al paso correspondiente dentro del DOM, lo setea.
@@ -413,11 +413,8 @@ export default function General() {
                 if ($forms.attr('id') !== undefined ) {
                     for (let index = 0; index < $formsLength ; index++) {
                         let step = `step${index + 1}`;
-
-                        
                         
                         if ( initStorage[step].state === true ) {
-                            console.log('stepInTheDOM: ', step)
                             //chubb.boxes.hashChanger.goToTheNextNotCompleted(step);
                             chubb.dataManage.steps(step);
                         }
@@ -468,6 +465,11 @@ export default function General() {
                         value = $(this).prop('checked')
                     }
 
+
+                    console.log('name: ', name)
+                    console.log('idStep: ', idStep)
+                    console.log('lengthInput: ', lengthInput)
+
                     // si el objeto esta vacio crea el mismo con el name y el value, sino, si es q el valor esta creado, lo cambia por el otro nuevo valor
                     if ( Object.entries(initStorage[idStep].inputs).length <= lengthInput) {
                         initStorage[idStep].inputs.push( {
@@ -480,7 +482,7 @@ export default function General() {
                     }
                 });
                 
-                chubb.dataManage.saveDataOnStorage('steps', initStorage);
+                //chubb.dataManage.saveDataOnStorage('steps', initStorage);
                 chubb.dataManage.stepState(idStep);
             },
 
