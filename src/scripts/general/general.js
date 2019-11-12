@@ -129,6 +129,7 @@ export default function General() {
                     $box.find('.coverSelect').find('a').removeClass('btn-withOutHover--selected')
                     $(this).addClass('btn-withOutHover--selected')
                     
+                    $('.cover__list__item').removeClass('active')
                     $parent.add('.cover__list').removeClass('active');
                     $parent.add('.cover__list').addClass('active');
 
@@ -154,6 +155,8 @@ export default function General() {
             }
 
         },
+
+        
 
         popUp : {
             init: () => {
@@ -331,6 +334,7 @@ export default function General() {
                             chubb.formValidation.formValidated($(this), true);
                             chubb.dataManage.goToNextSibling($(this))
                             chubb.dataManage.getAllDataInForm($(this));
+                            chubb.dataManage.newItem($(this));
                         }
                         form.classList.add('was-validated');
                     }, false);
@@ -396,17 +400,27 @@ export default function General() {
                 }
             },
 
+            // newItem
+            newItem : (el) => {
+                console.log('newItem: ', el)
+            },
+
             // al refrescar la página si el array global (initStorage.step${1,2,3, o 4}) esta seteado en true cambia el estado del DOM pasandesolo a un dumb function
             stepInTheDOM : () => {
                 let $forms = $('.needs-validation');
                 let $formsLength = $forms.length;
-                for (let index = 0; index < $formsLength ; index++) {
-                    let step = `step${index + 1}`;
-                    
-                    if ( initStorage[step].state === true ) {
-                        console.log('stepInTheDOM: ', step)
-                        //chubb.boxes.hashChanger.goToTheNextNotCompleted(step);
-                        chubb.dataManage.steps(step);
+
+                if ($forms.attr('id') !== undefined ) {
+                    for (let index = 0; index < $formsLength ; index++) {
+                        let step = `step${index + 1}`;
+
+                        
+                        
+                        if ( initStorage[step].state === true ) {
+                            console.log('stepInTheDOM: ', step)
+                            //chubb.boxes.hashChanger.goToTheNextNotCompleted(step);
+                            chubb.dataManage.steps(step);
+                        }
                     }
                 }
             },
@@ -414,10 +428,10 @@ export default function General() {
             // si existe un locastorage, suma los valores almacenados dentro de los inputs correspondientes en cada paso
             printValuesFromLocalStorage : () => {
                 let $forms = $('.needs-validation');
-                let $formsLength = $forms.length
+                let $formsLength = $forms.length;
                 let local = chubb.dataManage.getDataOnStorage('steps');
 
-                if ( localStorage.length > 0 ) {
+                if ( localStorage.length > 0 && $forms.attr('id') !== undefined ) {
                     for (let index = 0; index < $formsLength; index++) {
                         let $step = $(`#step${index+1}`);
                         let $stepInputs = $step.find('.form-control, .form-check-input');
@@ -444,7 +458,7 @@ export default function General() {
                 let idStep = el[0].id;
                 let input =  el.find('.form-control, .form-check-input');
                 let lengthInput = input.length - 1;
-
+                
                 input.map(function (i) {
                     let name = $(this).attr('id');
                     let value;

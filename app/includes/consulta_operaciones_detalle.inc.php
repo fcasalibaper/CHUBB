@@ -12,10 +12,10 @@
         Datos generales
       </h3>
 
-      <span class="modify">
+      <!-- <span class="modify">
         <p>Modificar</p>
         <i class="icon icon-chevron-left"></i>
-      </span>
+      </span> -->
     </hgroup>
 
     <div class="boxes__box__content">
@@ -73,7 +73,7 @@
             </aside>
           </div>
 
-          <div class="cover__list">
+          <div class="cover__list" style="overflow:visible">
             <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?> 
           </div>
         </div>
@@ -104,7 +104,7 @@
             </aside>
           </div>
 
-          <div class="cover__list">
+          <div class="cover__list" style="overflow:visible">
             <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?> 
           </div>
         </div>
@@ -139,17 +139,122 @@
             </aside>
           </div>
 
-          <div class="cover__list">
+          <div class="cover__list" style="overflow:visible">
             <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?> 
           </div>
         </div>
         <!-- box -->
+        
       </div>
       <!-- cover -->
 
+      <div class="boxes__accesories b0 p0 pb15">
+        <div class="boxes__accesories__added b0 p0">
+          <div class="boxes__accesories__added__newItem add justifyStart" id="addItem">
+            <i class="icon icon-plus"></i>
+            <span>Agregar nuevo item</span>
+          </div>
+        </div>
+      </div>
+      <!-- accesories -->
+
+      <div class="newItem">
+        <form class="needs-validation" id="newItem1" novalidate>
+          <div class="form-row">
+            <div class="col col-sm-3">
+              <select class="form-control falseSelect" id="tipoVehiculo" required>
+                <option selected disabled>Seleccione...</option>
+                <option>1</option>
+              </select>
+              <label for="tipoVehiculo">
+                Tipo de vehiculo
+              </label>
+            </div>
+
+            <div class="col col-sm-3">
+              <input type="text" class="form-control falseSelect" id="marca" selectItem" data-toggle="modal"
+                data-target="#modalSelect" rel="marca" required />
+              <label for="marca">
+                Marca
+              </label>
+            </div>
+
+            <div class="col col-sm-3">
+              <select class="form-control falseSelect" id="anio" required>
+                <option selected disabled>Seleccione...</option>
+                <option>1</option>
+              </select>
+              <label for="anio">
+                Año
+              </label>
+            </div>
+
+            <div class="col col-sm-3">
+              <select class="form-control falseSelect" id="modelo" required>
+                <option selected disabled>Seleccione...</option>
+                <option>1</option>
+              </select>
+              <label for="modelo">
+                Modelo
+              </label>
+            </div>
+
+          </div>
+          <!-- form -->
+
+          <div class="form-row">
+            <div class="col col-sm-3">
+              <input type="number" class="form-control" id="clausulaDeAjuste" placeholder="$" required />
+              <label for="clausulaDeAjuste">
+                Cláusula de Ajuste
+              </label>
+            </div>
+
+            <div class="col col-sm-3">
+              <input type="number" class="form-control" id="sumaAsegurada" placeholder="$" required />
+              <label for="sumaAsegurada">
+                Suma Asegurada
+              </label>
+            </div>
+
+            <div class="col col-sm-3">
+              <input type="text" class="form-control" id="factorPLD" placeholder="Ingrese dato" required />
+              <label for="factorPLD">
+                Factor PLD
+              </label>
+            </div>
+
+            <div class="col col-sm-3 colRow checks">
+              <div class="form-check">
+                <input class="form-check-input oneSelected" type="checkbox" id="modeloEspecial" checked />
+                <label class="form-check-label" for="modeloEspecial">
+                  Modelo especial
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input oneSelected" type="checkbox" id="ceroKm" />
+                <label class="form-check-label" for="ceroKm">
+                  0Km
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col col--end alignEnd">
+              <button class="btn btn-primary" type="submit"><span>Agregar Item</span></button>
+            </div>
+          </div>
+          <!-- form -->
+
+        </form>
+      </div>
+      <!-- newItem -->
+
       <div class="form-row">
         <div class="col col--end alignEnd">
-          <button class="btn btn-primary" type="submit"><span>Siguiente</span></button>
+          <button class="btn btn-primary" type="submit"><span>Emitir</span></button>
         </div>
       </div>
     </div>
