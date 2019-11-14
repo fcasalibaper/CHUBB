@@ -9,10 +9,31 @@
   }
 
   &__box {
+
+    .edit__mode {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hideOnCompleted {
+      display: none;
+    }
+
     &.inactive {
       opacity: 0.6;
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.09),
                 0 13px 1px 1px rgba(0,0,0,0.001);
+
+      .edit__mode {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+  
+      .hideOnCompleted {
+        display: none;
+      }
     
       .boxes__box__title {
         .number {
@@ -30,6 +51,17 @@
     &[state="completed"] {
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.09),
                 0 13px 1px 1px rgba(0,0,0,0.001);
+
+
+      .edit__mode {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hideOnCompleted {
+        display: none;
+      }
     
       .boxes__box__title {
         &:after {
@@ -70,6 +102,17 @@
       box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1),
                 0 9px 1px 1px rgba(0,0,0,0.005);
 
+
+      .edit__mode {
+        display: none;
+      }
+  
+      .hideOnCompleted {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+ 
       .boxes__box__content {
         height: auto;
         padding: $PADDING_BOXES_SIDES $PADDING_BOXES;
@@ -105,5 +148,6 @@
         }
       }
     }
+    
   }
 }

@@ -21,7 +21,7 @@
       </thead>
       <tbody>
         <tr>
-          <td class="visible-mobile">
+          <td class="visible-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
           <td>1111111</td>
@@ -31,12 +31,12 @@
           <td>$1111</td>
           <td>$1111</td>
           <td>$1111</td>
-          <td class="hidden-mobile">
+          <td class="hidden-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
         </tr>
         <tr>
-          <td class="visible-mobile">
+          <td class="visible-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
           <td>1111111</td>
@@ -46,12 +46,12 @@
           <td>$1111</td>
           <td>$1111</td>
           <td>$1111</td>
-          <td class="hidden-mobile">
+          <td class="hidden-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
         </tr>
         <tr>
-          <td class="visible-mobile">
+          <td class="visible-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
           <td>1111111</td>
@@ -61,12 +61,12 @@
           <td>$1111</td>
           <td>$1111</td>
           <td>$1111</td>
-          <td class="hidden-mobile">
+          <td class="hidden-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
         </tr>
         <tr>
-          <td class="visible-mobile">
+          <td class="visible-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
           <td>1111111</td>
@@ -76,12 +76,12 @@
           <td>$1111</td>
           <td>$1111</td>
           <td>$1111</td>
-          <td class="hidden-mobile">
+          <td class="hidden-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
         </tr>
         <tr>
-          <td class="visible-mobile">
+          <td class="visible-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
           <td>1111111</td>
@@ -91,12 +91,12 @@
           <td>$1111</td>
           <td>$1111</td>
           <td>$1111</td>
-          <td class="hidden-mobile">
+          <td class="hidden-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
         </tr>
         <tr>
-          <td class="visible-mobile">
+          <td class="visible-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
           <td>1111111</td>
@@ -106,12 +106,12 @@
           <td>$1111</td>
           <td>$1111</td>
           <td>$1111</td>
-          <td class="hidden-mobile">
+          <td class="hidden-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
         </tr>
         <tr>
-          <td class="visible-mobile">
+          <td class="visible-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
           <td>1111111</td>
@@ -121,7 +121,7 @@
           <td>$1111</td>
           <td>$1111</td>
           <td>$1111</td>
-          <td class="hidden-mobile">
+          <td class="hidden-mobile" data-toggle="modal" data-target="#modalCover">
             <div class="btn btn-transparent">Seleccionar</div>
           </td>
         </tr>

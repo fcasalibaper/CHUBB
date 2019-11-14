@@ -61,6 +61,7 @@
         line-height: 1;
         letter-spacing: normal;
         color: #333333;
+        text-align: left;
         i {
           @include fontSize(8px);
           padding: 0 !important;

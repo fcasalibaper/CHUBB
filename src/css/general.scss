@@ -444,4 +444,9 @@
   position: relative;
   margin-top: 20px;
   padding: 15px 0 30px;
+  display: none;
+
+  &.open {
+    display: flex;
+  }
 }

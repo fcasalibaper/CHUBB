@@ -52,6 +52,7 @@ export default function General() {
             chubb.checkBoxOne();
             chubb.seeMore();
             chubb.dayPicker();
+            chubb.newItemSet.init();
         },
 
         dayPicker : () => {
@@ -372,7 +373,8 @@ export default function General() {
         newItemSet: {
             // #addItem
             init : () => {
-                chubb.newItemSet.printHtml();
+                chubb.newItemSet.openFormItem();
+                chubb.newItemSet.buttonEmitir();
             },
 
             printHtml : (el) => {
@@ -423,14 +425,8 @@ export default function General() {
                 }
             },
 
-            lastItemAdded : () => {
-                // LAST GET COLOR AND CLASS 'last'
-                let $lastCover = $('.cover__box');
-                let last = $lastCover.length;
-
-                $lastCover.removeClass('last');
-                $lastCover.eq(last - 1).toggleClass('last');
-                
+            // despues de agregar el element llama a un .html/.php externo a modo include
+            callElementInOuterHTML : () => {
                 // Set .php in html
                 $.ajax({
                     url: '../includes/consulta_operaciones_seleccionar-editar.inc.php',
@@ -438,7 +434,6 @@ export default function General() {
                         $(".cover__box--grey.last").append('<span class="loading">Cargando...<span>');
                     },
                     success : function(data) {
-                        console.log('hola')
                         $('.loading').remove();
                         setTimeout(function () {
                             $('.cover__box--grey.last > .cover__list').append(data);
@@ -449,21 +444,73 @@ export default function General() {
                     }
                 })
 
-                // cleaning initialStorage["newItem"]
-                // initStorage['newItem'].inputs = [];
-                // initStorage['newItem'].state = false;
-
                 // add funcionality for new buttons on DOM
-
                 $(document).ajaxSuccess(function(event, xhr, settings) {
-                    console.log('cargado ajax')
                     if (settings.url.indexOf('consulta_operaciones_seleccionar-editar') > -1) {
-                        chubb.cover();
-                        chubb.modals.init();
+                        setTimeout(function () {
+                            chubb.cover();
+                            chubb.modals.init();
+                        }, 500)
                     }
                 })
+            },
+
+            cleanFormAfterAddItem : () => {
+                $('#newItem')[0].reset();  // Reset
+                return false; 
+            },
+
+            lastItemAdded : () => {
+                // LAST GET COLOR AND CLASS 'last'
+                let $lastCover = $('.cover__box');
+                let last = $lastCover.length;
+
+                $lastCover.removeClass('last');
+                $lastCover.eq(last - 1).toggleClass('last');
+
+                // cleaning initialStorage["newItem"]
+                initStorage['newItem'].inputs = [];
+                initStorage['newItem'].state = false;
+
+                chubb.newItemSet.callElementInOuterHTML();
+                chubb.newItemSet.beforeAddingNewItem();
+                chubb.newItemSet.cleanFormAfterAddItem();
                 
             },
+
+            // oculta el form
+            beforeAddingNewItem : () => {
+                const $itemToOpen = $('.newItem');
+
+                if ( $itemToOpen.hasClass('open') ) {
+                    $itemToOpen.removeClass('open')
+                    
+                    // muestra boton emitir
+                    $('#emitir').show();
+                }
+            },
+
+            buttonEmitir : () => {
+                $('#emitir').find('button').on('click', function () {
+                    $('#item_coberturas').attr('state','completed').removeClass('active');
+
+                })
+            },
+
+            openFormItem : () => {
+                const $addBtn = $('#addItem');
+                const $itemToOpen = $('.newItem');
+                
+                $addBtn.on('click', function () {
+                    if ( !$itemToOpen.hasClass('open') ) {
+                        $itemToOpen.addClass('open')
+                    }
+
+                    // oculta boton emitir
+                    $('#emitir').hide();
+                })
+
+            }
         },
 
         // manejo de datos y localStorage para almacenar y persistir datos antes/despues del refresco de la página
@@ -572,7 +619,7 @@ export default function General() {
                 
                 //chubb.dataManage.saveDataOnStorage('steps', initStorage);
                 chubb.dataManage.stepState(idStep); // le pasa el id del paso
-                chubb.newItemSet.init(); // operaciones / cartera - "agregar item"
+                chubb.newItemSet.printHtml(); // operaciones / cartera - "agregar item"
             },
 
             // dumb function guarda un valor/objeto/array en el localStorage
