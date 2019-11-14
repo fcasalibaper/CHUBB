@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Boostrap from 'bootstrap';
-import { isMobile, DownTo, UpTo, toolResponsive, addToLocalStorageObject, findLastIndex } from '../utils/utils';
+import { isMobile, DownTo, UpTo, toolResponsive, addToLocalStorageObject, findLastIndex, stringHasNumber } from '../utils/utils';
 import datepicker from 'js-datepicker';
 
 // initialStorage
@@ -21,7 +21,7 @@ window.initStorage = {
         'inputs': [],
         'state': false,
     },
-    newItem1: {
+    newItem: {
         'inputs': [],
         'state': false,
     }
@@ -43,6 +43,7 @@ export default function General() {
 
         ready: () => {
             // toolResponsive();
+            chubb.modals.init();
             chubb.dataManage.init();
             chubb.formValidation.init();
             chubb.boxes.init();
@@ -296,6 +297,7 @@ export default function General() {
                     if ( urlPath.indexOf('consulta_operaciones') > 0 && $box.hasClass('active') ) {
                         switch (newHash) {
                             case '#datos_generales_consulta':
+                            case 'newItem':
                                 window.location.hash = '#datos_generales_consulta';
                             break;
                             case '#item_coberturas':
@@ -334,7 +336,7 @@ export default function General() {
                             chubb.formValidation.formValidated($(this), true);
                             chubb.dataManage.goToNextSibling($(this))
                             chubb.dataManage.getAllDataInForm($(this));
-                            chubb.dataManage.newItem($(this));
+                            //chubb.newItemSet.init($(this));
                         }
                         form.classList.add('was-validated');
                     }, false);
@@ -346,7 +348,7 @@ export default function General() {
                 let element = el[0].id;
 
                 if ( validated === true ) {
-                    console.log('validated')
+                    // console.log('validated')
                     chubb.formValidation.finalStepValidation(element);
                     chubb.dataManage.steps(element);
                     chubb.boxes.hashChanger.goToTheNextNotCompleted(element);
@@ -363,8 +365,105 @@ export default function General() {
                     $('#modalExito').modal('show'); 
                 }
             },
+        },
 
-            
+        // opciones de operaciones y cartera items added
+        // newItem
+        newItemSet: {
+            // #addItem
+            init : () => {
+                chubb.newItemSet.printHtml();
+            },
+
+            printHtml : (el) => {
+                // console.log('newItem: ', initStorage['newItem'].inputs);
+
+                const auto = initStorage['newItem'].inputs;
+
+                if ( auto.length > 0 ) {
+                    const marca = auto[1].value;
+                    const anio = auto[2].value;
+                    const modelo = auto[3].value;
+
+                    let newItem = `
+                        <div class="cover__box cover__box--grey">
+                            <div class="cover__title">
+                                <h4>
+                                    ${marca}, ${anio}, ${modelo}
+                                </h4>
+                    
+                                <aside class="coverSelect">
+                                    <a href="#" class="btn btn-withOutHover btn-seleccionar">
+                                        <span>
+                                            Seleccionar cobertura
+                                        </span>
+                                    </a>
+                                    <a href="#" class="btn btn-withOutHover btn-editar">
+                                        <span>
+                                            Editar
+                                        </span>
+                                    </a>
+                                    <a href="#" class="btn btn-withOutHover btn-eliminar">
+                                        <span>
+                                            Eliminar
+                                        </span>
+                                    </a>
+                                </aside>
+                            </div>
+                
+                            <div class="cover__list" style="overflow:visible">
+                            </div>
+                        </div>
+                        <!-- box -->
+                    `;
+
+                    // APPEND TO LAST
+                    $('.cover').append(newItem);
+                    chubb.newItemSet.lastItemAdded();
+                }
+            },
+
+            lastItemAdded : () => {
+                // LAST GET COLOR AND CLASS 'last'
+                let $lastCover = $('.cover__box');
+                let last = $lastCover.length;
+
+                $lastCover.removeClass('last');
+                $lastCover.eq(last - 1).toggleClass('last');
+                
+                // Set .php in html
+                $.ajax({
+                    url: '../includes/consulta_operaciones_seleccionar-editar.inc.php',
+                    beforeSend: function () {
+                        $(".cover__box--grey.last").append('<span class="loading">Cargando...<span>');
+                    },
+                    success : function(data) {
+                        console.log('hola')
+                        $('.loading').remove();
+                        setTimeout(function () {
+                            $('.cover__box--grey.last > .cover__list').append(data);
+                        }, 1000)
+                    },
+                    error: function() {
+                        console.log("No se ha podido obtener la información");
+                    }
+                })
+
+                // cleaning initialStorage["newItem"]
+                // initStorage['newItem'].inputs = [];
+                // initStorage['newItem'].state = false;
+
+                // add funcionality for new buttons on DOM
+
+                $(document).ajaxSuccess(function(event, xhr, settings) {
+                    console.log('cargado ajax')
+                    if (settings.url.indexOf('consulta_operaciones_seleccionar-editar') > -1) {
+                        chubb.cover();
+                        chubb.modals.init();
+                    }
+                })
+                
+            },
         },
 
         // manejo de datos y localStorage para almacenar y persistir datos antes/despues del refresco de la página
@@ -400,11 +499,6 @@ export default function General() {
                 }
             },
 
-            // newItem
-            newItem : (el) => {
-                console.log('newItem: ', el)
-            },
-
             // al refrescar la página si el array global (initStorage.step${1,2,3, o 4}) esta seteado en true cambia el estado del DOM pasandesolo a un dumb function
             stepInTheDOM : () => {
                 let $forms = $('.needs-validation');
@@ -435,7 +529,6 @@ export default function General() {
                         let $stepLocalArray = local[`step${index+1}`].inputs;
 
                         if ( $stepLocalArray.length > 0 || localStorage.length > 0 ) {
-
                             $stepInputs.map(function (i) {
                                 if ( local[`step${index+1}`].inputs.length > 0 ) {
                                     if ( $(this).hasClass('form-control') ) {
@@ -465,11 +558,6 @@ export default function General() {
                         value = $(this).prop('checked')
                     }
 
-
-                    console.log('name: ', name)
-                    console.log('idStep: ', idStep)
-                    console.log('lengthInput: ', lengthInput)
-
                     // si el objeto esta vacio crea el mismo con el name y el value, sino, si es q el valor esta creado, lo cambia por el otro nuevo valor
                     if ( Object.entries(initStorage[idStep].inputs).length <= lengthInput) {
                         initStorage[idStep].inputs.push( {
@@ -483,7 +571,8 @@ export default function General() {
                 });
                 
                 //chubb.dataManage.saveDataOnStorage('steps', initStorage);
-                chubb.dataManage.stepState(idStep);
+                chubb.dataManage.stepState(idStep); // le pasa el id del paso
+                chubb.newItemSet.init(); // operaciones / cartera - "agregar item"
             },
 
             // dumb function guarda un valor/objeto/array en el localStorage
@@ -508,18 +597,201 @@ export default function General() {
             
             // al presionar siguiente en los forms pasa al siguiente paso y cambia la URL
             goToNextSibling : (el) => {
-                let elementNumber = el.attr('id').match(/\d+/)[0];
-                    elementNumber = Number(elementNumber);
                 const idsArray = ['#datos_generales','#item','#cobertura','#datos_solicitante'];
-
-                $(idsArray[elementNumber]).removeClass('active').addClass('completed');
-                $(idsArray[elementNumber+1]).addClass('active');    
-
-                chubb.boxes.hashChanger.changeHashURL($(idsArray[elementNumber]));
+                let elementNumber = el.attr('id');
                 
+                if ( stringHasNumber(elementNumber) && window.location.pathname.indexOf('cotizar_seguro_nuevo') > 0 ) {
+                    elementNumber = elementNumber.match(/\d+/)[0];
+                    elementNumber = Number(elementNumber);
+                    $(idsArray[elementNumber]).removeClass('active').addClass('completed');
+                    $(idsArray[elementNumber+1]).addClass('active');    
+                    chubb.boxes.hashChanger.changeHashURL($(idsArray[elementNumber]));
+                }
+            }
+        },
+
+        modals : {
+            init: () => {
+                chubb.modals.ready();
+            },
+            ready : () => {
+                chubb.modals.inputClick();
+                chubb.modals.selectType();
+            },
+        
+            removeAccesories : () => {
+              const $ul = $('.boxes__accesories__added__content');
+              let $removeBtn = $ul.find('li');
+        
+              $removeBtn.on('click', '.delete, .icon-cancel, .delete > span', function() {
+                  console.log('remove: ')
+                  let $this = $(this);
+                  $this.parent().closest('li').remove();
+              })
+        
+            },
+        
+            // modales
+            inputClick: () => {
+                let $el = $('.falseSelect, .selectItem');
+                
+                $el.click(function(e) {
+                    let $this = $(this);
+                    let $nameModal = $this.attr('rel');
+                    $this.addClass('open'); // avoid click others lis
+                    chubb.modals.nameModal($this);
+                    chubb.modals.withOutModel($this);
+                    chubb.modals.getLiFiltered($this, $nameModal);
+                })
+            },
+        
+            nameModal: (el) => {
+                const nameOfModal = el.attr('rel');
+                chubb.modals.typeOfModal.showTypeOfModal(nameOfModal)
+                chubb.modals.openHideModal(nameOfModal);
+            },
+        
+            selectType: () => {
+                const $search = $('input.search-input');
+                $search.on('input', function() {
+                    let that = this.value;
+                    chubb.modals.filterBrands(that);
+                });
+            },
+        
+            filterBrands: (filtered) => {
+                const $ulText = $('ul.list-text');
+                const $liText = $ulText.find('li');
+                
+                if ( $liText.length > 0 ) {
+                    $liText.hide().filter(function() {
+                        return $(this).text().toLowerCase().indexOf( filtered ) > -1;
+                    })
+                    .show();
+                }
+            },
+        
+            // get li clickeed and pass them input clicked and new text of selecition
+            getLiFiltered: (clicked, modalName) => {
+                const $ulText = $('ul.list-text');
+                const $liText = $ulText.find('li');
+        
+                $liText.on('click', function() {
+                    let text;
+        
+                    switch (modalName) {
+                        case 'broker': 
+                            text = $(this).find('.name').text();
+                        break;
+                        case 'accesorios':
+                            let name = $(this).find('.name').text();
+                            let price = $(this).find('.price').text();
+                            
+                            text = {
+                                name,
+                                price
+                            }
+                        break;
+                        case 'marca' : 
+                            text = $(this).find('.name').text();
+                        break;                      
+                    }
+        
+                    if (clicked.hasClass('open')) {
+                        // if => avoid click others lis
+                        chubb.modals.printTextSelectedInInput(clicked, text, modalName);
+                        clicked.removeClass('open');
+                    }
+                })
+        
+            },
+        
+            withOutModel: (clicked) => {
+                const el = $('span.withOutModel');
+        
+                el.on('click', function() {
+                    let text = `No se encontró mi modelo`;
+                    if (clicked.hasClass('open')) {
+                        // if => avoid click others lis
+                        chubb.modals.printTextSelectedInInput(clicked, text);
+                        clicked.removeClass('open');
+                    }
+                })
+            },
+        
+            // clean input when close modal
+            clearInput: () => {
+                const $modal = $('#modalSelect');
+                const $el = $modal.find('input.search-input');
+        
+                chubb.modals.filterBrands('');
+        
+                if ($el.length) {
+                    $el.val('');
+                }
+            },
+        
+            // print selected text
+            printTextSelectedInInput: (el, text, modalName) => {
+                const $modal = $('#modalSelect');
+        
+                switch (modalName) {
+                    case 'broker':
+                        el.val(text);
+                    break;
+                    case 'accesorios':
+                        let li = `<li>
+                                <span>${text.name}</span>
+                                <div class="price">${text.price}</div>
+                                <div class="delete"><i class="icon icon-cancel"></i><span>Borrar</span></div>
+                            </li>`;
+                        $('.boxes__accesories__added__content').prepend(li)
+                        chubb.modals.removeAccesories();
+                    break;  
+                    case 'marca' : 
+                        el.val(text);
+                    break;                      
+                }
+        
+                // hide modal
+                $modal.modal('hide');
+            },
+        
+            typeOfModal: {
+                showTypeOfModal: (nameOfModal) => {
+                    chubb.modals.typeOfModal.changeTexts(nameOfModal);
+                },
+                changeTexts: (nameOfModal) => {
+                    const $modal = $('#modalSelect');
+                    const title = $modal.find('.modal-title');
+                    const placeholder = $modal.find('input.search-input');
+        
+                    switch (nameOfModal) {
+                        case 'accesorios':
+                            title.text('Búsqueda de accesorios')
+                            placeholder.attr('placeholder', 'Buscar accesorios')
+                            break;
+                        case 'broker':
+                            title.text('Búsqueda de broker')
+                            placeholder.attr('placeholder', 'Buscar nombre / código broker')
+                            break;
+                        case 'marca':
+                            title.text('Elija el modelo de su auto')
+                            placeholder.attr('placeholder', 'Buscar por modelo')
+                            break;
+                    }
+                }
+            },
+        
+            openHideModal: (nameOfModalToHide) => {
+                const $modal = $('#modalSelect');
+                $modal.addClass(nameOfModalToHide);
+                $modal.on('hidden.bs.modal', function (e) {
+                    $(this).removeClass(nameOfModalToHide);
+                    chubb.modals.clearInput();
+                });
             }
         }
-        
     };
 
     chubb.init();

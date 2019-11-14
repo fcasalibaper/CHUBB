@@ -50,9 +50,9 @@
               Citroen C3, 2013, Exclusive
             </h4>
 
-            <div class="selectedItem">
+            <!-- <div class="selectedItem">
               Cobertura 1 - Valor cuota: $1111 - Patente: CCC111
-            </div>
+            </div> -->
 
             <aside class="coverSelect">
               <a href="#" class="btn btn-withOutHover btn-seleccionar">
@@ -74,7 +74,7 @@
           </div>
 
           <div class="cover__list" style="overflow:visible">
-            <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?> 
+            <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?>
           </div>
         </div>
         <!-- box -->
@@ -85,6 +85,10 @@
               Citroen C3, 2013, Exclusive
             </h4>
 
+            <!-- <div class="selectedItem">
+              Cobertura 1 - Valor cuota: $1111 - Patente: CCC111
+            </div> -->
+
             <aside class="coverSelect">
               <a href="#" class="btn btn-withOutHover btn-seleccionar">
                 <span>
@@ -105,7 +109,7 @@
           </div>
 
           <div class="cover__list" style="overflow:visible">
-            <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?> 
+            <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?>
           </div>
         </div>
         <!-- box -->
@@ -116,9 +120,9 @@
               Citroen C3, 2013, Exclusive
             </h4>
 
-            <div class="selectedItem">
+            <!-- <div class="selectedItem">
               Cobertura 1 - Valor cuota: $1111 - Patente: CCC111
-            </div>
+            </div> -->
 
             <aside class="coverSelect">
               <a href="#" class="btn btn-withOutHover btn-seleccionar">
@@ -140,7 +144,7 @@
           </div>
 
           <div class="cover__list" style="overflow:visible">
-            <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?> 
+            <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?>
           </div>
         </div>
         <!-- box -->
@@ -149,8 +153,8 @@
       <!-- cover -->
 
       <div class="boxes__accesories b0 p0 pb15">
-        <div class="boxes__accesories__added b0 p0">
-          <div class="boxes__accesories__added__newItem add justifyStart" id="addItem">
+        <div class="boxes__accesories__added p0 b0 m0">
+          <div class="boxes__accesories__added__newItem add justifyStart m0 bt0" id="addItem">
             <i class="icon icon-plus"></i>
             <span>Agregar nuevo item</span>
           </div>
@@ -159,7 +163,7 @@
       <!-- accesories -->
 
       <div class="newItem">
-        <form class="needs-validation" id="newItem1" novalidate>
+        <form class="needs-validation" id="newItem" novalidate>
           <div class="form-row">
             <div class="col col-sm-3">
               <select class="form-control falseSelect" id="tipoVehiculo" required>

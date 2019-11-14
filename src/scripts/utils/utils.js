@@ -177,3 +177,8 @@ export const findLastIndex = function (array, searchKey, searchValue) {
   // console.log(finalIndex)
   return finalIndex;
 }
+
+export const stringHasNumber = (el) => {
+  let hasNumber = /\d/;
+  return hasNumber.test(el); // true
+}

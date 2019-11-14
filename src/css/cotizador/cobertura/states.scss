@@ -111,7 +111,7 @@
       .cover__title {
         border: 0 solid transparent;
         border-radius: 0;
-        border-bottom: 1px solid #c6cbd4;
+        border-bottom: 1px solid rgba(#c6cbd4, 0.3);
         padding-left: 0;
         padding-right: 0;
 
@@ -152,15 +152,11 @@
 
       .cover__list {
         border: solid 0 rgba(#333333, 0) !important;
+        margin-bottom: 0;
         &__title,
         .cover__table > .table > thead {
           border: solid 0 rgba(#333333, 0);
           background-color: #f6f6f6;
-        }
-
-
-        &.active {
-          margin-bottom: 0;
         }
 
         &__item {
@@ -196,6 +192,13 @@
           }
         }
         
+      }
+
+      &.last {
+        h4,
+        .selectedItem {
+          color: $primary;
+        }
       }
     }
 
