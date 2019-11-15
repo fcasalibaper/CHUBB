@@ -279,6 +279,38 @@
   </div>
   <!-- item_coberturas -->
 
+  <div id="detalle_solicitante" class="boxes__box boxes__box--cobertura boxes__box--semiopen" state="">
+    <hgroup class="boxes__box__title">
+      <h3>
+        Datos Solicitante
+      </h3>
+      <span class="modify">
+        <p>Modificar</p>
+        <i class="icon icon-chevron-left"></i>
+      </span>
+    </hgroup>
+    <!-- title -->
+
+    <div class="boxes__box__content">
+      <div class="hideOnCompleted">
+        Datos Solicitante
+      </div>
+
+      <p class="edit__mode">
+        <span>
+          Inicio de vigencia: 02/08/2019<br>
+          Nombre: Rodrigo,  Apellido: Rodriguez, Tipo de Persona: - , Sexo: Masculino<br>
+          Fecha de nacimiento: 19/09/1987, CUIT: 20-11111111-0, Domicilio: Av. Madero 80, CP: 1901,<br>
+          Condición IVA: - , Nº Inscripción IVA: 11, Condición IIBB: - , Nº inscripcion IIBB: - ,<br> 
+          Nº tarjeta/CBU: 4550 0000 0000 0000 
+        </span>
+      </p>
+      <!-- edit__mode -->
+
+    </div>
+  </div>
+  <!-- detalle_solicitante -->
+
   <div id="detalle_emision" class="boxes__box boxes__box--cobertura boxes__box--semiopen" state="">
     <hgroup class="boxes__box__title">
       <h3>
@@ -293,17 +325,48 @@
 
     <div class="boxes__box__content">
       <div class="hideOnCompleted">
-        detalle de emision
       </div>
 
       <p class="edit__mode">
-        <span>
-          Inicio de vigencia: 02/08/2019<br>
-          Nombre: Rodrigo,  Apellido: Rodriguez, Tipo de Persona: - , Sexo: Masculino<br>
-          Fecha de nacimiento: 19/09/1987, CUIT: 20-11111111-0, Domicilio: Av. Madero 80, CP: 1901,<br>
-          Condición IVA: - , Nº Inscripción IVA: 11, Condición IIBB: - , Nº inscripcion IIBB: - ,<br> 
-          Nº tarjeta/CBU: 4550 0000 0000 0000 
-        </span>
+        <div class="table__content">
+          <div class="table table--splited">
+            <ul>
+              <li>Fecha Emisión</li>
+              <li>27/10/2019</li>
+              <li>Fecha Vigencia</li>
+              <li>27/10/2022</li>
+              <li>Moneda</li>
+              <li>Pesos Argentinos</li>
+              <li>Suma Asegurada</li>
+              <li>$ 1.000.000</li>
+              <li>IIBB</li>
+              <li>11111111</li>
+              <li>Sellado</li>
+              <li>11111111</li>
+              <li>Recargo Financiero</li>
+              <li>11111111</li>
+            </ul>
+          </div>
+
+          <div class="table table--splited">
+            <ul>
+              <li>Prima</li>
+              <li>11111111</li>
+              <li>Premio</li>
+              <li>11111111</li>
+              <li>IVA</li>
+              <li>5%</li>
+              <li>Otros Impuestos</li>
+              <li>11111111</li>
+              <li>Productor</li>
+              <li>#0001 Fernando</li>
+              <li>Porcentaje</li>
+              <li>3%</li>
+              <li>Importe</li>
+              <li>$ 5.000</li>
+            </ul>
+          </div>
+        </div>
       </p>
       <!-- edit__mode -->
 

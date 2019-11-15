@@ -126,9 +126,9 @@
         <tbody>
           <tr>
             <td>
-              <div class="btn btn-transparent">
-              <span>Endoso</span>
-            </div>
+              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+                Endoso
+              </a>
             </td>
             <td>111111111</td>
             <td>111111111</td>
@@ -176,9 +176,9 @@
           </tr>
           <tr>
             <td>
-              <div class="btn btn-transparent">
-              <span>Endoso</span>
-            </div>
+              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+                Endoso
+              </a>
             </td>
             <td>111111111</td>
             <td>111111111</td>
@@ -226,9 +226,9 @@
           </tr>
           <tr>
             <td>
-              <div class="btn btn-transparent">
-              <span>Endoso</span>
-            </div>
+              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+                Endoso
+              </a>
             </td>
             <td>111111111</td>
             <td>111111111</td>
@@ -276,9 +276,9 @@
           </tr>
           <tr>
             <td>
-              <div class="btn btn-transparent">
-              <span>Endoso</span>
-            </div>
+              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+                Endoso
+              </a>
             </td>
             <td>111111111</td>
             <td>111111111</td>
@@ -326,9 +326,9 @@
           </tr>
           <tr>
             <td>
-              <div class="btn btn-transparent">
-              <span>Endoso</span>
-            </div>
+              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+                Endoso
+              </a>
             </td>
             <td>111111111</td>
             <td>111111111</td>
@@ -376,9 +376,9 @@
           </tr>
           <tr>
             <td>
-              <div class="btn btn-transparent">
-              <span>Endoso</span>
-            </div>
+              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+                Endoso
+              </a>
             </td>
             <td>111111111</td>
             <td>111111111</td>

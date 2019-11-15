@@ -126,7 +126,7 @@ export default function General() {
             }
 
             // CONSULTA DE OPERACIONES Y CARTERA
-            if (window.location.pathname.indexOf('consulta_operaciones') > 0 ) {
+            if (window.location.pathname.indexOf('consulta_operaciones') > 0 || window.location.pathname.indexOf('index') > 0 ) {
                 $box.find('.coverSelect').find('a').on('click', function() {
                     let $getId = $(this).attr('class');
                     const $parent = $(this).parent().closest($box);
@@ -182,8 +182,9 @@ export default function General() {
 
             openDetail: () => {
                 const $popUpBtn = $('.popUp').find('a');
+                const $carteraBtn = $('.btn--actionPopUp');
 
-                $popUpBtn.on('click', function() {
+                $popUpBtn.add($carteraBtn).on('click', function() {
                     let $hash = $(this).attr('href');
 
                     $('.boxes_detalle').toggleClass('active');
@@ -295,20 +296,22 @@ export default function General() {
                         }
                     }
 
-                    if ( urlPath.indexOf('consulta_operaciones') > 0 && $box.hasClass('active') ) {
+                    if ( urlPath.indexOf('consulta_operaciones') > 0 || urlPath.indexOf('index') > 0 && $box.hasClass('active') ) {
                         switch (newHash) {
                             case '#datos_generales_consulta':
                             case 'newItem':
-                                window.location.hash = '#datos_generales_consulta';
+                            case '#endoso':
+                                window.location.hash = '#item_coberturas';
                             break;
                             case '#item_coberturas':
                                 window.location.hash = '#item_coberturas';
                             break;
                             case '#detalle_emision':
-                                window.location.hash = '#detalle_emision';
+                                window.location.hash = '#item_coberturas';
                             break;
                         }
                     }
+                    
                 }
             },
         },
@@ -493,7 +496,6 @@ export default function General() {
             buttonEmitir : () => {
                 $('#emitir').find('button').on('click', function () {
                     $('#item_coberturas').attr('state','completed').removeClass('active');
-
                 })
             },
 

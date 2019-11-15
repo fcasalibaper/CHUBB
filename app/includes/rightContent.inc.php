@@ -10,8 +10,10 @@
     include("cotizar_seguro_nuevo.inc.php");
   } elseif (strpos($url,'index') !== false) {
     include("consulta_cartera.inc.php");
+    include("consulta_operaciones_detalle.inc.php");
   } else {
     include("consulta_cartera.inc.php");
+    include("consulta_operaciones_detalle.inc.php");
   }
 ?>
 

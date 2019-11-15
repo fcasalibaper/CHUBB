@@ -71,6 +71,51 @@
           }
         }
       }
+
+      // table
+      .table__content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .table--splited {
+        display: flex;
+        width: 100%;
+
+        @include upTo(xs) {
+          width: 50%;
+          max-width: 500px;
+        }
+
+        &:nth-child(2n + 1) {
+          padding-right: 10px;
+        }
+        &:nth-child(2n + 2) {
+          padding-left: 10px;
+        }
+
+        ul {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 100%;
+          
+          li {
+            width: 50%;
+            background-color: #cfe7ea;
+            color: #52575a;
+            font-weight: $MEDIUM;
+            @include fontSize(12px);
+            border-bottom: 1px solid white;
+            padding: 7px 16px;
+
+            &:nth-child(2n + 2) {
+              background-color: #e9edf0;
+            }
+          }
+        }
+      }
     }
 
     .checks {
