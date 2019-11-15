@@ -125,35 +125,11 @@
         </thead>
         <tbody>
           <tr>
-            <td>
-              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+            <td class="view"> 
+              <span class="btn btn-transparent btn--actionPopUp">
                 Endoso
-              </a>
-            </td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td class="view">
-              <i class="icon icon-more-vertical"></i>
-              <div class="popUp">
+              </span>
+              <div class="popUp popUp--left">
                 <ul>
                   <li>
                     <a href="#imprimir">Imprimir</a>  
@@ -162,48 +138,45 @@
                     <a href="#consulta">Consulta</a>
                   </li>
                   <li>
-                    <a href="#endosoInclusion">Inclusión de Item</a>
+                    <a rel="editar--inclusion" href="#endoso_inclusion">Inclusión de Item</a>
                   </li>
                   <li>
-                    <a href="#endosoModif">Modificar Suma Asegurada</a>
+                    <a rel="editar--suma" href="#endoso_modificar">Modificar Suma Asegurada</a>
                   </li>
                   <li>
-                    <a href="#endosoAclaracion">Aclaración Patente/Motor/Chasis</a>
+                    <a rel="editar--motor" href="#endoso_aclaracion">Aclaración Patente/Motor/Chasis</a>
                   </li>
                 </ul>
               </div>
             </td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
           </tr>
           <tr>
-            <td>
-              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+            <td class="view"> 
+              <span class="btn btn-transparent btn--actionPopUp">
                 Endoso
-              </a>
-            </td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td class="view">
-              <i class="icon icon-more-vertical"></i>
-              <div class="popUp">
+              </span>
+              <div class="popUp popUp--left">
                 <ul>
                   <li>
                     <a href="#imprimir">Imprimir</a>  
@@ -212,48 +185,45 @@
                     <a href="#consulta">Consulta</a>
                   </li>
                   <li>
-                    <a href="#endosoInclusion">Inclusión de Item</a>
+                    <a rel="editar--inclusion" href="#endoso_inclusion">Inclusión de Item</a>
                   </li>
                   <li>
-                    <a href="#endosoModif">Modificar Suma Asegurada</a>
+                    <a rel="editar--suma" href="#endoso_modificar">Modificar Suma Asegurada</a>
                   </li>
                   <li>
-                    <a href="#endosoAclaracion">Aclaración Patente/Motor/Chasis</a>
+                    <a rel="editar--motor" href="#endoso_aclaracion">Aclaración Patente/Motor/Chasis</a>
                   </li>
                 </ul>
               </div>
             </td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
           </tr>
           <tr>
-            <td>
-              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+            <td class="view"> 
+              <span class="btn btn-transparent btn--actionPopUp">
                 Endoso
-              </a>
-            </td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td class="view">
-              <i class="icon icon-more-vertical"></i>
-              <div class="popUp">
+              </span>
+              <div class="popUp popUp--left">
                 <ul>
                   <li>
                     <a href="#imprimir">Imprimir</a>  
@@ -262,48 +232,45 @@
                     <a href="#consulta">Consulta</a>
                   </li>
                   <li>
-                    <a href="#endosoInclusion">Inclusión de Item</a>
+                    <a rel="editar--inclusion" href="#endoso_inclusion">Inclusión de Item</a>
                   </li>
                   <li>
-                    <a href="#endosoModif">Modificar Suma Asegurada</a>
+                    <a rel="editar--suma" href="#endoso_modificar">Modificar Suma Asegurada</a>
                   </li>
                   <li>
-                    <a href="#endosoAclaracion">Aclaración Patente/Motor/Chasis</a>
+                    <a rel="editar--motor" href="#endoso_aclaracion">Aclaración Patente/Motor/Chasis</a>
                   </li>
                 </ul>
               </div>
             </td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
           </tr>
           <tr>
-            <td>
-              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+            <td class="view"> 
+              <span class="btn btn-transparent btn--actionPopUp">
                 Endoso
-              </a>
-            </td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td class="view">
-              <i class="icon icon-more-vertical"></i>
-              <div class="popUp">
+              </span>
+              <div class="popUp popUp--left">
                 <ul>
                   <li>
                     <a href="#imprimir">Imprimir</a>  
@@ -312,48 +279,45 @@
                     <a href="#consulta">Consulta</a>
                   </li>
                   <li>
-                    <a href="#endosoInclusion">Inclusión de Item</a>
+                    <a rel="editar--inclusion" href="#endoso_inclusion">Inclusión de Item</a>
                   </li>
                   <li>
-                    <a href="#endosoModif">Modificar Suma Asegurada</a>
+                    <a rel="editar--suma" href="#endoso_modificar">Modificar Suma Asegurada</a>
                   </li>
                   <li>
-                    <a href="#endosoAclaracion">Aclaración Patente/Motor/Chasis</a>
+                    <a rel="editar--motor" href="#endoso_aclaracion">Aclaración Patente/Motor/Chasis</a>
                   </li>
                 </ul>
               </div>
             </td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
           </tr>
           <tr>
-            <td>
-              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+            <td class="view"> 
+              <span class="btn btn-transparent btn--actionPopUp">
                 Endoso
-              </a>
-            </td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td class="view">
-              <i class="icon icon-more-vertical"></i>
-              <div class="popUp">
+              </span>
+              <div class="popUp popUp--left">
                 <ul>
                   <li>
                     <a href="#imprimir">Imprimir</a>  
@@ -362,48 +326,45 @@
                     <a href="#consulta">Consulta</a>
                   </li>
                   <li>
-                    <a href="#endosoInclusion">Inclusión de Item</a>
+                    <a rel="editar--inclusion" href="#endoso_inclusion">Inclusión de Item</a>
                   </li>
                   <li>
-                    <a href="#endosoModif">Modificar Suma Asegurada</a>
+                    <a rel="editar--suma" href="#endoso_modificar">Modificar Suma Asegurada</a>
                   </li>
                   <li>
-                    <a href="#endosoAclaracion">Aclaración Patente/Motor/Chasis</a>
+                    <a rel="editar--motor" href="#endoso_aclaracion">Aclaración Patente/Motor/Chasis</a>
                   </li>
                 </ul>
               </div>
             </td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
           </tr>
           <tr>
-            <td>
-              <a href="#endoso" class="btn btn-transparent btn--actionPopUp">
+            <td class="view"> 
+              <span class="btn btn-transparent btn--actionPopUp">
                 Endoso
-              </a>
-            </td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td>111111111</td>
-            <td class="view">
-              <i class="icon icon-more-vertical"></i>
-              <div class="popUp">
+              </span>
+              <div class="popUp popUp--left">
                 <ul>
                   <li>
                     <a href="#imprimir">Imprimir</a>  
@@ -412,17 +373,38 @@
                     <a href="#consulta">Consulta</a>
                   </li>
                   <li>
-                    <a href="#endosoInclusion">Inclusión de Item</a>
+                    <a rel="editar--inclusion" href="#endoso_inclusion">Inclusión de Item</a>
                   </li>
                   <li>
-                    <a href="#endosoModif">Modificar Suma Asegurada</a>
+                    <a rel="editar--suma" href="#endoso_modificar">Modificar Suma Asegurada</a>
                   </li>
                   <li>
-                    <a href="#endosoAclaracion">Aclaración Patente/Motor/Chasis</a>
+                    <a rel="editar--motor" href="#endoso_aclaracion">Aclaración Patente/Motor/Chasis</a>
                   </li>
                 </ul>
               </div>
             </td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
+            <td>111111111</td>
           </tr>
         </tbody>
       </table>

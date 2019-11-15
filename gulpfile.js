@@ -124,7 +124,7 @@ gulp.task('localServer', function() {
 // php
 gulp.task('php', function() {
   php.server({ 
-    open:true,
+    //open:true,
     base: 'app',
     port: 8020,
     keepalive: true,

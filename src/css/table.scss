@@ -1,0 +1,203 @@
+// COBERTURA
+.cover {
+  // LISTA DE COBERTURA
+  &__list {
+    border: 0;
+    border-radius: $INPUT_BORDER_RADIUS;
+    overflow: hidden;
+    transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+    height: 0;
+    margin-bottom: 1em;
+
+    @include break(xs){
+      background-color: white;
+    }
+
+    &__title {
+      padding: $PADDING_BOXES_SIDES 0 ($PADD_SIDES / 2) $PADDING_BOXES_SIDES;
+      h4 { color: $COLOR_LABELS }
+    }
+  }
+  
+  // TABLA DE COBERTURA
+  &__table {
+    overflow-x: scroll;
+    .table {
+      margin: 0;
+      padding: 0;
+
+      th, td {
+        &.visible-mobile {
+          display: none;
+          @include break(xs) {
+            display: table-cell;
+          }
+        }
+
+        &.hidden-mobile {
+          display: table-cell;
+          @include break(xs) {
+            display: none;
+          }
+        }
+      }
+
+      thead {
+        th {
+          @include fontSize($LABEL_FONT_SIZE);
+          font-weight: $MEDIUM;
+          color: rgba( $COLOR_GREY, .5 );
+          border: 0px;
+
+          &:first-child {
+            padding-left: $PADDING_BOXES_SIDES;
+          }
+          &:last-child {
+            padding-right: $PADDING_BOXES_SIDES;
+          }
+        }
+      }
+      tbody {
+        td { 
+          color: $COLOR_GREY;
+          @include fontSize($LABEL_FONT_SIZE);
+          font-weight: $REGULAR;
+          vertical-align: middle;
+
+          &:first-child {
+            padding-left: $PADDING_BOXES_SIDES;
+          }
+          &:last-child {
+            padding-right: $PADDING_BOXES_SIDES;
+          }
+
+          .btn {
+            @include fontSize($BUTTON_FONT_SIZE_MOBILE);
+            line-height: 1;
+            padding: 8px 10px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+// CONSULTAS
+.consultas {
+  // table
+  div.table {
+    position: relative;
+    overflow-x: scroll;
+    width: 100%;
+    @include break(xs) {
+      width: 100vw;
+      left: -20px;
+    }
+  }
+
+  table.table {
+    border-top: 1px solid rgba( $COLOR_GREY, .1 );
+
+    th,
+    td {
+      &:first-child {
+        padding-left: 20px;
+      }
+    }
+
+    thead {
+      th {
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+        @include fontSize(14px);
+        font-weight: $BOLD;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
+        color: rgba(51, 51, 51, 0.5);
+
+        i {
+          color: rgba(51, 51, 51, 1);
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-of-type(odd) {
+          background-color: rgba(198, 203, 212, 0.24);
+        }
+      }
+      td {
+        position: relative;
+        border: 0;
+        @include fontSize(14px);
+        font-weight: $REGULAR;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
+        color: #333333;
+        vertical-align: middle;
+
+        &:last-child {
+          text-align: right;
+          justify-self: flex-end;
+
+          i {
+            cursor: pointer;
+            padding: 10px;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// OPERACIONES
+// table
+.table__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.table--splited {
+  display: flex;
+  width: 100%;
+
+  @include upTo(xs) {
+    width: 50%;
+    max-width: 500px;
+    &:nth-child(2n + 1) {
+      padding-right: 10px;
+    }
+    &:nth-child(2n + 2) {
+      padding-left: 10px;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    
+    li {
+      width: 50%;
+      background-color: #cfe7ea;
+      color: #52575a;
+      font-weight: $MEDIUM;
+      @include fontSize(12px);
+      border-bottom: 1px solid white;
+      padding: 7px 16px;
+
+      &:nth-child(2n + 2) {
+        background-color: #e9edf0;
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@
     left: -$PADDING_BOXES_MOBILE;
   }
 
+  // texto q se muestra al cerrar el paso, solo se muestra si .boxes__box, trae una clase .boxes__box--semiopen
   p {
     &.edit__mode {
       opacity: 0.5;
@@ -21,6 +22,12 @@
     }
   }
 
+  // wrapper que funciona de selector para proporcionarle una clase/estado ".active" para mostrarse o no dependiendo de la accion del usuario. Pasa a ser active, cuando se selecciona alguna de las opciones del popUp de "acciones" dentro de la tabla "Listado de consultas"
+  &_detalle {
+    display: none;
+  }
+
+  // PASOS
   &__box {
     display: flex;
     flex-direction: column;
@@ -61,7 +68,7 @@
         }
       }
 
-
+      // BTN
       .form-row {
         .btn {
           @include break(xs) {
@@ -71,53 +78,10 @@
           }
         }
       }
-
-      // table
-      .table__content {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .table--splited {
-        display: flex;
-        width: 100%;
-
-        @include upTo(xs) {
-          width: 50%;
-          max-width: 500px;
-        }
-
-        &:nth-child(2n + 1) {
-          padding-right: 10px;
-        }
-        &:nth-child(2n + 2) {
-          padding-left: 10px;
-        }
-
-        ul {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          width: 100%;
-          
-          li {
-            width: 50%;
-            background-color: #cfe7ea;
-            color: #52575a;
-            font-weight: $MEDIUM;
-            @include fontSize(12px);
-            border-bottom: 1px solid white;
-            padding: 7px 16px;
-
-            &:nth-child(2n + 2) {
-              background-color: #e9edf0;
-            }
-          }
-        }
-      }
+      
     }
 
+    // CHECKBOXES PARA PASOS
     .checks {
       .form-check {
         margin-right: 1em;
@@ -132,5 +96,34 @@
       }
     }
 
+
+    // ES PARA DEJAR INACTIVOS LOS PASOS (DATOS GENERALES, ITEMS, ETC, pero con los datos cargados o seleccionados del mismo, caso: /consulta_operaciones.php#item_coberturas )
+    &--semiopen {
+      opacity: 1;
+      box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1),
+                  0 9px 1px 1px rgba(0,0,0,0.005) !important;
+
+      .boxes__box__content {
+        height: auto !important;
+        padding: $PADDING_BOXES_SIDES $PADDING_BOXES !important;
+
+        @include downTo(sm) {
+          padding: $PADDING_BOXES_MOBILE !important;
+        }
+      }
+    }
+
+  }
+
+  // new item (agregar nuevo item form / operaciones - cartera)
+  .newItem {
+    position: relative;
+    margin-top: 20px;
+    padding: 15px 0 30px;
+    display: none;
+
+    &.open {
+      display: flex;
+    }
   }
 }

@@ -1,25 +1,27 @@
+// ESTADO GENERAL DE LOS PASOS (datos generales, items / coberturas , datos solicitante, etc), tanto de consulta de operaciones, como de cartera o cotizasr seguro nuevo
+
 .boxes {
 
   &_detalle {
-    display: none;
-
     &.active {
       display: flex;
     }
   }
 
   &__box {
-
+    // Cuando un paso esta "completed", esta clase se muestra.
     .edit__mode {
       display: flex;
       flex-direction: column;
       width: 100%;
     }
 
+    // Cuando un paso esta "completed", esta clase se oculta.
     .hideOnCompleted {
       display: none;
     }
 
+    // este estado es como si no tuviera nada en la prop state="" del elemento
     &.inactive {
       opacity: 0.6;
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.09),
@@ -48,6 +50,7 @@
       }
     }
 
+    // Cuando el paso fue completado se pasa un atributo al mismo state="comppleted" ($('.boxes__box').attr('state', 'completed')), para que aparezca el "modificar", por defecto esta vacio 
     &[state="completed"] {
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.09),
                 0 13px 1px 1px rgba(0,0,0,0.001);
@@ -87,7 +90,7 @@
         }
       }
     }
-
+    
     &.inactive,
     &[state="completed"] {
       .boxes__box__content {
@@ -97,6 +100,7 @@
       }
     }
 
+    // Estado activo cuando se esta editando/seleccionado sobre el paso actual
     &.active {
       opacity: 1;
       box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1),
@@ -134,20 +138,5 @@
       }
     }
 
-    &--semiopen {
-      opacity: 1;
-      box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1),
-                0 9px 1px 1px rgba(0,0,0,0.005) !important;
-
-      .boxes__box__content {
-        height: auto !important;
-        padding: $PADDING_BOXES_SIDES $PADDING_BOXES !important;
-
-        @include downTo(sm) {
-          padding: $PADDING_BOXES_MOBILE !important;
-        }
-      }
-    }
-    
   }
 }

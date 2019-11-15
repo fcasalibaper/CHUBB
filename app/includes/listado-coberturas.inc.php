@@ -1,3 +1,5 @@
+<!-- OJO CON CAMBIAR EL NOMBRE DE ESTE PHP, PQ LO LEVANTA POR AJAX, COM EL MISMO -->
+
 <div class="cover__list__item" id="seleccionar">
   <div class="cover__list__title">
     <h4>
@@ -154,8 +156,8 @@
         </label>
       </div>
 
-      <div class="col col-sm-2">
-        <div class="btn btn-transparent selectItem" data-toggle="modal" data-target="#modalSelect" rel="accesorios" style="background-color: white">
+      <div class="col col-sm-3">
+        <div class="btn btn-transparent selectItem" data-toggle="modal" data-target="#modalSelect" rel="accesorios" style="background-color: white; align-self: flex-start">
           <i class="icon icon-plus"></i>
           <span>Agregar</span>
         </div>

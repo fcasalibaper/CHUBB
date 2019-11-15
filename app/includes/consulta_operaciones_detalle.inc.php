@@ -4,7 +4,7 @@
   - inactive, aun no editado
 -->
 
-<div class="boxes boxes_detalle">
+<div class="boxes boxes_detalle" sectionOpen="">
 
   <div id="datos_generales_consulta" class="boxes__box boxes__box--semiopen" state="completed">
     <hgroup class="boxes__box__title">
@@ -60,26 +60,26 @@
               </div> -->
 
               <aside class="coverSelect">
-                <a href="#" class="btn btn-withOutHover btn-seleccionar">
+                <div class="btn btn-withOutHover btn-seleccionar">
                   <span>
                     Seleccionar cobertura
                   </span>
-                </a>
-                <a href="#" class="btn btn-withOutHover btn-editar">
+                </div>
+                <div class="btn btn-withOutHover btn-editar">
                   <span>
                     Editar
                   </span>
-                </a>
-                <a href="#" class="btn btn-withOutHover btn-eliminar">
+                </div>
+                <div class="btn btn-withOutHover btn-eliminar">
                   <span>
                     Eliminar
                   </span>
-                </a>
+                </div>
               </aside>
             </div>
 
             <div class="cover__list" style="overflow:visible">
-              <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?>
+              <?php include("listado-coberturas.inc.php"); ?>
             </div>
           </div>
           <!-- box -->
@@ -95,26 +95,26 @@
               </div> -->
 
               <aside class="coverSelect">
-                <a href="#" class="btn btn-withOutHover btn-seleccionar">
+                <div class="btn btn-withOutHover btn-seleccionar">
                   <span>
                     Seleccionar cobertura
                   </span>
-                </a>
-                <a href="#" class="btn btn-withOutHover btn-editar">
+                </div>
+                <div class="btn btn-withOutHover btn-editar">
                   <span>
                     Editar
                   </span>
-                </a>
-                <a href="#" class="btn btn-withOutHover btn-eliminar">
+                </div>
+                <div class="btn btn-withOutHover btn-eliminar">
                   <span>
                     Eliminar
                   </span>
-                </a>
+                </div>
               </aside>
             </div>
 
             <div class="cover__list" style="overflow:visible">
-              <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?>
+              <?php include("listado-coberturas.inc.php"); ?>
             </div>
           </div>
           <!-- box -->
@@ -130,26 +130,26 @@
               </div> -->
 
               <aside class="coverSelect">
-                <a href="#" class="btn btn-withOutHover btn-seleccionar">
+                <div class="btn btn-withOutHover btn-seleccionar">
                   <span>
                     Seleccionar cobertura
                   </span>
-                </a>
-                <a href="#" class="btn btn-withOutHover btn-editar">
+                </div>
+                <div class="btn btn-withOutHover btn-editar">
                   <span>
                     Editar
                   </span>
-                </a>
-                <a href="#" class="btn btn-withOutHover btn-eliminar">
+                </div>
+                <div class="btn btn-withOutHover btn-eliminar">
                   <span>
                     Eliminar
                   </span>
-                </a>
+                </div>
               </aside>
             </div>
 
             <div class="cover__list" style="overflow:visible">
-              <?php include("consulta_operaciones_seleccionar-editar.inc.php"); ?>
+              <?php include("listado-coberturas.inc.php"); ?>
             </div>
           </div>
           <!-- box -->
@@ -279,7 +279,7 @@
   </div>
   <!-- item_coberturas -->
 
-  <div id="detalle_solicitante" class="boxes__box boxes__box--cobertura boxes__box--semiopen" state="">
+  <div id="detalle_solicitante" class="boxes__box boxes__box--semiopen" state="">
     <hgroup class="boxes__box__title">
       <h3>
         Datos Solicitante
@@ -311,7 +311,7 @@
   </div>
   <!-- detalle_solicitante -->
 
-  <div id="detalle_emision" class="boxes__box boxes__box--cobertura boxes__box--semiopen" state="">
+  <div id="detalle_emision" class="boxes__box boxes__box--semiopen" state="">
     <hgroup class="boxes__box__title">
       <h3>
         Detalle Emisión

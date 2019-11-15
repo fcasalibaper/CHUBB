@@ -48,7 +48,7 @@ export default function General() {
             chubb.formValidation.init();
             chubb.boxes.init();
             chubb.popUp.init();
-            chubb.cover();
+            chubb.cover.init();
             chubb.checkBoxOne();
             chubb.seeMore();
             chubb.dayPicker();
@@ -109,54 +109,58 @@ export default function General() {
         },
         
         // open and close cobertura items
-        cover : () => {
-            const $box = $('.cover__box');
+        cover : {
+            init : () => {
+                chubb.cover.btnAction();
+            },
+        
+            btnAction: () => {
+                const $box = $('.cover__box');
 
-            // COTIZAR SEGURO NUEVO
-            if (window.location.pathname.indexOf('cotizar_seguro_nuevo') > 0 ) {
-                $box.find('.coverSelect').on('click', function() {
-                    const $parent = $(this).parent().closest($box);
-                    if ($box.hasClass('active')) {
-                        $parent.siblings().removeClass('active')
-                        $parent.toggleClass('active');
-                    } else {
-                        $parent.toggleClass('active');
-                    }
-                })
-            }
+                // COTIZAR SEGURO NUEVO
+                if (window.location.pathname.indexOf('cotizar_seguro_nuevo') > 0 ) {
+                    $box.find('.coverSelect').on('click', function() {
+                        const $parent = $(this).parent().closest($box);
+                        if ($box.hasClass('active')) {
+                            $parent.siblings().removeClass('active')
+                            $parent.toggleClass('active');
+                        } else {
+                            $parent.toggleClass('active');
+                        }
+                    })
+                } else {
+                    $box.find('.coverSelect').find('a, .btn-withOutHover').on('click', function() {
+                        let $getId = $(this).attr('class');
+                        
+                        const $parent = $(this).parent().closest($box);
 
-            // CONSULTA DE OPERACIONES Y CARTERA
-            if (window.location.pathname.indexOf('consulta_operaciones') > 0 || window.location.pathname.indexOf('index') > 0 ) {
-                $box.find('.coverSelect').find('a').on('click', function() {
-                    let $getId = $(this).attr('class');
-                    const $parent = $(this).parent().closest($box);
+                        $box.find('.coverSelect').find('a, .btn-withOutHover').removeClass('btn-withOutHover--selected')
+                        $(this).addClass('btn-withOutHover--selected')
+                        
+                        $('.cover__list__item').removeClass('active')
+                        $parent.add('.cover__list').removeClass('active');
+                        $parent.add('.cover__list').addClass('active');
 
-                    $box.find('.coverSelect').find('a').removeClass('btn-withOutHover--selected')
-                    $(this).addClass('btn-withOutHover--selected')
-                    
-                    $('.cover__list__item').removeClass('active')
-                    $parent.add('.cover__list').removeClass('active');
-                    $parent.add('.cover__list').addClass('active');
+                        // seleccionar
+                        if ( $getId.indexOf('seleccionar') > 0 ) {
+                            $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
+                            // $parent.toggleClass('active');
+                            $parent.find('.cover__list').find('#seleccionar').toggleClass('active');
+                        }
 
-                    // seleccionar
-                    if ( $getId.indexOf('seleccionar') > 0 ) {
-                        $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
-                        // $parent.toggleClass('active');
-                        $parent.find('.cover__list').find('#seleccionar').toggleClass('active');
-                    }
+                        // editar
+                        if ( $getId.indexOf('editar') > 0) {
+                            $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
+                            // $parent.toggleClass('active');
+                            $parent.find('.cover__list').find('#editar').toggleClass('active')
+                        }
 
-                    // editar
-                    if ( $getId.indexOf('editar') > 0) {
-                        $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
-                        // $parent.toggleClass('active');
-                        $parent.find('.cover__list').find('#editar').toggleClass('active')
-                    }
-
-                    // eliminar
-                    if ( $getId.indexOf('eliminar') > 0) {
-                        $parent.remove();
-                    }
-                })
+                        // Eliminar
+                        if ( $getId.indexOf('eliminar') > 0) {
+                            $parent.remove();
+                        }
+                    })
+                }
             }
         },
 
@@ -164,6 +168,11 @@ export default function General() {
             init: () => {
                 chubb.popUp.openModal();
                 chubb.popUp.openDetail();
+            },
+
+            typeActionToOpen : (el) => {
+                console.log('el: ',el)
+                $('.boxes').attr('sectionOpen', el);
             },
 
             openModal: () => {
@@ -182,16 +191,21 @@ export default function General() {
 
             openDetail: () => {
                 const $popUpBtn = $('.popUp').find('a');
-                const $carteraBtn = $('.btn--actionPopUp');
 
-                $popUpBtn.add($carteraBtn).on('click', function() {
+                $popUpBtn.on('click', function() {
                     let $hash = $(this).attr('href');
 
                     $('.boxes_detalle').toggleClass('active');
                     $('.dateContent').toggleClass('inactive')
                     chubb.boxes.hashChanger.goToTheNextNotCompleted($hash);
+
+                    // tipo de accion para cartera
+                    if ( $(this).is('[rel]') ) {
+                        let $getTypeOfAction = $(this).attr('rel');
+                        chubb.popUp.typeActionToOpen($getTypeOfAction)
+                    }
                     
-                })
+                });
             }
         },
 
@@ -247,7 +261,6 @@ export default function General() {
                     } else {
                         $(el).addClass('active');
                     }
-                    
                 },
 
                 goToTheNextNotCompleted : (newHash) => {
@@ -296,11 +309,15 @@ export default function General() {
                         }
                     }
 
-                    if ( urlPath.indexOf('consulta_operaciones') > 0 || urlPath.indexOf('index') > 0 && $box.hasClass('active') ) {
+                    if ( urlPath.indexOf('consulta_operaciones') > 0 || urlPath.indexOf('index') > 0 || urlPath === '/' && $box.hasClass('active') ) {
                         switch (newHash) {
                             case '#datos_generales_consulta':
                             case 'newItem':
                             case '#endoso':
+                            case '#consulta':
+                            case '#endoso_inclusion':
+                            case '#endoso_modificar':
+                            case '#endoso_aclaracion':
                                 window.location.hash = '#item_coberturas';
                             break;
                             case '#item_coberturas':
@@ -318,7 +335,7 @@ export default function General() {
 
         checkBoxOne: () => {
             $('input.oneSelected').on('change', function() {
-                $('input.oneSelected').not(this).prop('checked', false);  
+                $('input.oneSelected').not(this).prop('checked', false);
             });
         }, 
        
@@ -432,7 +449,7 @@ export default function General() {
             callElementInOuterHTML : () => {
                 // Set .php in html
                 $.ajax({
-                    url: '../includes/consulta_operaciones_seleccionar-editar.inc.php',
+                    url: '../includes/listado-coberturas.inc.php',
                     beforeSend: function () {
                         $(".cover__box--grey.last").append('<span class="loading">Cargando...<span>');
                     },
@@ -451,7 +468,7 @@ export default function General() {
                 $(document).ajaxSuccess(function(event, xhr, settings) {
                     if (settings.url.indexOf('consulta_operaciones_seleccionar-editar') > -1) {
                         setTimeout(function () {
-                            chubb.cover();
+                            chubb.cover.init();
                             chubb.modals.init();
                         }, 500)
                     }

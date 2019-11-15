@@ -316,7 +316,7 @@
   </div>
   <!-- item -->
 
-  <div id="cobertura" class="boxes__box boxes__box--cobertura">
+  <div id="cobertura" class="boxes__box">
 
     <hgroup class="boxes__box__title">
       <div class="number"><span>3</span></div>

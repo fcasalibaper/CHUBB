@@ -40,6 +40,12 @@
   &-transparent {
     border: solid 1px #6d7278;
     color: #6d7278;
+
+    &.selectItem {
+      .icon {
+        font-size: 0.75em;
+      }
+    }
   }
 
   &-secondary {
