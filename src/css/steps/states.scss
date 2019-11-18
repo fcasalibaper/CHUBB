@@ -1,6 +1,27 @@
 // ESTADO GENERAL DE LOS PASOS (datos generales, items / coberturas , datos solicitante, etc), tanto de consulta de operaciones, como de cartera o cotizasr seguro nuevo
 
 .boxes {
+  
+  // COBERTURA STATES
+  .wrapperBtns {
+    width: 100%;
+  }
+
+  &[sectionopen="editar--inclusion"] {
+    .show--inclusion { display: flex; }
+  }
+
+  &[sectionopen="editar--suma"] {
+    .show--suma { display: flex !important;}
+    .boxes__accesories {display: none;}
+  }
+  &[sectionopen="editar--motor"] {
+    .show--motor { display: flex; }
+    .boxes__accesories {display: none;}
+  }
+  &[sectionopen="editar--operaciones"] {
+    .show--operaciones { display: flex; }
+  }
 
   &_detalle {
     &.active {

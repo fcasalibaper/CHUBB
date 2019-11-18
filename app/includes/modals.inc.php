@@ -42,6 +42,38 @@
   </div>
 </div>
 
+<div id="modalSuma" class="modal modal-small" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="sumaAseguradaForm" class="needs-validation" novalidate>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="sumaAsegurada" placeholder="Ingrese suma asegurada" required/>
+              <label for="patente">Ingrese suma asgurada</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col col--end xCenter">
+              <button class="btn btn-primary" type="submit"><span>Continuar</span></button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="modalExito" class="modal modal-small" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

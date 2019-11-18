@@ -60,21 +60,7 @@
               </div> -->
 
               <aside class="coverSelect">
-                <div class="btn btn-withOutHover btn-seleccionar">
-                  <span>
-                    Seleccionar cobertura
-                  </span>
-                </div>
-                <div class="btn btn-withOutHover btn-editar">
-                  <span>
-                    Editar
-                  </span>
-                </div>
-                <div class="btn btn-withOutHover btn-eliminar">
-                  <span>
-                    Eliminar
-                  </span>
-                </div>
+                <?php include("coverSelect.inc.html"); ?>
               </aside>
             </div>
 
@@ -95,21 +81,7 @@
               </div> -->
 
               <aside class="coverSelect">
-                <div class="btn btn-withOutHover btn-seleccionar">
-                  <span>
-                    Seleccionar cobertura
-                  </span>
-                </div>
-                <div class="btn btn-withOutHover btn-editar">
-                  <span>
-                    Editar
-                  </span>
-                </div>
-                <div class="btn btn-withOutHover btn-eliminar">
-                  <span>
-                    Eliminar
-                  </span>
-                </div>
+                <?php include("coverSelect.inc.html"); ?>
               </aside>
             </div>
 
@@ -130,21 +102,7 @@
               </div> -->
 
               <aside class="coverSelect">
-                <div class="btn btn-withOutHover btn-seleccionar">
-                  <span>
-                    Seleccionar cobertura
-                  </span>
-                </div>
-                <div class="btn btn-withOutHover btn-editar">
-                  <span>
-                    Editar
-                  </span>
-                </div>
-                <div class="btn btn-withOutHover btn-eliminar">
-                  <span>
-                    Eliminar
-                  </span>
-                </div>
+                <?php include("coverSelect.inc.html"); ?>
               </aside>
             </div>
 
@@ -261,9 +219,12 @@
         </div>
         <!-- newItem -->
 
-        <div class="form-row" style="margin-top:15px;" id="emitir">
+        <div class="form-row" style="margin-top:15px;">
           <div class="col col--end alignEnd">
-            <button class="btn btn-primary" type="submit"><span>Emitir</span></button>
+            <button class="btn btn-primary hide show--operaciones" type="submit" id="emitir"><span>Emitir</span></button>
+
+            <button class="btn btn-primary hide show--motor show--suma" type="submit"  data-toggle="modal" data-target="#modalExito" ><span>Solicitar</span></button>
+
           </div>
         </div>
       </div>

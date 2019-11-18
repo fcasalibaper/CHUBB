@@ -148,6 +148,13 @@ export default function General() {
                             $parent.find('.cover__list').find('#seleccionar').toggleClass('active');
                         }
 
+                        // mostarCobertura
+                        if ( $getId.indexOf('mostarCobertura') > 0 ) {
+                            $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
+                            // $parent.toggleClass('active');
+                            $parent.find('.cover__list').find('#mostarCobertura').toggleClass('active');
+                        }
+
                         // editar
                         if ( $getId.indexOf('editar') > 0) {
                             $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
@@ -397,15 +404,24 @@ export default function General() {
                 chubb.newItemSet.buttonEmitir();
             },
 
-            printHtml : (el) => {
-                // console.log('newItem: ', initStorage['newItem'].inputs);
+            printHtml : () => {
 
                 const auto = initStorage['newItem'].inputs;
 
-                if ( auto.length > 0 ) {
-                    const marca = auto[1].value;
-                    const anio = auto[2].value;
-                    const modelo = auto[3].value;
+                // OPERACIONES
+                chubb.newItemSet.operacionesItemAdd(auto);
+
+                // CARTERA - INCLUSION
+                chubb.newItemSet.carteraInclusionItemAdd(auto);
+                
+            },
+
+            operacionesItemAdd : (el) => {
+                if ( el.length > 0 && !$('.boxes[sectionopen="editar--inclusion"]').length > 0 ) {
+
+                    const marca = el[1].value;
+                    const anio = el[2].value;
+                    const modelo = el[3].value;
 
                     let newItem = `
                         <div class="cover__box cover__box--grey">
@@ -413,23 +429,9 @@ export default function General() {
                                 <h4>
                                     ${marca}, ${anio}, ${modelo}
                                 </h4>
-                    
+                
                                 <aside class="coverSelect">
-                                    <a href="#" class="btn btn-withOutHover btn-seleccionar">
-                                        <span>
-                                            Seleccionar cobertura
-                                        </span>
-                                    </a>
-                                    <a href="#" class="btn btn-withOutHover btn-editar">
-                                        <span>
-                                            Editar
-                                        </span>
-                                    </a>
-                                    <a href="#" class="btn btn-withOutHover btn-eliminar">
-                                        <span>
-                                            Eliminar
-                                        </span>
-                                    </a>
+                                    
                                 </aside>
                             </div>
                 
@@ -445,6 +447,12 @@ export default function General() {
                 }
             },
 
+            carteraInclusionItemAdd : (el) => {
+                if ( $('.boxes[sectionopen="editar--inclusion"]').length > 0 ) {
+
+                }
+            },
+
             // despues de agregar el element llama a un .html/.php externo a modo include
             callElementInOuterHTML : () => {
                 // Set .php in html
@@ -453,10 +461,25 @@ export default function General() {
                     beforeSend: function () {
                         $(".cover__box--grey.last").append('<span class="loading">Cargando...<span>');
                     },
+                    async: true,
                     success : function(data) {
                         $('.loading').remove();
                         setTimeout(function () {
                             $('.cover__box--grey.last > .cover__list').append(data);
+
+                            // llama botones
+                            $.ajax({
+                                url: '../includes/coverSelect.inc.html',
+                                async: true,
+                                success : function(data) {
+                                    
+                                        $('.cover__box--grey.last').find('.coverSelect').append(data);
+                                    
+                                },
+                                error: function() {
+                                    console.log("No se ha podido obtener la información");
+                                }
+                            })
                         }, 1000)
                     },
                     error: function() {
@@ -464,13 +487,13 @@ export default function General() {
                     }
                 })
 
+               
+
                 // add funcionality for new buttons on DOM
                 $(document).ajaxSuccess(function(event, xhr, settings) {
-                    if (settings.url.indexOf('consulta_operaciones_seleccionar-editar') > -1) {
-                        setTimeout(function () {
-                            chubb.cover.init();
-                            chubb.modals.init();
-                        }, 500)
+                    if (settings.url.indexOf('coverSelect.inc.html') > -1 ) {
+                        chubb.cover.init();
+                        chubb.modals.init();
                     }
                 })
             },
