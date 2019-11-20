@@ -343,7 +343,7 @@
               Cobertura 1 - Valor cuota: $1111 - Patente: CCC111
             </div>
 
-            <aside class="coverSelect">
+            <aside class="coverSelect seleccionarCobbertura">
               <div class="modifyBox">
                 <span>Seleccionar cobertura</span>
                 <div class="icon">
@@ -500,7 +500,7 @@
               Cobertura 1 - Valor cuota: $1111 - Patente: CCC111
             </div>
 
-            <aside class="coverSelect">
+            <aside class="coverSelect seleccionarCobbertura">
               <div class="modifyBox">
                 <span>Seleccionar cobertura</span>
                 <div class="icon">
@@ -635,7 +635,7 @@
               Cobertura 1 - Valor cuota: $1111 - Patente: CCC111
             </div>
 
-            <aside class="coverSelect">
+            <aside class="coverSelect seleccionarCobbertura">
               <div class="modifyBox">
                 <span>Seleccionar cobertura</span>
                 <div class="icon">

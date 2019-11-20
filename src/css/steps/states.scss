@@ -7,8 +7,23 @@
     width: 100%;
   }
 
+  // CARTERA
   &[sectionopen="editar--inclusion"] {
     .show--inclusion { display: flex; }
+    .cover__box--grey {
+      opacity: 0.5;
+      @include fontSize(14px);
+      color: #6d7278;
+      .cover__title {
+        border-bottom: 0;
+        padding: .2em 0;
+      }
+    }
+
+    .boxes__accesories {
+      margin: 15px 0;
+      border-top: solid 1px rgba(#c6cbd4, .3) !important;
+    }
   }
 
   &[sectionopen="editar--suma"] {

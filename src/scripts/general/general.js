@@ -53,6 +53,14 @@ export default function General() {
             chubb.seeMore();
             chubb.dayPicker();
             chubb.newItemSet.init();
+
+            // add funcionality for new buttons on DOM
+            $(document).ajaxSuccess(function(event, xhr, settings) {
+                if (settings.url.indexOf('coverSelect.inc.html') > -1 ) {
+                    chubb.modals.init();
+                    chubb.cover.init();
+                }
+            })
         },
 
         dayPicker : () => {
@@ -112,14 +120,17 @@ export default function General() {
         cover : {
             init : () => {
                 chubb.cover.btnAction();
+                console.log('veces q se ejecuta');
+
+                $('body').addClass('coverBody')
             },
         
             btnAction: () => {
-                const $box = $('.cover__box');
+                let $box = $('.cover__box');
 
                 // COTIZAR SEGURO NUEVO
-                if (window.location.pathname.indexOf('cotizar_seguro_nuevo') > 0 ) {
-                    $box.find('.coverSelect').on('click', function() {
+                if (window.location.pathname.indexOf('cotizar_seguro_nuevo') > 0) {
+                    $box.find('.coverSelect.seleccionarCobbertura').on('click', function() {
                         const $parent = $(this).parent().closest($box);
                         if ($box.hasClass('active')) {
                             $parent.siblings().removeClass('active')
@@ -128,22 +139,38 @@ export default function General() {
                             $parent.toggleClass('active');
                         }
                     })
-                } else {
-                    $box.find('.coverSelect').find('a, .btn-withOutHover').on('click', function() {
+                $('body').addClass('coverBody')
+                $('body').addClass('coverBody')
+            } else {
+                    $box.find('.coverSelect').on('click', 'a, .btn-withOutHover, .btn-nothing', function(event) {
+                        let $this = $(this);
                         let $getId = $(this).attr('class');
-                        
-                        const $parent = $(this).parent().closest($box);
+                        let $parent = $(this).closest('.cover__box');
 
-                        $box.find('.coverSelect').find('a, .btn-withOutHover').removeClass('btn-withOutHover--selected')
-                        $(this).addClass('btn-withOutHover--selected')
-                        
-                        $('.cover__list__item').removeClass('active')
-                        $parent.add('.cover__list').removeClass('active');
-                        $parent.add('.cover__list').addClass('active');
+                        // SI NO ES INCLUSION
+                        if (!$('.boxes[sectionopen="editar--inclusion"]').length > 0) {
+                            $this.find('.coverSelect').find('a, .btn-withOutHover').removeClass('btn-withOutHover--selected')
+                            $(this).toggleClass('btn-withOutHover--selected')
+
+                            // 
+                            $('.cover__list__item').removeClass('active')
+                            $parent.add('.cover__list').removeClass('active');
+                            $parent.addClass('active');
+
+                        } else {
+                            $parent.removeClass('active');
+                            $parent.siblings().removeClass('active');
+                            if ( !$parent.hasClass('active') ) {
+                                $parent.toggleClass('active');
+                                console.log('NO tiene')
+                            }
+                        }
+
+                        console.log('click aca: ', $parent)
 
                         // seleccionar
                         if ( $getId.indexOf('seleccionar') > 0 ) {
-                            $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
+                            $parent.find('.cover__list').find('.cover__list__item').siblings().removeClass('active');
                             // $parent.toggleClass('active');
                             $parent.find('.cover__list').find('#seleccionar').toggleClass('active');
                         }
@@ -430,9 +457,7 @@ export default function General() {
                                     ${marca}, ${anio}, ${modelo}
                                 </h4>
                 
-                                <aside class="coverSelect">
-                                    
-                                </aside>
+                                <aside class="coverSelect"></aside>
                             </div>
                 
                             <div class="cover__list" style="overflow:visible">
@@ -450,6 +475,47 @@ export default function General() {
             carteraInclusionItemAdd : (el) => {
                 if ( $('.boxes[sectionopen="editar--inclusion"]').length > 0 ) {
 
+                    const marca = el[1].value;
+                    const anio = el[2].value;
+                    const modelo = el[3].value;
+
+                    let newItem = `
+                        <div class="cover__box">
+                            <div class="cover__title">
+                                <h4>
+                                 ${marca}, ${anio}, ${modelo}
+                                </h4>
+                    
+                                <div class="selectedItem">
+                                </div>
+                    
+                                <aside class="coverSelect seleccionarCobbertura">
+                                    <div class="modifyBox">
+                                        <div class="btn-nothing btn-seleccionar xCenter">
+                                            <span>Seleccionar cobertura</span>
+                                            <div class="icon">
+                                            <i class="icon icon-chevron-left"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <span class="edit">Editar</span>
+                    
+                                </aside>
+                            </div>
+                
+                            <div class="cover__list" style="overflow:visible">
+                            </div>
+                        </div>
+                        <!-- box -->
+                    `;
+
+                    // APPEND TO LAST
+                    if ( !$('.newCover').length > 0 ) {
+                        $(`<aside class="newCover" />`).insertAfter('.newItem');
+                    }
+                    $(newItem).appendTo('.newCover');
+                    chubb.newItemSet.lastItemAdded('inclusion');
                 }
             },
 
@@ -459,21 +525,32 @@ export default function General() {
                 $.ajax({
                     url: '../includes/listado-coberturas.inc.php',
                     beforeSend: function () {
-                        $(".cover__box--grey.last").append('<span class="loading">Cargando...<span>');
+                        if ( !$('.boxes[sectionopen="editar--inclusion"]') ) {
+                            $(".cover__box--grey.last").append('<span class="loading">Cargando...<span>');
+                        } else {
+                            $(".cover__box--grey.last").append('<span class="loading">Cargando...<span>');
+                        }
                     },
                     async: true,
                     success : function(data) {
                         $('.loading').remove();
                         setTimeout(function () {
-                            $('.cover__box--grey.last > .cover__list').append(data);
+                            if ( !$('.boxes[sectionopen="editar--inclusion"]') ) {
+                                $('.cover__box--grey.last > .cover__list').append(data);
+                            } else {
+                                $('.cover__box.last > .cover__list').append(data);
+                            }
 
                             // llama botones
                             $.ajax({
                                 url: '../includes/coverSelect.inc.html',
                                 async: true,
                                 success : function(data) {
-                                    
+                                    if ( !$('.boxes[sectionopen="editar--inclusion"]') ) {
                                         $('.cover__box--grey.last').find('.coverSelect').append(data);
+                                    } else {
+                                        $('.cover__box.last').find('.coverSelect').append(data);
+                                    }
                                     
                                 },
                                 error: function() {
@@ -486,16 +563,6 @@ export default function General() {
                         console.log("No se ha podido obtener la información");
                     }
                 })
-
-               
-
-                // add funcionality for new buttons on DOM
-                $(document).ajaxSuccess(function(event, xhr, settings) {
-                    if (settings.url.indexOf('coverSelect.inc.html') > -1 ) {
-                        chubb.cover.init();
-                        chubb.modals.init();
-                    }
-                })
             },
 
             cleanFormAfterAddItem : () => {
@@ -503,7 +570,7 @@ export default function General() {
                 return false; 
             },
 
-            lastItemAdded : () => {
+            lastItemAdded : (section) => {
                 // LAST GET COLOR AND CLASS 'last'
                 let $lastCover = $('.cover__box');
                 let last = $lastCover.length;
@@ -516,7 +583,7 @@ export default function General() {
                 initStorage['newItem'].state = false;
 
                 chubb.newItemSet.callElementInOuterHTML();
-                chubb.newItemSet.beforeAddingNewItem();
+                chubb.newItemSet.beforeAddingNewItem(section);
                 chubb.newItemSet.cleanFormAfterAddItem();
                 
             },
@@ -591,15 +658,23 @@ export default function General() {
             // al refrescar la página si el array global (initStorage.step${1,2,3, o 4}) esta seteado en true cambia el estado del DOM pasandesolo a un dumb function
             stepInTheDOM : () => {
                 let $forms = $('.needs-validation');
-                let $formsLength = $forms.length;
+                
+                if (window.location.pathname.indexOf('cotizar_seguro_nuevo') > 0) {
+                    let idContainsNameStep = $forms.filter(function(i) {
+                        return $(this).attr('id').indexOf('step') != -1;
+                        //arrForms.push()
+                    })
 
-                if ($forms.attr('id') !== undefined ) {
-                    for (let index = 0; index < $formsLength ; index++) {
-                        let step = `step${index + 1}`;
-                        
-                        if ( initStorage[step].state === true ) {
-                            //chubb.boxes.hashChanger.goToTheNextNotCompleted(step);
-                            chubb.dataManage.steps(step);
+                    let $formsLength = idContainsNameStep.length;
+
+                    if (idContainsNameStep.attr('id') !== undefined ) {
+                        for (let index = 0; index < $formsLength ; index++) {
+                            let step = `step${index + 1}`;
+                            
+                            if ( initStorage[step].state === true ) {
+                                //chubb.boxes.hashChanger.goToTheNextNotCompleted(step);
+                                chubb.dataManage.steps(step);
+                            }
                         }
                     }
                 }

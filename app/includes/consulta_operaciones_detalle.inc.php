@@ -328,6 +328,44 @@
             </ul>
           </div>
         </div>
+
+        <h4 class="color--primary" style="font-size: 14px; font-weight: 500; color: #01c1d6; margin-top: 10px">
+          Listado de Cuotas
+        </h4>
+
+        <div class="cover__table">
+          <table class="table" style="max-width: 517px">
+            <thead>
+              <tr>
+                <th scope="col">Nº Cuota</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Fecha Vencimiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>$2.500</td>
+                <td>01/11/2019</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>$2.500</td>
+                <td>01/11/2019</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>$2.500</td>
+                <td>01/11/2019</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>$2.500</td>
+                <td>01/11/2019</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </p>
       <!-- edit__mode -->
 

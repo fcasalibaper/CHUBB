@@ -111,7 +111,8 @@
     }
 
     // CONSULTA DE OPERACIONES / CARTERA - datos generales - items - coberturas
-    &--grey {
+    &--grey,
+    &[sectionopen="editar--inclusion"] {
 
       &.active {
         overflow:visible;

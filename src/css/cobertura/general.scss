@@ -1,3 +1,15 @@
+.boxes[sectionopen="editar--inclusion"] {
+  .cover__list__item {
+    display: none;
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+
 .cover {
   display: flex;
   flex-direction: column;
@@ -73,6 +85,13 @@
         .cover__table > .table > thead {
           border: solid 0 rgba(#333333, 0);
           background-color: #f6f6f6;
+
+          &--small {
+            h4 {
+              @include fontSize(14px);
+              color: #2b2d42;
+            }
+          }
         }
 
         &__item {

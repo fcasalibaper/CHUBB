@@ -1,8 +1,8 @@
-<!-- OJO CON CAMBIAR EL NOMBRE DE ESTE PHP, PQ LO LEVANTA POR AJAX, COM EL MISMO -->
+<!-- NO CAMBIAR EL NOMBRE DE ESTE PHP, PQ LO LEVANTA POR AJAX, COM EL MISMO -->
 
-<!-- Seleccionar -->
+<!-- Seleccionar / cotizar nuevo paso 3-->
 <div class="cover__list__item" id="seleccionar">
-  <div class="cover__list__title">
+  <div class="cover__list__title cover__list__title--small">
     <h4>
       Listado de coberturas
     </h4>
