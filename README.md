@@ -1,5 +1,6 @@
 # CHUBB
 CHUBB
+[repo de CHUBB oroginal](https://github.com/fcasalibaper/CHUBB)
 
 ## Instalación
 
@@ -12,7 +13,8 @@ npm install
 
 ## Iniciar proyecto
 
-Despues de su instalación, iniciar el proyecto tipiando lo siguiente (se puede ver en la url [https://localhost:8020]("https://localhost:8020") ):
+Despues de su instalación e iniciar el mismo, se puede ver en la url [https://localhost:8020](https://localhost:8020).
+iniciar el proyecto tipiando lo siguiente:
 
 ```bash
 gulp
