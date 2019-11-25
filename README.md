@@ -12,7 +12,7 @@ npm install
 
 ## Iniciar proyecto
 
-Despues de su instalación, iniciar el proyecto tipiando lo siguiente:
+Despues de su instalación, iniciar el proyecto tipiando lo siguiente (se puede ver en la url [https://localhost:8020]("https://localhost:8020") ):
 
 ```bash
 gulp

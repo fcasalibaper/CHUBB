@@ -25,7 +25,7 @@
 
     &.colWrap {
       flex-direction: row;
-      flex-wrap: wrap;
+      flex-wrap: wrap !important;
     }
 
     &.xCenter {

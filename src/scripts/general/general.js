@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Boostrap from 'bootstrap';
-import { isMobile, DownTo, UpTo, toolResponsive, addToLocalStorageObject, findLastIndex, stringHasNumber } from '../utils/utils';
+import { isMobile, DownTo, UpTo, toolResponsive, addToLocalStorageObject, findLastIndex, stringHasNumber, isSafari } from '../utils/utils';
 import datepicker from 'js-datepicker';
 
 // initialStorage
@@ -53,6 +53,7 @@ export default function General() {
             chubb.seeMore();
             chubb.dayPicker();
             chubb.newItemSet.init();
+            isSafari('.modal');
 
             // add funcionality for new buttons on DOM
             $(document).ajaxSuccess(function(event, xhr, settings) {
@@ -120,7 +121,6 @@ export default function General() {
         cover : {
             init : () => {
                 chubb.cover.btnAction();
-                console.log('veces q se ejecuta');
 
                 $('body').addClass('coverBody')
             },
@@ -144,13 +144,13 @@ export default function General() {
             } else {
                     $box.find('.coverSelect').on('click', 'a, .btn-withOutHover, .btn-nothing', function(event) {
                         let $this = $(this);
-                        let $getId = $(this).attr('class');
-                        let $parent = $(this).closest('.cover__box');
+                        let $getId = $this.attr('class');
+                        let $parent = $this.closest('.cover__box');
 
                         // SI NO ES INCLUSION
                         if (!$('.boxes[sectionopen="editar--inclusion"]').length > 0) {
                             $this.find('.coverSelect').find('a, .btn-withOutHover').removeClass('btn-withOutHover--selected')
-                            $(this).toggleClass('btn-withOutHover--selected')
+                            $this.toggleClass('btn-withOutHover--selected')
 
                             // 
                             $('.cover__list__item').removeClass('active')
@@ -160,10 +160,18 @@ export default function General() {
                         } else {
                             $parent.removeClass('active');
                             $parent.siblings().removeClass('active');
-                            if ( !$parent.hasClass('active') ) {
-                                $parent.toggleClass('active');
-                                console.log('NO tiene')
+                            // if ( !$parent.hasClass('active') ) {
+                            //     $parent.toggleClass('active');
+                            //     console.log('NO tiene')
+                            // }
+
+                            if ($this.hasClass('btn-withOutHover--selected')) {
+                                $parent.add('.cover__list__item').addClass('active');
+                            } else {
+                                $parent.add('.cover__list__item').removeClass('active');
                             }
+
+                            
                         }
 
                         console.log('click aca: ', $parent)
@@ -178,8 +186,14 @@ export default function General() {
                         // mostarCobertura
                         if ( $getId.indexOf('mostarCobertura') > 0 ) {
                             $parent.find('.cover__list').find('.cover__list__item').removeClass('active')
-                            // $parent.toggleClass('active');
-                            $parent.find('.cover__list').find('#mostarCobertura').toggleClass('active');
+
+                            if ($this.hasClass('btn-withOutHover--selected') || $parent.find('.cover__list__item').hasClass('active') ) {
+                                $this.find('span').text('Ocultar cobertura');
+                                $parent.find('.cover__list').find('#mostarCobertura').addClass('active');
+                            } else {
+                                $this.find('span').text('Mostrar cobertura')
+                                $parent.find('.cover__list').find('#mostarCobertura').removeClass('active');
+                            }
                         }
 
                         // editar
@@ -523,7 +537,7 @@ export default function General() {
             callElementInOuterHTML : () => {
                 // Set .php in html
                 $.ajax({
-                    url: '../includes/listado-coberturas.inc.php',
+                    url: './includes/listado-coberturas.inc.php',
                     beforeSend: function () {
                         if ( !$('.boxes[sectionopen="editar--inclusion"]') ) {
                             $(".cover__box--grey.last").append('<span class="loading">Cargando...<span>');
@@ -543,7 +557,7 @@ export default function General() {
 
                             // llama botones
                             $.ajax({
-                                url: '../includes/coverSelect.inc.html',
+                                url: './includes/coverSelect.inc.html',
                                 async: true,
                                 success : function(data) {
                                     if ( !$('.boxes[sectionopen="editar--inclusion"]') ) {
@@ -632,8 +646,10 @@ export default function General() {
             
             // escribe el nuevo estado en el array global (initStorage) y lo guarda en el localStorage
             stepState : (id) => {
-                initStorage[id].state = true;
-                //chubb.dataManage.saveDataOnStorage('steps', initStorage);
+                if (initStorage.hasOwnProperty(id)) {
+                    initStorage[id].state = true;
+                    //chubb.dataManage.saveDataOnStorage('steps', initStorage);
+                }
             },
 
             // dumb function, recibe el paso completado y se lo devuelve al paso correspondiente dentro del DOM, lo setea.
@@ -722,15 +738,19 @@ export default function General() {
                         value = $(this).prop('checked')
                     }
 
+                    console.log('id: ', idStep)
+
                     // si el objeto esta vacio crea el mismo con el name y el value, sino, si es q el valor esta creado, lo cambia por el otro nuevo valor
-                    if ( Object.entries(initStorage[idStep].inputs).length <= lengthInput) {
-                        initStorage[idStep].inputs.push( {
-                            name : name,
-                            value : value
-                        })
-                    } else if ( initStorage[idStep].inputs[i].value !== value || initStorage[idStep].inputs[i].value !== null || initStorage[idStep].inputs[i].value !== 'undefined' || initStorage[idStep].inputs[i].value == '' ) {
-                        initStorage[idStep].inputs[i].name = name;
-                        initStorage[idStep].inputs[i].value = value;
+                    if (initStorage.hasOwnProperty(idStep)) {
+                        if ( Object.entries(initStorage[idStep].inputs).length <= lengthInput) {
+                            initStorage[idStep].inputs.push( {
+                                name : name,
+                                value : value
+                            })
+                        } else if ( initStorage[idStep].inputs[i].value !== value || initStorage[idStep].inputs[i].value !== null || initStorage[idStep].inputs[i].value !== 'undefined' || initStorage[idStep].inputs[i].value == '' ) {
+                            initStorage[idStep].inputs[i].name = name;
+                            initStorage[idStep].inputs[i].value = value;
+                        }
                     }
                 });
                 

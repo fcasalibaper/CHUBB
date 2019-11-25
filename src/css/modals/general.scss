@@ -51,6 +51,7 @@
       }
     }
   }
+
   &-dialog {
     height: 100%;
     border: 0;
@@ -117,7 +118,6 @@
     }
     
   }
-
 
   // MODAL COBERTURA
   &#modalCover {
@@ -345,6 +345,24 @@
             }
           }
         }
+      }
+    }
+  }
+
+
+  // IOS
+  &.isSafari {
+    @include break(xs) {
+      .modal-header { 
+        height: 18vh;
+      }
+
+      .modal-body {
+        height: calc(82vh - 56px);
+      }
+
+      ul.list {
+        height: calc(100% - 20px) !important;
       }
     }
   }

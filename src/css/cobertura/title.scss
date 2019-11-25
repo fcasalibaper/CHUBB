@@ -12,6 +12,10 @@
 
     @include break(xs){
       background-color: white;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: left;
     }
     
     h4 {
@@ -25,6 +29,13 @@
         width: 50%;
         margin-right: 0;
         padding-right: 0;
+      }
+
+      &.big {
+        width: 45%;
+        @include break(xs){
+          width: 60%;
+        }
       }
 
       &:after {background-color: $COLOR_BORDER}
@@ -60,9 +71,22 @@
 
       @include break(xs){
         @include fontSize($LABEL_FONT_SIZE_MOBILE);
-        width: 50%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+        margin-top: 0.8em;
         margin-left: 0;
         padding-right: 0;
+        padding-left: 0;
+
+        .btn {
+          margin-left: 0 !important;
+          margin-right: 0.8em;
+          @include fontSize(9px);
+          white-space: nowrap;
+          height: 36px;
+        }
       }
 
       &:before {background-color: $COLOR_BORDER}

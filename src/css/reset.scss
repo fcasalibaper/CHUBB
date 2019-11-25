@@ -124,9 +124,21 @@ input, button, a, .btn {
   justify-content: flex-end;
 }
 
+.justifyCenter {
+	
+  justify-content: center;
+}
+
 .alignEnd {
 	display: flex;
 	align-items: flex-end;
+}
+
+.alignCenterXs {
+	@include break(xs) {
+		display: flex;
+		align-items: center;
+	}
 }
 
 .spaceBetween {
@@ -167,5 +179,10 @@ input, button, a, .btn {
 .m0 {margin: 0 !important}
 .mt0 {margin-top: 0 !important}
 .mb0 {margin-bottom: 0 !important}
+.mt20mobile {
+	@include break(xs) {
+		margin-top: 20px;
+	}
+}
 
 .justifyStart {justify-content: flex-start !important}

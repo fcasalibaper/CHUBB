@@ -51,8 +51,8 @@
 
           <div class="cover__box cover__box--grey">
             <div class="cover__title">
-              <h4>
-                Citroen C3, 2013, Exclusive
+              <h4 class="big">
+                Citroen C3 Exclusive - Patente: MMM111 - Suma asegurada: $1.000.000 
               </h4>
 
               <!-- <div class="selectedItem">
@@ -72,8 +72,8 @@
 
           <div class="cover__box cover__box--grey" state="completed">
             <div class="cover__title">
-              <h4>
-                Citroen C3, 2013, Exclusive
+              <h4 class="big">
+                Citroen C3 Exclusive - Patente: MMM111 - Suma asegurada: $1.000.000
               </h4>
 
               <!-- <div class="selectedItem">
@@ -93,8 +93,8 @@
 
           <div class="cover__box cover__box--grey">
             <div class="cover__title">
-              <h4>
-                Citroen C3, 2013, Exclusive
+              <h4 class="big">
+                Citroen C3 Exclusive - Patente: MMM111 - Suma asegurada: $1.000.000
               </h4>
 
               <!-- <div class="selectedItem">
@@ -209,8 +209,8 @@
             </div>
 
             <div class="form-row">
-              <div class="col col--end alignEnd">
-                <button class="btn btn-primary" type="submit"><span>Agregar Item</span></button>
+              <div class="col col--end alignEnd alignCenterXs">
+                <button class="btn btn-primary justifyCenter" type="submit"><span>Agregar Item</span></button>
               </div>
             </div>
             <!-- form -->
@@ -220,10 +220,10 @@
         <!-- newItem -->
 
         <div class="form-row" style="margin-top:15px;">
-          <div class="col col--end alignEnd">
-            <button class="btn btn-primary hide show--operaciones" type="submit" id="emitir"><span>Emitir</span></button>
+          <div class="col col--end alignEnd alignCenterXs">
+            <button class="btn btn-primary justifyCenter hide show--operaciones" type="submit" id="emitir"><span>Emitir</span></button>
 
-            <button class="btn btn-primary hide show--motor show--suma" type="submit"  data-toggle="modal" data-target="#modalExito" ><span>Solicitar</span></button>
+            <button class="btn btn-primary hide show--motor show--suma justifyCenter" type="submit"  data-toggle="modal" data-target="#modalExito" ><span>Solicitar</span></button>
 
           </div>
         </div>
