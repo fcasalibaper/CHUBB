@@ -31,7 +31,7 @@ span.loading {
 // subtitle index
 .subtitle {
   @include fontSize(18px);
-  font-weight: $REGULAR;
+  @extend .regular;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
@@ -108,7 +108,7 @@ span.loading {
     h2 {
       @include fontSize(16px);
       letter-spacing: .1em;
-      font-weight: $REGULAR;
+      @extend .regular;
       line-height: 1;
       color: $COLOR_TITLE_SECTION;
 
@@ -131,7 +131,7 @@ span.loading {
       a,
       span {
         @include fontSize(13px);
-        font-weight: $REGULAR;
+        @extend .regular;
         line-height: 1;
         letter-spacing: 1px;
         color: $COLOR_LIST;
@@ -188,7 +188,7 @@ span.loading {
 
     label {
       @include fontSize($LABEL_FONT_SIZE);
-      font-weight: $REGULAR;
+      @extend .regular;
       font-style: normal;
       font-stretch: normal;
       line-height: 1;
@@ -222,7 +222,7 @@ span.loading {
       }
 
       @include fontSize($LABEL_FONT_SIZE);
-      font-weight: $MEDIUM;
+      @extend .regular;
       font-style: normal;
       font-stretch: normal;
       line-height: normal;
@@ -236,7 +236,7 @@ span.loading {
       &::placeholder, 
       option {
         @include fontSize($LABEL_FONT_SIZE);
-        font-weight: $MEDIUM;
+        @extend .regular;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;
@@ -319,7 +319,7 @@ span.loading {
   align-items: center;
   justify-content: center;
   @include fontSize(12px);
-  font-weight: $REGULAR;
+  @extend .regular;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;

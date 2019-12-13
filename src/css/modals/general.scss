@@ -30,7 +30,7 @@
     .modal-title {
       width: 100%;
       text-align: center;
-      font-weight: $MEDIUM;
+      @extend .regular;
     }
 
     .close {
@@ -91,9 +91,9 @@
         text-align: center;
         @include fontSize(16px);
         color: #7c7c7c;
-        font-weight: $BOLD;
+        @extend .bold;
         small {
-          font-weight: $REGULAR;
+          @extend .regular;
         }
       }
     }
@@ -149,7 +149,7 @@
       margin-bottom: 15px;
 
       h5 {
-        font-weight: $SEMIBOLD;
+        @extend .bold;
         @include fontSize(18px);
       }
 
@@ -168,7 +168,7 @@
       padding-left: 20px;
       h5 {
         font-size: 16px;
-        font-weight: $REGULAR;
+        @extend .regular;
         line-height: 1;
         color: $COLOR_LABELS;
         text-align: left;
@@ -325,7 +325,7 @@
           justify-content: flex-start;
           font-size: 14px;
           @include fontSize(14px);
-          font-weight: $REGULAR;
+          @extend .regular;
           line-height: 1;
           color: #52575a;
           cursor: pointer;
