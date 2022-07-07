@@ -48,7 +48,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.0",
     "js-datepicker": "^5.0.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "natives": "^1.1.6",
     "popper.js": "^1.15.0",
     "postcss-extend": "^1.0.5",
